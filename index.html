@@ -2,66 +2,158 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/assets/favicon.jpeg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/assets/logo.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trinity Express Bus - Book Online Bus Tickets in East Africa</title>
-    <meta name="description" content="Book Trinity Express Bus tickets online. Safe, reliable, and comfortable bus travel across Kenya, Uganda, Rwanda, and South Sudan. Easy booking, instant confirmation." />
-    <meta name="keywords" content="Trinity Express, Bus Booking, East Africa Bus, Nairobi to Kampala, Kigali Bus, Online Bus Ticket, Trinity Bus Service" />
-    
+    <!--helmet-title-->
+    <!--helmet-meta-->
+    <title>Trinity Express Bus - Book Online Bus Tickets | Nairobi, Kampala, Kigali, Juba</title>
+    <meta name="description" content="Book Trinity Express Bus tickets online. Safe, reliable, and comfortable bus travel across Kenya, Uganda, Rwanda, Tanzania, and South Sudan. Daily departures, instant confirmation." />
+    <meta name="keywords" content="Trinity Express Bus, Bus Booking Kenya, Nairobi to Kampala Bus, Nairobi to Kigali Bus, Kampala to Nairobi Bus, East Africa Bus, Online Bus Ticket, Trinity Bus Online Booking, Nairobi to Juba Bus, Nairobi to Dar es Salaam Bus, Nairobi to Bukavu Bus, Bus Ticket Kenya Uganda Rwanda, International Bus East Africa, Trinity Express Online" />
+    <link rel="canonical" href="https://www.trinityexpressbusonlinebooking.com/" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.trinityexpressbusonlinebooking.com/" />
-    <meta property="og:title" content="Trinity Express Bus - Book Online Bus Tickets" />
-    <meta property="og:description" content="Safe and comfortable bus travel across East Africa. Book your seat now!" />
-    <meta property="og:image" content="/assets/logo.jpeg" />
+    <meta property="og:title" content="Trinity Express Bus - Book Online Bus Tickets | East Africa" />
+    <meta property="og:description" content="Safe and comfortable bus travel across East Africa. Daily departures from Nairobi to Kampala, Kigali, Juba, Dar es Salaam. Book your seat now!" />
+    <meta property="og:image" content="https://www.trinityexpressbusonlinebooking.com/assets/logo.jpeg" />
+    <meta property="og:locale" content="en_KE" />
+    <meta property="og:site_name" content="Trinity Express Bus" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.trinityexpressbusonlinebooking.com/" />
-    <meta property="twitter:title" content="Trinity Express Bus - Book Online Bus Tickets" />
-    <meta property="twitter:description" content="Safe and comfortable bus travel across East Africa. Book your seat now!" />
-    <meta property="twitter:image" content="/assets/logo.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.trinityexpressbusonlinebooking.com/" />
+    <meta name="twitter:title" content="Trinity Express Bus - Book Online Bus Tickets | East Africa" />
+    <meta name="twitter:description" content="Safe and comfortable bus travel across East Africa. Daily departures from Nairobi to Kampala, Kigali, Juba, Dar es Salaam. Book your seat now!" />
+    <meta name="twitter:image" content="https://www.trinityexpressbusonlinebooking.com/assets/logo.jpeg" />
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data: Organization -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "TravelAgency",
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Trinity Express Bus",
+      "url": "https://www.trinityexpressbusonlinebooking.com",
+      "logo": "https://www.trinityexpressbusonlinebooking.com/assets/logo.jpeg",
+      "image": "https://www.trinityexpressbusonlinebooking.com/assets/logo.jpeg",
+      "telephone": "+254751494564",
+      "email": "info@trinityexpress.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Duruma Road",
+        "addressLocality": "Nairobi",
+        "addressRegion": "Nairobi County",
+        "addressCountry": "KE"
+      },
+      "areaServed": ["Kenya", "Uganda", "Rwanda", "Tanzania", "South Sudan", "DR Congo", "Burundi"],
+      "sameAs": [
+        "https://www.facebook.com/people/Trinity-Bus-Service/100048591007583/",
+        "https://www.instagram.com/trinity_express_bus_ltd/"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: LocalBusiness (BusOrCoach) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Trinity Express Bus",
+      "image": "https://www.trinityexpressbusonlinebooking.com/assets/logo.jpeg",
+      "url": "https://www.trinityexpressbusonlinebooking.com",
+      "telephone": "+254751494564",
+      "priceRange": "KSh 2000 - KSh 8000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Duruma Road",
+        "addressLocality": "Nairobi",
+        "addressCountry": "KE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -1.28333,
+        "longitude": 36.81667
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "1200",
+        "bestRating": "5"
+      },
+      "sameAs": [
+        "https://www.facebook.com/people/Trinity-Bus-Service/100048591007583/",
+        "https://www.instagram.com/trinity_express_bus_ltd/"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: BusTrip (Nairobi → Kampala) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BusTrip",
+      "name": "Nairobi to Kampala Bus",
+      "description": "Daily direct bus service from Nairobi, Kenya to Kampala, Uganda with Trinity Express Bus.",
+      "provider": {
+        "@type": "Organization",
         "name": "Trinity Express Bus",
-        "image": "https://www.trinityexpressbusonlinebooking.com/assets/logo.jpeg",
-        "url": "https://www.trinityexpressbusonlinebooking.com",
-        "telephone": "+254751494564",
-        "priceRange": "$$",
+        "url": "https://www.trinityexpressbusonlinebooking.com"
+      },
+      "departureBusStop": {
+        "@type": "BusStop",
+        "name": "Trinity Express Nairobi Terminal",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Duruma Road",
           "addressLocality": "Nairobi",
           "addressCountry": "KE"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -1.28333,
-          "longitude": 36.81667
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-          ],
-          "opens": "00:00",
-          "closes": "23:59"
-        },
-        "sameAs": [
-          "https://www.facebook.com/people/Trinity-Bus-Service/100048591007583/",
-          "https://www.instagram.com/trinity_express_bus_ltd/"
-        ]
+        }
+      },
+      "arrivalBusStop": {
+        "@type": "BusStop",
+        "name": "Trinity Express Kampala Terminal",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Namirembe Road, Bakuli",
+          "addressLocality": "Kampala",
+          "addressCountry": "UG"
+        }
+      },
+      "departureTime": "07:00",
+      "offers": {
+        "@type": "Offer",
+        "price": "3500",
+        "priceCurrency": "KES",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.trinityexpressbusonlinebooking.com/routes/nairobi-kampala"
       }
+    }
+    </script>
+
+    <!-- Structured Data: WebSite with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Trinity Express Bus",
+      "url": "https://www.trinityexpressbusonlinebooking.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.trinityexpressbusonlinebooking.com/routes?from={origin}&to={destination}"
+        },
+        "query-input": "required name=origin required name=destination"
+      }
+    }
     </script>
   </head>
   <body>

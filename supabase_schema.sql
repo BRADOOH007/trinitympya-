@@ -9,6 +9,7 @@ create table public.trinity_routes (
   destination text not null,
   country_dest text,
   price text not null,
+  vip_price text,
   duration text,
   country text,
   image text,
@@ -94,7 +95,7 @@ VALUES
 
 -- Contact Info
 INSERT INTO public.trinity_contact_info (phone_ke, phone_ug, phone_rw, whatsapp, email, address_ke, address_ug)
-VALUES ('+254 751 494564', '+256 747 180552', '+250 735 589845', '+254 751 494564', 'Trinityexpressbus@gmail.com', 'Duruma Road, Nairobi, Kenya', 'Namirembe Road, Bakuli, Kampala');
+VALUES ('+254 751 494564', '+256 747 180552', '+250 735 589845', '+254 755 356 109', 'Trinityexpressbus@gmail.com', 'Duruma Road, Nairobi, Kenya', 'Namirembe Road, Bakuli, Kampala');
 
 -- Payment Methods
 INSERT INTO public.trinity_payment_methods (name, type, account_number, account_name, instructions)
@@ -114,14 +115,18 @@ alter table public.trinity_payment_settings enable row level security;
 -- Create policies (Allow Public Read, Allow Anon/Auth Insert/Update for now for simplicity of the migration)
 -- In production, you'd want stricter policies.
 create policy "Public routes are viewable by everyone" on public.trinity_routes for select using (true);
+create policy "Enable all access for routes" on public.trinity_routes for all using (true);
+
 create policy "Public contact info is viewable by everyone" on public.trinity_contact_info for select using (true);
+create policy "Enable all access for contact info" on public.trinity_contact_info for all using (true);
+
 create policy "Public payment methods are viewable by everyone" on public.trinity_payment_methods for select using (true);
+create policy "Enable all access for payment methods" on public.trinity_payment_methods for all using (true);
+
 create policy "Public payment settings viewable by everyone" on public.trinity_payment_settings for select using (true);
+create policy "Enable all access for payment settings" on public.trinity_payment_settings for all using (true);
 
 -- Allow anyone to create a booking (since we don't have auth for users yet)
 create policy "Anyone can create bookings" on public.trinity_bookings for insert with check (true);
--- Only allow viewing bookings if you know the ID? Or just allow all for admin dashboard simplicity for now.
 create policy "Bookings viewable by everyone" on public.trinity_bookings for select using (true);
-
--- Allow all access for payment settings (needed for admin updates)
-create policy "Enable all access for payment settings" on public.trinity_payment_settings for all using (true);
+create policy "Enable all access for bookings" on public.trinity_bookings for all using (true);

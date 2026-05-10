@@ -9,6 +9,7 @@ export interface Route {
   destination: string;
   country_dest?: string;
   price: string;
+  vip_price?: string;
   duration: string;
   country?: string;
   image?: string;
@@ -108,7 +109,7 @@ const defaultContactInfo: ContactInfo = {
   phoneKE: '+254 751 494 564',
   phoneUG: '+256 747 180 552',
   phoneRW: '+250 735 589 845',
-  whatsapp: '+254 751 494 564',
+  whatsapp: '+254 755 356 109',
   email: 'Trinityexpressbus@gmail.com',
   addressKE: 'Duruma Road, Nairobi, Kenya',
   addressUG: 'Namirembe Road, Bakuli, Kampala',
@@ -116,6 +117,7 @@ const defaultContactInfo: ContactInfo = {
 
 export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
     const saved = localStorage.getItem('isAdmin');
     return saved === 'true';
   });
@@ -171,16 +173,30 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   // Initialize tables and seed data
   const initializeTables = async () => {
     console.log('Checking if tables exist and seeding data...');
+    console.log('Connecting to Supabase:', import.meta.env.VITE_SUPABASE_URL);
     
     // Try to seed routes - if table doesn't exist, user needs to run SQL manually
-    const { data: existingRoutes, error: routesError } = await supabase
+    const { error: routesError } = await supabase
       .from('trinity_routes')
       .select('id')
       .limit(1);
     
     if (routesError) {
-      console.error('❌ Tables not found. Please run supabase_schema.sql in your Supabase SQL Editor.');
-      alert('Database tables not found. Please run the SQL schema file (supabase_schema.sql) in your Supabase SQL Editor to create the trinity_ tables.');
+      console.error('❌ DATABASE ERROR:', routesError);
+      console.error('Error code:', routesError.code);
+      console.error('Error message:', routesError.message);
+      console.error('Error details:', routesError.details);
+      
+      // Show user-friendly error
+      const errorMsg = `DATABASE ERROR: ${routesError.message}\n\n` +
+        `The trinity_routes table doesn't exist in your Supabase database.\n\n` +
+        `SOLUTION:\n` +
+        `1. Go to: https://supabase.com/dashboard/project/awowbixrozodsdrovswr/sql\n` +
+        `2. Copy and paste the ENTIRE contents of supabase_schema.sql\n` +
+        `3. Click "Run"\n` +
+        `4. Refresh this page`;
+      
+      alert(errorMsg);
       return false;
     }
     
@@ -209,15 +225,22 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, []);
 
   const fetchRoutes = async () => {
+    console.log('Fetching routes from database...');
     const { data, error } = await supabase.from('trinity_routes').select('*').order('id');
-    if (error) console.error('Error fetching routes:', error);
-    else if (data) {
+    if (error) {
+      console.error('❌ Error fetching routes:', error);
+      console.error('Error code:', error.code);
+      console.error('Error message:', error.message);
+      // Don't show alert here, just log - the initializeTables will handle it
+    } else if (data) {
+      console.log(`✅ Fetched ${data.length} routes from database`);
       // Map DB columns to frontend types if needed
       const mappedRoutes = data.map((r: any) => ({
         ...r,
         nextBus: r.next_bus,
         country_origin: r.country_origin,
-        country_dest: r.country_dest
+        country_dest: r.country_dest,
+        vip_price: r.vip_price
       }));
       setRoutes(mappedRoutes);
     }
@@ -417,6 +440,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       destination: routeData.destination,
       country_dest: routeData.country_dest,
       price: routeData.price,
+      vip_price: routeData.vip_price,
       duration: routeData.duration,
       country: routeData.country,
       image: routeData.image,
@@ -428,10 +452,30 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     
     if (error) {
       console.error('❌ Error adding route to database:', error);
-      alert('Failed to add route. Please try again.');
+      console.error('Error code:', error.code);
+      console.error('Error message:', error.message);
+      console.error('Error details:', error.details);
+      
+      let errorMsg = `Failed to add route: ${error.message}\n\n`;
+      
+      if (error.message.includes('row_level security') || error.message.includes('policy')) {
+        errorMsg += `The table exists but Row Level Security is blocking the operation.\n\n` +
+          `SOLUTION:\n` +
+          `1. Go to: https://supabase.com/dashboard/project/awowbixrozodsdrovswr/sql\n` +
+          `2. Run this SQL:\n\n` +
+          `drop policy if exists "Public routes are viewable by everyone" on public.trinity_routes;\n` +
+          `create policy "Enable all access for routes" on public.trinity_routes for all using (true);\n\n` +
+          `3. Try adding the route again`;
+      } else {
+        errorMsg += `This usually means the trinity_routes table doesn't exist.\n\n` +
+          `Please run supabase_schema.sql in your Supabase SQL Editor.`;
+      }
+      
+      alert(errorMsg);
     } else if (data) {
       console.log('✅ Route added successfully:', data[0]);
       await fetchRoutes(); // Refresh routes list
+      alert('Route added successfully!');
     }
   };
 

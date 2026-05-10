@@ -1,18 +1,22 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App'
-import './index.css'
-import logo from './assets/favicon.jpeg'
+import { StrictMode } from 'react';
+import { createRoot, hydrateRoot } from 'react-dom/client';
+import App from './App';
+import './index.css';
 
-// Set favicon dynamically
-const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-(link as HTMLLinkElement).type = 'image/png';
-(link as HTMLLinkElement).rel = 'icon';
-(link as HTMLLinkElement).href = logo;
-document.getElementsByTagName('head')[0].appendChild(link);
+const rootEl = document.getElementById('root')!;
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+// If the root was server-rendered (prerendered), hydrate instead of render
+if (rootEl.innerHTML.trim() !== '') {
+  hydrateRoot(
+    rootEl,
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
+} else {
+  createRoot(rootEl).render(
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
+}

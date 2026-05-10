@@ -150,11 +150,16 @@ const BookingWidget = () => {
                 <button 
                   key={idx}
                   onClick={() => {
-                    setFormData(prev => ({ 
-                      ...prev, 
-                      origin: route.from.toLowerCase().replace(/\s+/g, '-'), 
-                      destination: route.to.toLowerCase().replace(/\s+/g, '-') 
-                    }));
+                    const origin = route.from.toLowerCase().replace(/\s+/g, '-');
+                    const destination = route.to.toLowerCase().replace(/\s+/g, '-');
+                    // Navigate immediately to routes page with the selected route
+                    navigate('/routes', { 
+                      state: { 
+                        origin, 
+                        destination,
+                        date: new Date().toISOString().split('T')[0]
+                      } 
+                    });
                   }}
                   className="px-4 py-1.5 rounded-full border border-gray-200 text-gray-600 hover:bg-blue-50 hover:text-[#1E88E5] hover:border-blue-200 transition-all duration-200 text-xs font-medium"
                 >

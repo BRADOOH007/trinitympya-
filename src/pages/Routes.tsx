@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Clock, Search, ChevronRight } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import BookingModal from '../components/booking/BookingModal';
 import ReturnTripModal from '../components/booking/ReturnTripModal';
 import { useAdmin } from '../context/AdminContext';
@@ -60,12 +60,27 @@ const RoutesPage = () => {
       const { origin, destination, date } = location.state;
       setSearchParams({ origin, destination, date });
       
+      // More flexible filtering - match partial names
       const filtered = routes.filter(route => {
-        const matchOrigin = origin ? route.origin.toLowerCase().includes(origin.toLowerCase()) : true;
-        const matchDest = destination ? route.destination.toLowerCase().includes(destination.toLowerCase()) : true;
-        return matchOrigin && matchDest;
+        const originMatch = origin ? 
+          route.origin.toLowerCase().includes(origin.toLowerCase()) ||
+          origin.toLowerCase().includes(route.origin.toLowerCase()) : true;
+        const destMatch = destination ? 
+          route.destination.toLowerCase().includes(destination.toLowerCase()) ||
+          destination.toLowerCase().includes(route.destination.toLowerCase()) : true;
+        return originMatch && destMatch;
       });
-      setFilteredRoutes(filtered);
+      
+      // If no exact matches found, show all routes from the origin city
+      if (filtered.length === 0 && origin) {
+        const originRoutes = routes.filter(route => 
+          route.origin.toLowerCase().includes(origin.toLowerCase()) ||
+          origin.toLowerCase().includes(route.origin.toLowerCase())
+        );
+        setFilteredRoutes(originRoutes.length > 0 ? originRoutes : routes);
+      } else {
+        setFilteredRoutes(filtered.length > 0 ? filtered : routes);
+      }
     } else if (!searchParams) {
       // Only reset to all routes if there are no active search params
       setFilteredRoutes(routes);
@@ -116,7 +131,19 @@ const RoutesPage = () => {
       <Helmet>
         <title>Bus Routes & Schedules | Nairobi to Kampala, Kigali, Juba - Trinity Express</title>
         <meta name="description" content="Check our daily bus schedules and ticket prices. We offer direct buses from Nairobi to Kampala, Kigali, Juba, and Dar es Salaam. Book your seat today." />
+        <meta name="keywords" content="Trinity Express routes, Nairobi to Kampala bus, Nairobi to Kigali bus, Nairobi to Juba bus, Nairobi to Dar es Salaam bus, East Africa bus routes, international bus Kenya" />
         <link rel="canonical" href="https://www.trinityexpressbusonlinebooking.com/routes" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Trinity Express Bus Routes",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Nairobi to Kampala Bus", "url": "https://www.trinityexpressbusonlinebooking.com/routes/nairobi-kampala" },
+            { "@type": "ListItem", "position": 2, "name": "Nairobi to Kigali Bus", "url": "https://www.trinityexpressbusonlinebooking.com/routes/nairobi-kigali" },
+            { "@type": "ListItem", "position": 3, "name": "Nairobi to Juba Bus", "url": "https://www.trinityexpressbusonlinebooking.com/routes/nairobi-juba" },
+            { "@type": "ListItem", "position": 4, "name": "Nairobi to Dar es Salaam Bus", "url": "https://www.trinityexpressbusonlinebooking.com/routes/nairobi-dar-es-salaam" }
+          ]
+        })}</script>
       </Helmet>
       {/* Header */}
       <div className="bg-[#1E3A8A] py-16 text-white text-center">
@@ -197,8 +224,17 @@ const RoutesPage = () => {
                 {/* Price & Action */}
                 <div className="flex items-center justify-between md:justify-end gap-8 w-full md:w-auto mt-4 md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 border-gray-100">
                   <div className="text-right">
+                    <p className="text-xs text-gray-500 uppercase font-medium mb-1">Starting from</p>
                     <p className="text-2xl font-extrabold text-[#1E3A8A] group-hover:text-[#1E88E5] transition-colors">{route.price}</p>
-                    <div className="flex items-center justify-end text-xs text-gray-400 gap-1">
+                    <p className="text-xs text-orange-600 font-bold mt-1">
+                      VIP: {(() => {
+                        const basePrice = parseFloat(route.price.replace(/[^0-9.]/g, ''));
+                        const vipPrice = basePrice + 1500;
+                        const currency = route.price.includes('UGX') ? 'UGX' : route.price.includes('RWF') ? 'RWF' : route.price.includes('USD') ? 'USD' : 'KSh';
+                        return `${currency} ${vipPrice.toLocaleString()}`;
+                      })()}
+                    </p>
+                    <div className="flex items-center justify-end text-xs text-gray-400 gap-1 mt-1">
                       <Clock className="w-3 h-3" />
                       <span>{route.duration}</span>
                     </div>
@@ -243,6 +279,30 @@ const RoutesPage = () => {
           returnRoute={returnRoute}
         />
       )}
+
+      {/* SEO: Route Landing Page Links */}
+      <div className="container mx-auto px-4 mt-12 max-w-5xl">
+        <div className="bg-white rounded-xl shadow-sm p-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-2">Popular Bus Routes</h2>
+          <p className="text-gray-500 text-sm mb-6">Detailed guides and schedules for our most popular international routes</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { label: 'Nairobi to Kampala Bus', desc: 'Daily departures · ~10–12 hrs · From KSh 3,500', to: '/routes/nairobi-kampala' },
+              { label: 'Nairobi to Kigali Bus', desc: 'Daily departures · ~18–22 hrs · From KSh 5,000', to: '/routes/nairobi-kigali' },
+              { label: 'Nairobi to Juba Bus', desc: 'Daily departures · ~24–30 hrs · From USD 45', to: '/routes/nairobi-juba' },
+              { label: 'Nairobi to Dar es Salaam Bus', desc: 'Daily departures · ~14–16 hrs · From KSh 4,500', to: '/routes/nairobi-dar-es-salaam' },
+            ].map((r) => (
+              <Link key={r.to} to={r.to} className="flex items-center justify-between p-4 border border-gray-200 rounded-xl hover:border-[#1E3A8A] hover:bg-blue-50 transition-all group">
+                <div>
+                  <p className="font-bold text-gray-800 group-hover:text-[#1E3A8A]">{r.label}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{r.desc}</p>
+                </div>
+                <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-[#1E3A8A] shrink-0" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

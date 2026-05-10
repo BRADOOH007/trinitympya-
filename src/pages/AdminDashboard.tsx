@@ -47,6 +47,7 @@ const AdminDashboard = () => {
     destination: '',
     country_dest: '',
     price: '',
+    vip_price: '',
     duration: '',
     country: '',
     image: '',
@@ -135,7 +136,23 @@ const AdminDashboard = () => {
   };
 
   const handleRouteSave = (id: number) => {
-    updateRoute(id, editRouteForm);
+    // Capitalize city names (first letter of each word)
+    const capitalizeWords = (str: string) => {
+      return str.split(' ').map(word => 
+        word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+      ).join(' ');
+    };
+    
+    const normalizedRoute = {
+      ...editRouteForm,
+      origin: editRouteForm.origin ? capitalizeWords(editRouteForm.origin) : editRouteForm.origin,
+      destination: editRouteForm.destination ? capitalizeWords(editRouteForm.destination) : editRouteForm.destination,
+      country_origin: editRouteForm.country_origin ? capitalizeWords(editRouteForm.country_origin) : editRouteForm.country_origin,
+      country_dest: editRouteForm.country_dest ? capitalizeWords(editRouteForm.country_dest) : editRouteForm.country_dest,
+      country: editRouteForm.country ? capitalizeWords(editRouteForm.country) : editRouteForm.country
+    };
+    
+    updateRoute(id, normalizedRoute);
     setEditingRouteId(null);
   };
 
@@ -166,7 +183,23 @@ const AdminDashboard = () => {
       return;
     }
     
-    await addRoute(newRouteForm);
+    // Capitalize city names (first letter of each word)
+    const capitalizeWords = (str: string) => {
+      return str.split(' ').map(word => 
+        word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+      ).join(' ');
+    };
+    
+    const normalizedRoute = {
+      ...newRouteForm,
+      origin: capitalizeWords(newRouteForm.origin),
+      destination: capitalizeWords(newRouteForm.destination),
+      country_origin: newRouteForm.country_origin ? capitalizeWords(newRouteForm.country_origin) : '',
+      country_dest: newRouteForm.country_dest ? capitalizeWords(newRouteForm.country_dest) : '',
+      country: newRouteForm.country ? capitalizeWords(newRouteForm.country) : ''
+    };
+    
+    await addRoute(normalizedRoute);
     setShowAddRouteModal(false);
     setNewRouteForm({
       origin: '',
@@ -174,6 +207,7 @@ const AdminDashboard = () => {
       destination: '',
       country_dest: '',
       price: '',
+      vip_price: '',
       duration: '',
       country: '',
       image: '',
@@ -890,6 +924,19 @@ const AdminDashboard = () => {
                   />
                 </div>
                 <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">VIP Price</label>
+                  <input 
+                    type="text" 
+                    value={newRouteForm.vip_price}
+                    onChange={(e) => setNewRouteForm({...newRouteForm, vip_price: e.target.value})}
+                    className="w-full border rounded-lg px-3 py-2 text-sm"
+                    placeholder="e.g., KSh 5,000"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">Duration *</label>
                   <input 
                     type="text" 
@@ -899,17 +946,16 @@ const AdminDashboard = () => {
                     placeholder="e.g., 12 hours"
                   />
                 </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">Country/Region</label>
-                <input 
-                  type="text" 
-                  value={newRouteForm.country}
-                  onChange={(e) => setNewRouteForm({...newRouteForm, country: e.target.value})}
-                  className="w-full border rounded-lg px-3 py-2 text-sm"
-                  placeholder="e.g., Uganda"
-                />
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Country/Region</label>
+                  <input 
+                    type="text" 
+                    value={newRouteForm.country}
+                    onChange={(e) => setNewRouteForm({...newRouteForm, country: e.target.value})}
+                    className="w-full border rounded-lg px-3 py-2 text-sm"
+                    placeholder="e.g., Uganda"
+                  />
+                </div>
               </div>
 
               <div>

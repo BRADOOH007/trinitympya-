@@ -18,6 +18,7 @@ const BookingModal = ({ isOpen, onClose, route, selectedDate, onBookingComplete 
   const [passengerName, setPassengerName] = React.useState('');
   const [phoneNumber, setPhoneNumber] = React.useState('');
   const [idNumber, setIdNumber] = React.useState('');
+  const [busClass, setBusClass] = React.useState<'regular' | 'vip'>('regular'); // New state for bus class
   
   const [passengers, setPassengers] = React.useState(1);
   const [step, setStep] = useState(1); // 1: Select Details, 2: Payment
@@ -25,15 +26,51 @@ const BookingModal = ({ isOpen, onClose, route, selectedDate, onBookingComplete 
   // Use the selected date or default to today
   const [bookingDate, setBookingDate] = React.useState(selectedDate || new Date().toISOString().split('T')[0]);
 
-  // Dummy seats data
-  const seats = Array.from({ length: 45 }, (_, i) => ({
-    id: i + 1,
-    status: Math.random() > 0.7 ? 'booked' : 'available'
-  }));
+  // Dummy seats data - VIP (V1-V19) and Regular (R20-R42)
+  const generateSeats = () => {
+    const allSeats = [];
+    
+    // VIP Seats: V1-V19
+    for (let i = 1; i <= 19; i++) {
+      allSeats.push({
+        id: `V${i}`,
+        number: i,
+        status: Math.random() > 0.7 ? 'booked' : 'available',
+        type: 'vip'
+      });
+    }
+    
+    // Regular Seats: R20-R42
+    for (let i = 20; i <= 42; i++) {
+      allSeats.push({
+        id: `R${i}`,
+        number: i,
+        status: Math.random() > 0.7 ? 'booked' : 'available',
+        type: 'regular'
+      });
+    }
+    
+    return allSeats;
+  };
+
+  const seats = generateSeats();
 
   if (!isOpen) return null;
 
-  const handleSeatClick = (seatId: number) => {
+  const handleSeatClick = (seatId: string) => {
+    const seat = seats.find(s => s.id === seatId);
+    if (!seat) return;
+    
+    // Check if seat type matches selected bus class
+    if (busClass === 'vip' && seat.type !== 'vip') {
+      alert('Please select VIP seats (V1-V19) for VIP class');
+      return;
+    }
+    if (busClass === 'regular' && seat.type !== 'regular') {
+      alert('Please select Regular seats (R20-R42) for Regular class');
+      return;
+    }
+    
     if (selectedSeats.includes(seatId)) {
       setSelectedSeats(prev => prev.filter(id => id !== seatId));
     } else {
@@ -105,9 +142,22 @@ const BookingModal = ({ isOpen, onClose, route, selectedDate, onBookingComplete 
     return 'KSh';
   };
 
-  const calculateTotal = () => {
+  const getBasePrice = () => {
     // Remove non-numeric characters except decimal point
-    const price = parseFloat(route.price.replace(/[^0-9.]/g, ''));
+    return parseFloat(route.price.replace(/[^0-9.]/g, ''));
+  };
+
+  const getVIPPrice = () => {
+    const basePrice = getBasePrice();
+    return basePrice + 1500; // VIP is 1500 more than regular
+  };
+
+  const getCurrentPrice = () => {
+    return busClass === 'vip' ? getVIPPrice() : getBasePrice();
+  };
+
+  const calculateTotal = () => {
+    const price = getCurrentPrice();
     const total = price * passengers;
     // Format back to currency string
     return `${getCurrency()} ${total.toLocaleString()}`;
@@ -122,7 +172,7 @@ const BookingModal = ({ isOpen, onClose, route, selectedDate, onBookingComplete 
     }
 
     // Calculate total with proper error handling
-    const priceNum = parseFloat(route.price.replace(/[^0-9.]/g, '')) || 0;
+    const priceNum = getCurrentPrice();
     const totalAmount = priceNum * passengers;
     const currency = getCurrency();
     const formattedTotal = `${currency} ${totalAmount.toLocaleString()}`;
@@ -132,6 +182,7 @@ const BookingModal = ({ isOpen, onClose, route, selectedDate, onBookingComplete 
       origin: route.origin,
       destination: route.destination,
       price: route.price,
+      busClass,
       priceNum,
       totalAmount,
       formattedTotal
@@ -141,6 +192,7 @@ const BookingModal = ({ isOpen, onClose, route, selectedDate, onBookingComplete 
     const message = `Hello, I would like to confirm my booking:
 
 Route: ${route.origin} to ${route.destination}
+Bus Class: ${busClass === 'vip' ? 'Executive VIP' : 'Regular'}
 Date: ${new Date(bookingDate).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' })}
 Time: ${selectedTime}
 Seats: ${selectedSeats.join(', ')}
@@ -154,7 +206,7 @@ Please confirm availability and send payment details. Thank you!`;
 
     console.log('WhatsApp message:', message);
 
-    const whatsappUrl = `https://wa.me/254751494564?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/254755356109?text=${encodeURIComponent(message)}`;
     
     window.open(whatsappUrl, '_blank');
     
@@ -170,7 +222,7 @@ Please confirm availability and send payment details. Thank you!`;
           origin: route.origin,
           destination: route.destination,
           date: bookingDate,
-          price: route.price
+          price: formattedTotal
         });
       }
     }, 500);
@@ -292,6 +344,94 @@ Please confirm availability and send payment details. Thank you!`;
                 </div>
               </div>
 
+              {/* Bus Class Selection */}
+              <div className="mb-8">
+                <h3 className="font-bold text-gray-900 mb-4">Select Bus Class</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Regular Class */}
+                  <button
+                    onClick={() => setBusClass('regular')}
+                    className={`relative p-6 rounded-xl border-2 transition-all text-left ${
+                      busClass === 'regular'
+                        ? 'border-[#1E88E5] bg-blue-50 ring-2 ring-[#1E88E5]/20'
+                        : 'border-gray-200 hover:border-gray-300 bg-white'
+                    }`}
+                  >
+                    {busClass === 'regular' && (
+                      <div className="absolute top-3 right-3 w-6 h-6 bg-[#1E88E5] rounded-full flex items-center justify-center">
+                        <CheckCircle className="w-4 h-4 text-white" />
+                      </div>
+                    )}
+                    <div className="mb-3">
+                      <h4 className="font-bold text-gray-900 text-lg">Regular</h4>
+                      <p className="text-xs text-gray-500 mt-1">Seats R20-R42 (23 seats)</p>
+                    </div>
+                    <div className="mb-4">
+                      <p className="text-2xl font-bold text-[#1E88E5]">{getCurrency()} {getBasePrice().toLocaleString()}</p>
+                    </div>
+                    <ul className="space-y-2 text-sm text-gray-600">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        Standard seating
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        Air conditioning
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        Safe & comfortable
+                      </li>
+                    </ul>
+                  </button>
+
+                  {/* VIP Class */}
+                  <button
+                    onClick={() => setBusClass('vip')}
+                    className={`relative p-6 rounded-xl border-2 transition-all text-left ${
+                      busClass === 'vip'
+                        ? 'border-orange-500 bg-orange-50 ring-2 ring-orange-500/20'
+                        : 'border-gray-200 hover:border-gray-300 bg-white'
+                    }`}
+                  >
+                    <div className="absolute top-3 right-3">
+                      {busClass === 'vip' ? (
+                        <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                      ) : (
+                        <span className="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">VIP</span>
+                      )}
+                    </div>
+                    <div className="mb-3">
+                      <h4 className="font-bold text-gray-900 text-lg">Executive VIP</h4>
+                      <p className="text-xs text-gray-500 mt-1">Seats V1-V19 (19 seats)</p>
+                    </div>
+                    <div className="mb-4">
+                      <p className="text-2xl font-bold text-orange-600">{getCurrency()} {getVIPPrice().toLocaleString()}</p>
+                    </div>
+                    <ul className="space-y-2 text-sm text-gray-600">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-orange-500" />
+                        Reclining leather seats
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-orange-500" />
+                        Extra legroom
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-orange-500" />
+                        WiFi & USB charging
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-orange-500" />
+                        Refreshments included
+                      </li>
+                    </ul>
+                  </button>
+                </div>
+              </div>
+
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Section 1: Departure Time */}
                 <div className="space-y-6">
@@ -352,10 +492,14 @@ Please confirm availability and send payment details. Thank you!`;
                   {/* Seat Legend */}
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <p className="font-bold text-sm text-gray-900 mb-3">Seat Legend:</p>
-                    <div className="flex gap-4 text-xs">
+                    <div className="space-y-2 text-xs">
+                      <div className="flex items-center gap-2">
+                        <div className="w-4 h-4 rounded bg-orange-100 border-2 border-orange-300"></div>
+                        <span>VIP Available (V1-V19)</span>
+                      </div>
                       <div className="flex items-center gap-2">
                         <div className="w-4 h-4 rounded bg-green-500"></div>
-                        <span>Available</span>
+                        <span>Regular Available (R20-R42)</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-4 h-4 rounded bg-[#1E88E5]"></div>
@@ -384,33 +528,150 @@ Please confirm availability and send payment details. Thank you!`;
                       <p className="text-gray-500 font-medium">Please select a departure time first to view available seats</p>
                     </div>
                   ) : (
-                    <div className="grid grid-cols-5 gap-2 max-w-[300px] mx-auto bg-gray-100 p-4 rounded-xl pb-12 relative">
+                    <div className="max-w-[400px] mx-auto bg-gray-100 p-6 rounded-xl relative">
                       {/* Driver */}
-                      <div className="col-span-5 flex justify-end mb-8">
-                         <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">
-                           <img src="https://api.iconify.design/mdi:steering.svg" alt="Driver" className="w-6 h-6 opacity-50" />
+                      <div className="flex justify-end mb-6">
+                         <div className="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center">
+                           <img src="https://api.iconify.design/mdi:steering.svg" alt="Driver" className="w-7 h-7 opacity-50" />
                          </div>
                       </div>
                       
-                      {seats.map((seat) => (
-                        <button
-                          key={seat.id}
-                          disabled={seat.status === 'booked'}
-                          onClick={() => handleSeatClick(seat.id)}
-                          className={`
-                            aspect-square rounded-md flex items-center justify-center text-xs font-bold transition-all
-                            ${seat.status === 'booked' 
-                              ? 'bg-red-400 text-white cursor-not-allowed opacity-50' 
-                              : selectedSeats.includes(seat.id)
-                                ? 'bg-[#1E88E5] text-white shadow-md transform scale-105'
-                                : 'bg-green-500 text-white hover:bg-green-600 shadow-sm'
-                            }
-                            ${(seat.id - 3) % 5 === 0 ? 'mr-4' : ''} 
-                          `}
-                        >
-                          {seat.id}
-                        </button>
-                      ))}
+                      {/* Door Label */}
+                      <div className="absolute left-2 top-20 text-xs text-gray-400 font-bold transform -rotate-90 origin-center">
+                        DOOR
+                      </div>
+                      
+                      {/* VIP Section Header */}
+                      <div className="mb-3 text-center">
+                        <span className="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">VIP SECTION</span>
+                      </div>
+                      
+                      {/* VIP Seats: V1-V19 (2-2 layout) */}
+                      <div className="space-y-2 mb-6">
+                        {Array.from({ length: 5 }, (_, rowIndex) => {
+                          const startSeat = rowIndex * 4 + 1;
+                          const rowSeats = seats.filter(s => 
+                            s.type === 'vip' && 
+                            s.number >= startSeat && 
+                            s.number < startSeat + 4
+                          );
+                          
+                          if (rowSeats.length === 0) return null;
+                          
+                          return (
+                            <div key={`vip-row-${rowIndex}`} className="grid grid-cols-5 gap-2">
+                              {/* Left side - 2 seats */}
+                              {rowSeats.slice(0, 2).map((seat) => (
+                                <button
+                                  key={seat.id}
+                                  disabled={seat.status === 'booked'}
+                                  onClick={() => handleSeatClick(seat.id)}
+                                  className={`
+                                    aspect-square rounded-lg flex items-center justify-center text-xs font-bold transition-all
+                                    ${seat.status === 'booked' 
+                                      ? 'bg-red-400 text-white cursor-not-allowed opacity-50' 
+                                      : selectedSeats.includes(seat.id)
+                                        ? 'bg-orange-500 text-white shadow-md transform scale-105'
+                                        : 'bg-orange-100 text-orange-700 hover:bg-orange-200 shadow-sm border-2 border-orange-300'
+                                    }
+                                  `}
+                                >
+                                  {seat.id}
+                                </button>
+                              ))}
+                              
+                              {/* Aisle */}
+                              <div className="aspect-square"></div>
+                              
+                              {/* Right side - 2 seats */}
+                              {rowSeats.slice(2, 4).map((seat) => (
+                                <button
+                                  key={seat.id}
+                                  disabled={seat.status === 'booked'}
+                                  onClick={() => handleSeatClick(seat.id)}
+                                  className={`
+                                    aspect-square rounded-lg flex items-center justify-center text-xs font-bold transition-all
+                                    ${seat.status === 'booked' 
+                                      ? 'bg-red-400 text-white cursor-not-allowed opacity-50' 
+                                      : selectedSeats.includes(seat.id)
+                                        ? 'bg-orange-500 text-white shadow-md transform scale-105'
+                                        : 'bg-orange-100 text-orange-700 hover:bg-orange-200 shadow-sm border-2 border-orange-300'
+                                    }
+                                  `}
+                                >
+                                  {seat.id}
+                                </button>
+                              ))}
+                            </div>
+                          );
+                        })}
+                      </div>
+                      
+                      {/* Regular Section Header */}
+                      <div className="mb-3 text-center border-t-2 border-dashed border-gray-300 pt-4">
+                        <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">REGULAR SECTION</span>
+                      </div>
+                      
+                      {/* Regular Seats: R20-R42 (2-2 layout) */}
+                      <div className="space-y-2">
+                        {Array.from({ length: 6 }, (_, rowIndex) => {
+                          const startSeat = 20 + (rowIndex * 4);
+                          const rowSeats = seats.filter(s => 
+                            s.type === 'regular' && 
+                            s.number >= startSeat && 
+                            s.number < startSeat + 4
+                          );
+                          
+                          if (rowSeats.length === 0) return null;
+                          
+                          return (
+                            <div key={`regular-row-${rowIndex}`} className="grid grid-cols-5 gap-2">
+                              {/* Left side - 2 seats */}
+                              {rowSeats.slice(0, 2).map((seat) => (
+                                <button
+                                  key={seat.id}
+                                  disabled={seat.status === 'booked'}
+                                  onClick={() => handleSeatClick(seat.id)}
+                                  className={`
+                                    aspect-square rounded-lg flex items-center justify-center text-xs font-bold transition-all
+                                    ${seat.status === 'booked' 
+                                      ? 'bg-red-400 text-white cursor-not-allowed opacity-50' 
+                                      : selectedSeats.includes(seat.id)
+                                        ? 'bg-[#1E88E5] text-white shadow-md transform scale-105'
+                                        : 'bg-green-500 text-white hover:bg-green-600 shadow-sm'
+                                    }
+                                  `}
+                                >
+                                  {seat.id}
+                                </button>
+                              ))}
+                              
+                              {/* Aisle */}
+                              <div className="aspect-square"></div>
+                              
+                              {/* Right side - 2 seats */}
+                              {rowSeats.slice(2, 4).map((seat) => (
+                                <button
+                                  key={seat.id}
+                                  disabled={seat.status === 'booked'}
+                                  onClick={() => handleSeatClick(seat.id)}
+                                  className={`
+                                    aspect-square rounded-lg flex items-center justify-center text-xs font-bold transition-all
+                                    ${seat.status === 'booked' 
+                                      ? 'bg-red-400 text-white cursor-not-allowed opacity-50' 
+                                      : selectedSeats.includes(seat.id)
+                                        ? 'bg-[#1E88E5] text-white shadow-md transform scale-105'
+                                        : 'bg-green-500 text-white hover:bg-green-600 shadow-sm'
+                                    }
+                                  `}
+                                >
+                                  {seat.id}
+                                </button>
+                              ))}
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -425,6 +686,19 @@ Please confirm availability and send payment details. Thank you!`;
                   <div className="flex justify-between">
                     <span className="text-gray-500">Route:</span>
                     <span className="font-medium text-gray-900">{route.origin} → {route.destination}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-500">Bus Class:</span>
+                    <span className="font-medium text-gray-900">
+                      {busClass === 'vip' ? (
+                        <span className="inline-flex items-center gap-1">
+                          Executive VIP
+                          <span className="bg-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">VIP</span>
+                        </span>
+                      ) : (
+                        'Regular'
+                      )}
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-500">Date/Time:</span>

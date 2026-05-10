@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Phone, User } from 'lucide-react';
-import OptimizedImage from '../ui/OptimizedImage';
 import logo from '../../assets/logo.jpeg';
 import { useAdmin } from '../../context/AdminContext';
 
@@ -32,11 +31,11 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 border-2 border-white ring-1 ring-gray-100">
-              <OptimizedImage 
-                src={logo} 
-                alt="Trinity Express Logo" 
+              <img
+                src={logo}
+                alt="Trinity Express Logo"
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform"
-                priority={true}
+                loading="eager"
               />
             </div>
             <div className="flex flex-col">

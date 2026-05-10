@@ -96,8 +96,14 @@ const FeaturedRoutes = () => {
                 </div>
                 
                 <div className="absolute bottom-4 left-4 text-white">
-                  <p className="text-xs font-medium uppercase tracking-wider opacity-90 mb-1">One Way Ticket</p>
+                  <p className="text-xs font-medium uppercase tracking-wider opacity-90 mb-1">Starting from</p>
                   <p className="text-2xl font-bold">{route.price}</p>
+                  <p className="text-xs opacity-75 mt-1">VIP: {(() => {
+                    const basePrice = parseFloat(route.price.replace(/[^0-9.]/g, ''));
+                    const vipPrice = basePrice + 1500;
+                    const currency = route.price.includes('UGX') ? 'UGX' : route.price.includes('RWF') ? 'RWF' : route.price.includes('USD') ? 'USD' : 'KSh';
+                    return `${currency} ${vipPrice.toLocaleString()}`;
+                  })()}</p>
                 </div>
               </div>
               

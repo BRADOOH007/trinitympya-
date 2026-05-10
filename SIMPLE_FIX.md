@@ -1,50 +1,36 @@
-# Simple Fix: Run SQL in Supabase
+# IMMEDIATE FIX - Routes Not Loading
 
-## The Problem
+## THE PROBLEM
+The `trinity_routes` table doesn't exist in your Supabase database at `https://awowbixrozodsdrovswr.supabase.co`
 
-Neon's serverless driver doesn't work well in the browser. The easiest solution is to use your existing Supabase database.
+## THE SOLUTION (3 STEPS)
 
-## Quick Fix (2 minutes):
+### STEP 1: Run SQL in Supabase
+1. Go to: https://supabase.com/dashboard/project/awowbixrozodsdrovswr/sql
+2. Copy and paste the ENTIRE contents of `supabase_schema.sql` file
+3. Click "Run" button
+4. Wait for "Success. No rows returned" message
 
-### Step 1: Go to Supabase SQL Editor
-Open this link:
+### STEP 2: Verify Tables Exist
+After running the SQL, go to: https://supabase.com/dashboard/project/awowbixrozodsdrovswr/editor
+You should see these tables:
+- `trinity_routes`
+- `trinity_bookings`
+- `trinity_contact_info`
+- `trinity_payment_methods`
+- `trinity_payment_settings`
+
+### STEP 3: Redeploy to Vercel
+```bash
+vercel --prod
 ```
-https://supabase.com/dashboard/project/awowbixrozodsdrovswr/sql
-```
 
-### Step 2: Copy the SQL
-Open the file `neon_trinity_schema.sql` in your editor and copy ALL the SQL.
+## VERIFICATION
+After redeployment:
+1. Go to https://trinity-bus-copy.vercel.app/admin
+2. Login with password: `0987654321`
+3. You should see routes loading
+4. Click "Add Route" button - it should work
 
-### Step 3: Paste and Run
-1. Paste the SQL into the Supabase SQL Editor
-2. Click "Run"
-3. Wait for it to complete
-
-### Step 4: Refresh Browser
-1. Go back to your app: `http://localhost:5173`
-2. Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
-3. Routes should load now!
-
-## Why This Works
-
-- Supabase has a reliable REST API that works in browsers
-- Neon's serverless driver is meant for server-side use (Node.js, Edge functions)
-- Your app is already configured to use Supabase
-- The SQL will create the same tables with `trinity_` prefix
-
-## After This Fix
-
-✅ Routes will load
-✅ Add route will work
-✅ Edit/delete will work
-✅ Bookings will work
-✅ Everything functional
-
-## Note About Pausing
-
-Yes, Supabase Free tier pauses after inactivity, but:
-- It wakes up automatically when accessed (takes ~5 seconds)
-- For production, you can upgrade to Supabase Pro ($25/month)
-- Or we can set up a proper backend API with Neon later
-
-For now, let's get it working with Supabase!
+## IF STILL NOT WORKING
+Check browser console (F12) for errors and send me a screenshot.
