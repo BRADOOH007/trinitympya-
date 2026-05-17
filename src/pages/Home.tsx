@@ -83,7 +83,7 @@ const Home = () => {
             </div>
 
             {/* Content Grid */}
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="absolute inset-0 bg-blue-600 rounded-2xl rotate-3 opacity-10"></div>
                 <img 
@@ -127,37 +127,6 @@ const Home = () => {
                       </div>
                     </div>
                   ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom CTA */}
-            <div className="bg-[#1E3A8A] rounded-3xl p-12 text-center relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10">
-                <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white" />
-                </svg>
-              </div>
-              <div className="relative z-10">
-                <h3 className="text-3xl font-bold text-white mb-6">Ready to Experience the Difference?</h3>
-                <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">Join thousands of satisfied travelers who trust Trinity Express for their journey.</p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
-                  <button 
-                    onClick={() => {
-                      const element = document.getElementById('booking-widget');
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                      } else {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }
-                    }}
-                    className="px-8 py-4 bg-white text-[#1E3A8A] font-bold rounded-xl shadow-lg hover:bg-gray-50 transition-all transform hover:-translate-y-1"
-                  >
-                    Book Your Ticket Now
-                  </button>
-                  <a href="/routes" className="px-8 py-4 bg-[#1E88E5] text-white font-bold rounded-xl border border-blue-400 hover:bg-blue-600 transition-all">
-                    View All Routes
-                  </a>
                 </div>
               </div>
             </div>

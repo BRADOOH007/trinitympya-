@@ -29,7 +29,7 @@ const Hero = () => {
           muted 
           playsInline
           className="w-full h-full object-cover scale-125"
-          poster="https://coreva-normal.trae.ai/api/ide/v1/text_to_image?prompt=Modern%20white%20and%20blue%20luxury%20coach%20bus%20parked%20in%20front%20of%20Nairobi%20city%20skyline%20sunny%20day%20professional%20photography%20realistic%20high%20resolution&image_size=landscape_16_9"
+          poster="/assets/nairobi.jpg"
         >
           {/* Sample travel/road video - replace with your own video file */}
           <source src="https://videos.pexels.com/video-files/855018/855018-hd_1920_1080_30fps.mp4" type="video/mp4" />
