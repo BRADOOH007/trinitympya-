@@ -35,9 +35,9 @@ const BookingSteps = () => {
               
               {/* Main Bus Image with Logo Overlay */}
               <div className="w-full h-full relative group">
-                {/* Bus Image - Matches the blue/cyan/white livery of Trinity Express */}
+                {/* Bus Image - Local Trinity Express bus photo */}
                 <OptimizedImage 
-                  src="https://coreva-normal.trae.ai/api/ide/v1/text_to_image?prompt=Modern%20luxury%20white%20coach%20bus%20with%20cyan%20and%20blue%20wave%20graphics%20on%20side%20side%20view%20sunny%20day%20photorealistic%208k&image_size=square" 
+                  src="/assets/mini_magick20260128-31102-68vlss.jpg"
                   alt="Trinity Express Bus" 
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2s] ease-in-out"
                   priority={true}
