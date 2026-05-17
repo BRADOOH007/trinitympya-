@@ -2,5 +2,20 @@ User-agent: *
 Allow: /
 Disallow: /admin-dashboard
 Disallow: /login
+Disallow: /api/
 
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://www.trinitybusexpress.com/sitemap.xml
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /

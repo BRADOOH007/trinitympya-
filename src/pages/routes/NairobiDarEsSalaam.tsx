@@ -39,11 +39,11 @@ const NairobiDarEsSalaam = () => {
         <title>Nairobi to Dar es Salaam Bus | Book Online - Trinity Express Bus</title>
         <meta name="description" content="Book Nairobi to Dar es Salaam bus tickets online with Trinity Express. Daily departures from KSh 4,500. Safe, comfortable, and reliable." />
         <meta name="keywords" content="Nairobi to Dar es Salaam bus, Nairobi Dar es Salaam bus ticket, bus from Nairobi to Tanzania, Trinity Express Dar es Salaam, Nairobi Tanzania bus" />
-        <link rel="canonical" href="https://www.trinityexpressbusonlinebooking.com/routes/nairobi-dar-es-salaam" />
+        <link rel="canonical" href="https://www.trinitybusexpress.com/routes/nairobi-dar-es-salaam" />
         <meta property="og:title" content="Nairobi to Dar es Salaam Bus | Book Online - Trinity Express" />
         <meta property="og:description" content="Book Nairobi to Dar es Salaam bus tickets online. Daily departures from KSh 4,500. Safe and comfortable." />
-        <meta property="og:url" content="https://www.trinityexpressbusonlinebooking.com/routes/nairobi-dar-es-salaam" />
-        <meta property="og:image" content="https://www.trinityexpressbusonlinebooking.com/assets/nairobi.jpg" />
+        <meta property="og:url" content="https://www.trinitybusexpress.com/routes/nairobi-dar-es-salaam" />
+        <meta property="og:image" content="https://www.trinitybusexpress.com/assets/nairobi.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
@@ -150,3 +150,4 @@ const NairobiDarEsSalaam = () => {
 };
 
 export default NairobiDarEsSalaam;
+

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, Clock, Calendar, User } from 'lucide-react';
 
 const KisumuKampalaTravelGuide = () => {
-  const publishDate = '2026-04-24';
+  const publishDate = '2025-05-17';
 
   const faqs = [
     { q: 'How long is the Kisumu to Kampala bus journey?', a: 'The Kisumu to Kampala bus journey takes approximately 8–10 hours. Kisumu is close to the Uganda border, making this one of the shorter cross-border routes.' },
@@ -17,17 +17,17 @@ const KisumuKampalaTravelGuide = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       <Helmet>
-        <title>Kisumu to Kampala Bus: Complete 2026 Travel Guide | Trinity Express</title>
-        <meta name="description" content="Everything you need to know about the Kisumu to Kampala bus in 2026. Prices from KSh 2,500, schedules, Busia border tips, and how to book online." />
-        <meta name="keywords" content="Kisumu to Kampala bus, Kisumu Kampala bus ticket, bus from Kisumu to Kampala, Trinity Express Kisumu Kampala, Kisumu Uganda bus, Kisumu to Kampala 2026" />
-        <link rel="canonical" href="https://www.trinityexpressbusonlinebooking.com/blog/kisumu-to-kampala-bus-travel-guide" />
+        <title>Kisumu to Kampala Bus: Complete 2025 Travel Guide | Trinity Express</title>
+        <meta name="description" content="Everything you need to know about the Kisumu to Kampala bus in 2025. Prices from KSh 2,500, schedules, Busia border tips, and how to book online." />
+        <meta name="keywords" content="Kisumu to Kampala bus, Kisumu Kampala bus ticket, bus from Kisumu to Kampala, Trinity Express Kisumu Kampala, Kisumu Uganda bus, Kisumu to Kampala 2025" />
+        <link rel="canonical" href="https://www.trinitybusexpress.com/blog/kisumu-to-kampala-bus-travel-guide" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Kisumu to Kampala Bus: Complete 2026 Travel Guide" />
-        <meta property="og:description" content="Prices, schedules, Busia border tips, and how to book your Kisumu to Kampala bus ticket online in 2026." />
-        <meta property="og:url" content="https://www.trinityexpressbusonlinebooking.com/blog/kisumu-to-kampala-bus-travel-guide" />
-        <meta property="og:image" content="https://www.trinityexpressbusonlinebooking.com/assets/kampala.jpg" />
+        <meta property="og:title" content="Kisumu to Kampala Bus: Complete 2025 Travel Guide" />
+        <meta property="og:description" content="Prices, schedules, Busia border tips, and how to book your Kisumu to Kampala bus ticket online in 2025." />
+        <meta property="og:url" content="https://www.trinitybusexpress.com/blog/kisumu-to-kampala-bus-travel-guide" />
+        <meta property="og:image" content="https://www.trinitybusexpress.com/assets/kampala.jpg" />
         <meta property="article:published_time" content={publishDate} />
-        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Kisumu to Kampala Bus: Complete 2026 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://www.trinityexpressbusonlinebooking.com/assets/logo.jpeg" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.trinityexpressbusonlinebooking.com/blog/kisumu-to-kampala-bus-travel-guide" } })}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Kisumu to Kampala Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://www.trinitybusexpress.com/assets/logo.jpeg" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.trinitybusexpress.com/blog/kisumu-to-kampala-bus-travel-guide" } })}</script>
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
 
@@ -41,11 +41,11 @@ const KisumuKampalaTravelGuide = () => {
             <span className="text-white">Kisumu to Kampala Travel Guide</span>
           </nav>
           <div className="flex items-center gap-4 text-sm text-blue-300 mb-4 flex-wrap">
-            <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> April 24, 2026</span>
+            <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> April 24, 2025</span>
             <span className="flex items-center gap-1"><User className="w-4 h-4" /> Trinity Express Team</span>
             <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> 6 min read</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">Kisumu to Kampala Bus: Complete 2026 Travel Guide</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">Kisumu to Kampala Bus: Complete 2025 Travel Guide</h1>
           <p className="text-xl text-blue-200">Prices, schedules, Busia border tips, and everything you need for a smooth Kisumu–Kampala journey.</p>
         </div>
       </div>
@@ -63,7 +63,7 @@ const KisumuKampalaTravelGuide = () => {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">Ticket Prices in 2026</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">Ticket Prices in 2025</h2>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-sm">
                 <thead><tr className="bg-[#1E3A8A] text-white"><th className="p-3 text-left rounded-tl-lg">Class</th><th className="p-3 text-left">Price</th><th className="p-3 text-left rounded-tr-lg">Features</th></tr></thead>
@@ -122,3 +122,4 @@ const KisumuKampalaTravelGuide = () => {
 };
 
 export default KisumuKampalaTravelGuide;
+

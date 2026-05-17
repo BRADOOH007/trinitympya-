@@ -9,7 +9,7 @@ const Contact = () => {
       <Helmet>
         <title>Contact Us - Trinity Express Bus | Customer Support & Booking Offices</title>
         <meta name="description" content="Contact Trinity Express Bus support. Phone numbers for Nairobi, Kampala, and Kigali offices. Visit us at Duruma Road, Nairobi or email us for assistance." />
-        <link rel="canonical" href="https://www.trinityexpressbusonlinebooking.com/contact" />
+        <link rel="canonical" href="https://www.trinitybusexpress.com/contact" />
       </Helmet>
       {/* Hero Section */}
       <div className="relative h-[300px] flex items-center justify-center bg-[#1E3A8A] overflow-hidden">
@@ -164,3 +164,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

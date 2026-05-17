@@ -4,24 +4,24 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, Clock, Calendar, User, Star } from 'lucide-react';
 
 const TrinityExpressReview = () => {
-  const publishDate = '2026-04-24';
-  const modifiedDate = '2026-04-24';
+  const publishDate = '2025-05-17';
+  const modifiedDate = '2025-05-17';
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Trinity Express Bus Review 2026: Is It the Best Bus from Nairobi?",
-    "description": "An honest review of Trinity Express Bus in 2026. Comfort, prices, punctuality, and how it compares to other bus companies on East African routes.",
-    "image": "https://www.trinityexpressbusonlinebooking.com/assets/nairobi.jpg",
+    "headline": "Trinity Express Bus Review 2025: Is It the Best Bus from Nairobi?",
+    "description": "An honest review of Trinity Express Bus in 2025. Comfort, prices, punctuality, and how it compares to other bus companies on East African routes.",
+    "image": "https://www.trinitybusexpress.com/assets/nairobi.jpg",
     "datePublished": publishDate,
     "dateModified": modifiedDate,
     "author": { "@type": "Organization", "name": "Trinity Express Bus" },
     "publisher": {
       "@type": "Organization",
       "name": "Trinity Express Bus",
-      "logo": { "@type": "ImageObject", "url": "https://www.trinityexpressbusonlinebooking.com/assets/logo.jpeg" }
+      "logo": { "@type": "ImageObject", "url": "https://www.trinitybusexpress.com/assets/logo.jpeg" }
     },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.trinityexpressbusonlinebooking.com/blog/trinity-express-bus-review" }
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.trinitybusexpress.com/blog/trinity-express-bus-review" }
   };
 
   const reviewSchema = {
@@ -30,7 +30,7 @@ const TrinityExpressReview = () => {
     "itemReviewed": {
       "@type": "LocalBusiness",
       "name": "Trinity Express Bus",
-      "url": "https://www.trinityexpressbusonlinebooking.com"
+      "url": "https://www.trinitybusexpress.com"
     },
     "reviewRating": {
       "@type": "Rating",
@@ -52,15 +52,15 @@ const TrinityExpressReview = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       <Helmet>
-        <title>Trinity Express Bus Review 2026: Best Bus from Nairobi? | Trinity Express</title>
-        <meta name="description" content="Honest Trinity Express Bus review for 2026. Comfort, prices, punctuality, online booking, and how it compares to other East Africa bus companies." />
-        <meta name="keywords" content="Trinity Express Bus review, Trinity Express review 2026, best bus Nairobi to Kampala, Trinity Express vs other buses, East Africa bus company review, Trinity Express online booking review" />
-        <link rel="canonical" href="https://www.trinityexpressbusonlinebooking.com/blog/trinity-express-bus-review" />
+        <title>Trinity Express Bus Review 2025: Best Bus from Nairobi? | Trinity Express</title>
+        <meta name="description" content="Honest Trinity Express Bus review for 2025. Comfort, prices, punctuality, online booking, and how it compares to other East Africa bus companies." />
+        <meta name="keywords" content="Trinity Express Bus review, Trinity Express review 2025, best bus Nairobi to Kampala, Trinity Express vs other buses, East Africa bus company review, Trinity Express online booking review" />
+        <link rel="canonical" href="https://www.trinitybusexpress.com/blog/trinity-express-bus-review" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Trinity Express Bus Review 2026: Is It the Best Bus from Nairobi?" />
-        <meta property="og:description" content="Comfort, prices, punctuality, and online booking — a full review of Trinity Express Bus in 2026." />
-        <meta property="og:url" content="https://www.trinityexpressbusonlinebooking.com/blog/trinity-express-bus-review" />
-        <meta property="og:image" content="https://www.trinityexpressbusonlinebooking.com/assets/nairobi.jpg" />
+        <meta property="og:title" content="Trinity Express Bus Review 2025: Is It the Best Bus from Nairobi?" />
+        <meta property="og:description" content="Comfort, prices, punctuality, and online booking — a full review of Trinity Express Bus in 2025." />
+        <meta property="og:url" content="https://www.trinitybusexpress.com/blog/trinity-express-bus-review" />
+        <meta property="og:image" content="https://www.trinitybusexpress.com/assets/nairobi.jpg" />
         <meta property="article:published_time" content={publishDate} />
         <meta property="article:modified_time" content={modifiedDate} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
@@ -75,14 +75,14 @@ const TrinityExpressReview = () => {
             <ChevronRight className="w-4 h-4" />
             <span className="text-white">Blog</span>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-white">Trinity Express Bus Review 2026</span>
+            <span className="text-white">Trinity Express Bus Review 2025</span>
           </nav>
           <div className="flex items-center gap-4 text-sm text-blue-300 mb-4 flex-wrap">
-            <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> April 24, 2026</span>
+            <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> April 24, 2025</span>
             <span className="flex items-center gap-1"><User className="w-4 h-4" /> Trinity Express Team</span>
             <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> 7 min read</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">Trinity Express Bus Review 2026: Is It the Best Bus from Nairobi?</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">Trinity Express Bus Review 2025: Is It the Best Bus from Nairobi?</h1>
           <p className="text-xl text-blue-200">Comfort, prices, punctuality, and online booking — everything you need to know before you travel.</p>
         </div>
       </div>
@@ -214,3 +214,4 @@ const TrinityExpressReview = () => {
 };
 
 export default TrinityExpressReview;
+

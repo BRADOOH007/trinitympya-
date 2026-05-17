@@ -4,31 +4,31 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, Clock, Calendar, User } from 'lucide-react';
 
 const NairobiKampalaTravelGuide = () => {
-  const publishDate = '2026-04-24';
-  const modifiedDate = '2026-04-24';
+  const publishDate = '2025-05-17';
+  const modifiedDate = '2025-05-17';
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Nairobi to Kampala Bus: Complete 2026 Travel Guide",
-    "description": "Everything you need to know about travelling by bus from Nairobi to Kampala in 2026. Prices, schedules, border crossing tips, and how to book online.",
-    "image": "https://www.trinityexpressbusonlinebooking.com/assets/kampala.jpg",
+    "headline": "Nairobi to Kampala Bus: Complete 2025 Travel Guide",
+    "description": "Everything you need to know about travelling by bus from Nairobi to Kampala in 2025. Prices, schedules, border crossing tips, and how to book online.",
+    "image": "https://www.trinitybusexpress.com/assets/kampala.jpg",
     "datePublished": publishDate,
     "dateModified": modifiedDate,
     "author": { "@type": "Organization", "name": "Trinity Express Bus" },
     "publisher": {
       "@type": "Organization",
       "name": "Trinity Express Bus",
-      "logo": { "@type": "ImageObject", "url": "https://www.trinityexpressbusonlinebooking.com/assets/logo.jpeg" }
+      "logo": { "@type": "ImageObject", "url": "https://www.trinitybusexpress.com/assets/logo.jpeg" }
     },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.trinityexpressbusonlinebooking.com/blog/nairobi-to-kampala-bus-travel-guide" }
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.trinitybusexpress.com/blog/nairobi-to-kampala-bus-travel-guide" }
   };
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does a Nairobi to Kampala bus ticket cost in 2026?", "acceptedAnswer": { "@type": "Answer", "text": "In 2026, Trinity Express bus tickets from Nairobi to Kampala start from KSh 3,500 for standard class and KSh 5,000 for VIP seats." } },
+      { "@type": "Question", "name": "How much does a Nairobi to Kampala bus ticket cost in 2025?", "acceptedAnswer": { "@type": "Answer", "text": "In 2025, Trinity Express bus tickets from Nairobi to Kampala start from KSh 3,500 for standard class and KSh 5,000 for VIP seats." } },
       { "@type": "Question", "name": "How long does the Nairobi to Kampala bus journey take?", "acceptedAnswer": { "@type": "Answer", "text": "The journey takes approximately 10–12 hours depending on traffic and border crossing times at Busia or Malaba." } },
       { "@type": "Question", "name": "What documents do I need to cross from Kenya to Uganda by bus?", "acceptedAnswer": { "@type": "Answer", "text": "You need a valid passport or East African Community travel document. Kenyan and Ugandan citizens can use their national IDs. Ensure your documents are valid before travel." } },
       { "@type": "Question", "name": "Is the Nairobi to Kampala bus journey safe?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Trinity Express operates modern, well-maintained buses with professional drivers. The Nairobi–Kampala highway is one of the most travelled routes in East Africa." } },
@@ -38,15 +38,15 @@ const NairobiKampalaTravelGuide = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       <Helmet>
-        <title>Nairobi to Kampala Bus: Complete 2026 Travel Guide | Trinity Express</title>
-        <meta name="description" content="Everything you need to know about the Nairobi to Kampala bus in 2026. Prices from KSh 3,500, schedules, border tips, and how to book online with Trinity Express." />
-        <meta name="keywords" content="Nairobi to Kampala bus 2026, Nairobi Kampala bus price, how to travel Nairobi to Kampala, Nairobi Kampala bus guide, Trinity Express Nairobi Kampala, Kenya Uganda bus" />
-        <link rel="canonical" href="https://www.trinityexpressbusonlinebooking.com/blog/nairobi-to-kampala-bus-travel-guide" />
+        <title>Nairobi to Kampala Bus: Complete 2025 Travel Guide | Trinity Express</title>
+        <meta name="description" content="Everything you need to know about the Nairobi to Kampala bus in 2025. Prices from KSh 3,500, schedules, border tips, and how to book online with Trinity Express." />
+        <meta name="keywords" content="Nairobi to Kampala bus 2025, Nairobi Kampala bus price, how to travel Nairobi to Kampala, Nairobi Kampala bus guide, Trinity Express Nairobi Kampala, Kenya Uganda bus" />
+        <link rel="canonical" href="https://www.trinitybusexpress.com/blog/nairobi-to-kampala-bus-travel-guide" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Nairobi to Kampala Bus: Complete 2026 Travel Guide" />
-        <meta property="og:description" content="Prices, schedules, border crossing tips, and how to book your Nairobi to Kampala bus ticket online in 2026." />
-        <meta property="og:url" content="https://www.trinityexpressbusonlinebooking.com/blog/nairobi-to-kampala-bus-travel-guide" />
-        <meta property="og:image" content="https://www.trinityexpressbusonlinebooking.com/assets/kampala.jpg" />
+        <meta property="og:title" content="Nairobi to Kampala Bus: Complete 2025 Travel Guide" />
+        <meta property="og:description" content="Prices, schedules, border crossing tips, and how to book your Nairobi to Kampala bus ticket online in 2025." />
+        <meta property="og:url" content="https://www.trinitybusexpress.com/blog/nairobi-to-kampala-bus-travel-guide" />
+        <meta property="og:image" content="https://www.trinitybusexpress.com/assets/kampala.jpg" />
         <meta property="article:published_time" content={publishDate} />
         <meta property="article:modified_time" content={modifiedDate} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
@@ -64,11 +64,11 @@ const NairobiKampalaTravelGuide = () => {
             <span className="text-white">Nairobi to Kampala Travel Guide</span>
           </nav>
           <div className="flex items-center gap-4 text-sm text-blue-300 mb-4">
-            <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> April 24, 2026</span>
+            <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> May 17, 2025</span>
             <span className="flex items-center gap-1"><User className="w-4 h-4" /> Trinity Express Team</span>
             <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> 8 min read</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">Nairobi to Kampala Bus: Complete 2026 Travel Guide</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">Nairobi to Kampala Bus: Complete 2025 Travel Guide</h1>
           <p className="text-xl text-blue-200">Everything you need to know — prices, schedules, border crossings, and tips for a smooth journey.</p>
         </div>
       </div>
@@ -78,7 +78,7 @@ const NairobiKampalaTravelGuide = () => {
         <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12 prose prose-lg max-w-none">
 
           <p className="text-gray-600 text-lg leading-relaxed">
-            Travelling by bus from <strong>Nairobi to Kampala</strong> is one of the most popular cross-border journeys in East Africa. Whether you're heading to Uganda for business, tourism, or to visit family, this guide covers everything you need for a smooth trip in 2026.
+            Travelling by bus from <strong>Nairobi to Kampala</strong> is one of the most popular cross-border journeys in East Africa. Whether you're heading to Uganda for business, tourism, or to visit family, this guide covers everything you need for a smooth trip in 2025.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">How Long Does the Nairobi to Kampala Bus Take?</h2>
@@ -89,7 +89,7 @@ const NairobiKampalaTravelGuide = () => {
             Trinity Express buses depart at <strong>7:00 AM daily</strong> from our Duruma Road terminal in Nairobi, typically arriving in Kampala by early evening.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Nairobi to Kampala Bus Ticket Prices in 2026</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Nairobi to Kampala Bus Ticket Prices in 2025</h2>
           <div className="overflow-x-auto my-6">
             <table className="w-full border-collapse text-sm">
               <thead>
@@ -165,7 +165,7 @@ const NairobiKampalaTravelGuide = () => {
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
           <div className="space-y-6 mt-4">
             {[
-              { q: 'How much does a Nairobi to Kampala bus ticket cost in 2026?', a: 'Trinity Express tickets start from KSh 3,500 for standard class and KSh 5,000 for VIP.' },
+              { q: 'How much does a Nairobi to Kampala bus ticket cost in 2025?', a: 'Trinity Express tickets start from KSh 3,500 for standard class and KSh 5,000 for VIP.' },
               { q: 'How long does the Nairobi to Kampala bus journey take?', a: 'Approximately 10–12 hours depending on traffic and border crossing times.' },
               { q: 'What documents do I need to cross from Kenya to Uganda by bus?', a: 'A valid passport or EAC travel document. Kenyan and Ugandan citizens can use national IDs. A yellow fever certificate is also required.' },
               { q: 'Is the Nairobi to Kampala bus journey safe?', a: 'Yes. Trinity Express operates modern buses with professional drivers on this well-travelled route.' },
@@ -193,3 +193,4 @@ const NairobiKampalaTravelGuide = () => {
 };
 
 export default NairobiKampalaTravelGuide;
+
