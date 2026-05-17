@@ -20,7 +20,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative min-h-[750px] flex items-center bg-gray-900 overflow-hidden font-sans pt-32 md:pt-0">
+    <div className="relative min-h-[600px] md:min-h-[650px] flex items-center bg-gray-900 overflow-hidden font-sans pt-24 md:pt-0">
       {/* Background Video */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video 
@@ -38,22 +38,22 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/30 to-transparent mix-blend-overlay"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 pt-24 md:pt-32">
+      <div className="container mx-auto px-4 relative z-10 py-16 md:py-20">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-blue-200 text-sm font-semibold mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
             ✨ The Premium Way to Travel East Africa
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8 animate-in fade-in slide-in-from-bottom-8 duration-700 tracking-tight drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 animate-in fade-in slide-in-from-bottom-8 duration-700 tracking-tight drop-shadow-lg">
             Travel Kenya & <br />
             Uganda in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#42A5F5] to-[#2196F3]">Comfort & Class</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 font-light drop-shadow-md">
+          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 font-light drop-shadow-md">
             Experience the journey as much as the destination. Luxury coaches, professional service, and seamless booking for the modern traveler.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-5 justify-center mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
             <button 
               onClick={handleBookClick}
               className="btn-sharp group px-8 py-4 bg-[#1E88E5] text-white font-bold hover:bg-blue-600 shadow-lg shadow-blue-900/20 hover:shadow-blue-900/40 hover:-translate-y-0.5 flex items-center justify-center space-x-3"
@@ -67,7 +67,7 @@ const Hero = () => {
             </Link>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-300 font-medium animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500 pb-32 md:pb-12">
+          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-300 font-medium animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500 pb-16 md:pb-8">
             <div className="flex items-center gap-3 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
               <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/30">
                 <svg className="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
