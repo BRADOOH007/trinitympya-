@@ -5,10 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node prerender.mjs",
-    "build:client": "vite build",
-    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist/server",
-    "build:prerender": "node prerender.mjs",
+    "build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
