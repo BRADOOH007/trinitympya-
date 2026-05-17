@@ -15,7 +15,7 @@ const Contact = () => {
       <div className="relative h-[300px] flex items-center justify-center bg-[#1E3A8A] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <OptimizedImage
-            src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=1920&auto=format&fit=crop"
+            src="/assets/nairobi.jpg"
             alt="Customer Support"
             className="w-full h-full object-cover opacity-30"
           />

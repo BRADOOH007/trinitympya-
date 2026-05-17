@@ -75,7 +75,7 @@ const About = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4 mt-8">
                   <OptimizedImage 
-                    src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=800&auto=format&fit=crop" 
+                    src="/assets/kampala.jpg"
                     alt="Comfortable Interior" 
                     className="rounded-2xl shadow-lg w-full h-64 object-cover transform hover:-translate-y-2 transition-transform duration-500"
                   />
@@ -92,7 +92,7 @@ const About = () => {
                     <p className="text-sm text-orange-100">Top-tier safety records.</p>
                   </div>
                   <OptimizedImage 
-                    src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=800&auto=format&fit=crop" 
+                    src="/assets/logo.jpeg"
                     alt="Professional Driver" 
                     className="rounded-2xl shadow-lg w-full h-64 object-cover transform hover:-translate-y-2 transition-transform duration-500"
                   />

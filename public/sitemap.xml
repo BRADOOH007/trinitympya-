@@ -1,116 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.trinitybusexpress.com/assets/logo.jpeg</image:loc>
+      <image:title>Trinity Express Bus Logo</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/routes</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/routes</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/routes/nairobi-kampala</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/routes/nairobi-kampala</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/routes/nairobi-kigali</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/routes/nairobi-kigali</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/routes/nairobi-juba</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/routes/nairobi-juba</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/routes/nairobi-dar-es-salaam</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/routes/nairobi-dar-es-salaam</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/about</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/about</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/contact</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/contact</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/fleet</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/fleet</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/blog/nairobi-to-kampala-bus-travel-guide</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/blog/nairobi-to-kampala-bus-travel-guide</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/blog/trinity-express-bus-review</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/blog/trinity-express-bus-review</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/blog/nairobi-to-kigali-bus-travel-guide</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/blog/nairobi-to-kigali-bus-travel-guide</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/blog/nairobi-to-juba-bus-travel-guide</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/blog/nairobi-to-juba-bus-travel-guide</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/blog/nairobi-to-dar-es-salaam-bus-travel-guide</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/blog/nairobi-to-dar-es-salaam-bus-travel-guide</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/blog/kisumu-to-kampala-bus-travel-guide</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/blog/kisumu-to-kampala-bus-travel-guide</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/blog/kisumu-to-kigali-bus-travel-guide</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/blog/kisumu-to-kigali-bus-travel-guide</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/blog/eldoret-to-kampala-bus-travel-guide</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/blog/eldoret-to-kampala-bus-travel-guide</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/blog/eldoret-to-kigali-bus-travel-guide</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/blog/eldoret-to-kigali-bus-travel-guide</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.trinityexpressbusonlinebooking.com/blog/nakuru-to-kampala-bus-travel-guide</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://www.trinitybusexpress.com/blog/nakuru-to-kampala-bus-travel-guide</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>

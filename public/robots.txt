@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin-dashboard
 Disallow: /login
 
-Sitemap: https://www.trinityexpressbusonlinebooking.com/sitemap.xml
+Sitemap: https://www.trinitybusexpress.com/sitemap.xml

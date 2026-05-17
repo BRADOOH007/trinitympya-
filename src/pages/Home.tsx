@@ -87,7 +87,7 @@ const Home = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-blue-600 rounded-2xl rotate-3 opacity-10"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop" 
+                  src="/assets/juba.jpg"
                   alt="Luxury Bus Interior" 
                   className="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover transform transition-transform hover:scale-[1.02] duration-500"
                 />
