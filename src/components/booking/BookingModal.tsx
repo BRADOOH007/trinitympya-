@@ -14,7 +14,7 @@ interface BookingModalProps {
 const BookingModal = ({ isOpen, onClose, route, selectedDate, onBookingComplete }: BookingModalProps) => {
   const { addBooking } = useAdmin();
   const [selectedTime, setSelectedTime] = React.useState<string | null>(null);
-  const [selectedSeats, setSelectedSeats] = React.useState<number[]>([]);
+  const [selectedSeats, setSelectedSeats] = React.useState<string[]>([]);
   const [passengerName, setPassengerName] = React.useState('');
   const [phoneNumber, setPhoneNumber] = React.useState('');
   const [idNumber, setIdNumber] = React.useState('');
@@ -88,7 +88,7 @@ const BookingModal = ({ isOpen, onClose, route, selectedDate, onBookingComplete 
     }
   };
 
-  const finalizeBooking = (paymentMethodName: string, status: 'pending' | 'confirmed') => {
+  const finalizeBooking = (paymentMethodName: string, status: 'pending' | 'confirmed', totalPrice: string) => {
     // Capture Device Type
     const getDeviceType = () => {
       const ua = navigator.userAgent;
@@ -103,25 +103,25 @@ const BookingModal = ({ isOpen, onClose, route, selectedDate, onBookingComplete 
 
     const deviceType = getDeviceType();
     const userLocation = 'Unknown';
-
-    // Attempt to get location (client-side simple fetch)
     
     selectedSeats.forEach(seat => {
+        // Extract numeric part from seat ID (e.g. "V3" -> 3, "R25" -> 25)
+        const seatNumber = parseInt(seat.replace(/[^0-9]/g, ''), 10);
         const booking = {
-        routeId: route.id,
-        origin: route.origin,
-        destination: route.destination,
-        date: bookingDate,
-        time: selectedTime!,
-        seat: seat,
-        passengers: 1, // Each booking is 1 passenger
-        passengerName,
-        phoneNumber,
-        totalPrice: route.price, // Price per seat
-        paymentMethod: paymentMethodName,
-        deviceType,
-        userLocation,
-        status // explicit status if supported, otherwise it defaults to pending in context
+          routeId: route.id,
+          origin: route.origin,
+          destination: route.destination,
+          date: bookingDate,
+          time: selectedTime!,
+          seat: seatNumber,
+          passengers: 1,
+          passengerName,
+          phoneNumber,
+          totalPrice,
+          paymentMethod: paymentMethodName,
+          deviceType,
+          userLocation,
+          status
         };
         addBooking(booking); 
     });
@@ -211,7 +211,7 @@ Please confirm availability and send payment details. Thank you!`;
     window.open(whatsappUrl, '_blank');
     
     // Save booking first
-    finalizeBooking('Pending Payment (WhatsApp)', 'pending');
+    finalizeBooking('Pending Payment (WhatsApp)', 'pending', formattedTotal);
     
     // Close this modal and trigger return trip offer after a short delay
     onClose();
