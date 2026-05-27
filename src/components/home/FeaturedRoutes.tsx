@@ -80,7 +80,7 @@ const FeaturedRoutes = () => {
             <div key={route.id} className="bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group border border-gray-100">
               <div className="h-56 overflow-hidden relative">
                 <OptimizedImage 
-                  src={route.image || 'https://coreva-normal.trae.ai/api/ide/v1/text_to_image?prompt=Bus%20travel%20East%20Africa&image_size=landscape_4_3'} 
+                  src={route.image || '/assets/nairobi.jpg'} 
                   alt={`${route.origin} to ${route.destination}`} 
                   className="w-full h-full transform group-hover:scale-110 transition-transform duration-700 ease-out"
                 />

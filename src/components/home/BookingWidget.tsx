@@ -49,15 +49,21 @@ const BookingWidget = () => {
                     onChange={(e) => setFormData({...formData, origin: e.target.value})}
                   >
                     <option value="" className="text-gray-700">Select departure city</option>
-                    <option value="nairobi" className="text-gray-700">Nairobi</option>
-                    <option value="kisumu" className="text-gray-700">Kisumu</option>
-                    <option value="eldoret" className="text-gray-700">Eldoret</option>
-                    <option value="kampala" className="text-gray-700">Kampala</option>
-                    <option value="kigali" className="text-gray-700">Kigali</option>
-                    <option value="mombasa" className="text-gray-700">Mombasa</option>
-                    <option value="juba" className="text-gray-700">Juba</option>
-                    <option value="dar-es-salaam" className="text-gray-700">Dar es Salaam</option>
-                    <option value="bukavu" className="text-gray-700">Bukavu</option>
+                    <option value="nairobi" className="text-gray-700">Nairobi (Kenya)</option>
+                    <option value="kampala" className="text-gray-700">Kampala (Uganda)</option>
+                    <option value="kigali" className="text-gray-700">Kigali (Rwanda)</option>
+                    <option value="juba" className="text-gray-700">Juba (South Sudan)</option>
+                    <option value="dar-es-salaam" className="text-gray-700">Dar es Salaam (Tanzania)</option>
+                    <option value="mombasa" className="text-gray-700">Mombasa (Kenya)</option>
+                    <option value="kisumu" className="text-gray-700">Kisumu (Kenya)</option>
+                    <option value="eldoret" className="text-gray-700">Eldoret (Kenya)</option>
+                    <option value="nakuru" className="text-gray-700">Nakuru (Kenya)</option>
+                    <option value="bujumbura" className="text-gray-700">Bujumbura (Burundi)</option>
+                    <option value="bukavu" className="text-gray-700">Bukavu (DR Congo)</option>
+                    <option value="goma" className="text-gray-700">Goma (DR Congo)</option>
+                    <option value="mbarara" className="text-gray-700">Mbarara (Uganda)</option>
+                    <option value="kabale" className="text-gray-700">Kabale (Uganda)</option>
+                    <option value="jinja" className="text-gray-700">Jinja (Uganda)</option>
                   </select>
                   <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                     <svg className="w-5 h-5 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -79,13 +85,21 @@ const BookingWidget = () => {
                     onChange={(e) => setFormData({...formData, destination: e.target.value})}
                   >
                     <option value="" className="text-gray-700">Select destination city</option>
-                    <option value="kampala" className="text-gray-700">Kampala</option>
-                    <option value="nairobi" className="text-gray-700">Nairobi</option>
-                    <option value="kigali" className="text-gray-700">Kigali</option>
-                    <option value="mombasa" className="text-gray-700">Mombasa</option>
-                    <option value="juba" className="text-gray-700">Juba</option>
-                    <option value="dar-es-salaam" className="text-gray-700">Dar es Salaam</option>
-                    <option value="bukavu" className="text-gray-700">Bukavu</option>
+                    <option value="nairobi" className="text-gray-700">Nairobi (Kenya)</option>
+                    <option value="kampala" className="text-gray-700">Kampala (Uganda)</option>
+                    <option value="kigali" className="text-gray-700">Kigali (Rwanda)</option>
+                    <option value="juba" className="text-gray-700">Juba (South Sudan)</option>
+                    <option value="dar-es-salaam" className="text-gray-700">Dar es Salaam (Tanzania)</option>
+                    <option value="mombasa" className="text-gray-700">Mombasa (Kenya)</option>
+                    <option value="kisumu" className="text-gray-700">Kisumu (Kenya)</option>
+                    <option value="eldoret" className="text-gray-700">Eldoret (Kenya)</option>
+                    <option value="nakuru" className="text-gray-700">Nakuru (Kenya)</option>
+                    <option value="bujumbura" className="text-gray-700">Bujumbura (Burundi)</option>
+                    <option value="bukavu" className="text-gray-700">Bukavu (DR Congo)</option>
+                    <option value="goma" className="text-gray-700">Goma (DR Congo)</option>
+                    <option value="mbarara" className="text-gray-700">Mbarara (Uganda)</option>
+                    <option value="kabale" className="text-gray-700">Kabale (Uganda)</option>
+                    <option value="jinja" className="text-gray-700">Jinja (Uganda)</option>
                   </select>
                   <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                     <svg className="w-5 h-5 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -140,12 +154,23 @@ const BookingWidget = () => {
                 { from: 'Nairobi', to: 'Kampala' },
                 { from: 'Nairobi', to: 'Kigali' },
                 { from: 'Nairobi', to: 'Juba' },
-                { from: 'Nairobi', to: 'Bukavu' },
                 { from: 'Nairobi', to: 'Dar es Salaam' },
+                { from: 'Nairobi', to: 'Bujumbura' },
+                { from: 'Nairobi', to: 'Goma' },
+                { from: 'Nairobi', to: 'Bukavu' },
+                { from: 'Kampala', to: 'Nairobi' },
+                { from: 'Kampala', to: 'Kigali' },
+                { from: 'Kampala', to: 'Juba' },
+                { from: 'Kigali', to: 'Nairobi' },
+                { from: 'Kigali', to: 'Kampala' },
                 { from: 'Kisumu', to: 'Kampala' },
                 { from: 'Kisumu', to: 'Kigali' },
                 { from: 'Eldoret', to: 'Kigali' },
                 { from: 'Eldoret', to: 'Kampala' },
+                { from: 'Nakuru', to: 'Kampala' },
+                { from: 'Nakuru', to: 'Kigali' },
+                { from: 'Nakuru', to: 'Jinja' },
+                { from: 'Mombasa', to: 'Nairobi' },
               ].map((route, idx) => (
                 <button 
                   key={idx}

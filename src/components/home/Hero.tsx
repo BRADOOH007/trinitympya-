@@ -21,19 +21,13 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-[600px] md:min-h-[650px] flex items-center bg-gray-900 overflow-hidden font-sans pt-24 md:pt-0">
-      {/* Background Video */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="w-full h-full object-cover scale-125"
-          poster="/assets/nairobi.jpg"
-        >
-          {/* Sample travel/road video - replace with your own video file */}
-          <source src="https://videos.pexels.com/video-files/855018/855018-hd_1920_1080_30fps.mp4" type="video/mp4" />
-        </video>
+        <img 
+          src="/assets/nairobi.jpg"
+          alt="Nairobi cityscape"
+          className="w-full h-full object-cover scale-105"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/30 to-transparent mix-blend-overlay"></div>
       </div>

@@ -532,7 +532,9 @@ Please confirm availability and send payment details. Thank you!`;
                       {/* Driver */}
                       <div className="flex justify-end mb-6">
                          <div className="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center">
-                           <img src="https://api.iconify.design/mdi:steering.svg" alt="Driver" className="w-7 h-7 opacity-50" />
+                           <svg className="w-7 h-7 opacity-50" viewBox="0 0 24 24" fill="currentColor">
+                             <path d="M12,6.5A1.5,1.5 0 0,1 13.5,8A1.5,1.5 0 0,1 12,9.5A1.5,1.5 0 0,1 10.5,8A1.5,1.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,11.38 17.81,13.47 16,14.74V17A1,1 0 0,1 15,18H9A1,1 0 0,1 8,17V14.74C6.19,13.47 5,11.38 5,9A7,7 0 0,1 12,2M9,13.5V20H15V13.5L16.5,12.5C17.41,11.87 18,10.81 18,9.63C18,7.57 16.43,6 14.37,6H9.63C7.57,6 6,7.57 6,9.63C6,10.81 6.59,11.87 7.5,12.5L9,13.5Z" />
+                           </svg>
                          </div>
                       </div>
                       

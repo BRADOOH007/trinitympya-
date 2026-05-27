@@ -6,21 +6,21 @@ const buses = [
   {
     id: 1,
     name: 'Luxury Coach',
-    image: 'https://coreva-normal.trae.ai/api/ide/v1/text_to_image?prompt=Modern%20luxury%20white%20coach%20bus%20exterior%20studio%20lighting&image_size=landscape_4_3',
+    image: '/assets/mini_magick20260128-31102-68vlss.jpg',
     description: 'Our standard luxury coaches offer a comfortable journey with ample legroom and air conditioning.',
     features: ['Air Conditioning', 'Reclining Seats', 'USB Charging', 'Ample Luggage Space']
   },
   {
     id: 2,
     name: 'Executive Class',
-    image: 'https://coreva-normal.trae.ai/api/ide/v1/text_to_image?prompt=Premium%20executive%20bus%20interior%20wide%20seats%20leather%20luxury&image_size=landscape_4_3',
+    image: '/assets/mini_magick20260128-31585-78mbdj.jpg',
     description: 'Upgrade your travel experience with wider seats, extra legroom, and complimentary refreshments.',
     features: ['Extra Legroom', 'Free WiFi', 'Refreshments', 'Entertainment System', 'AC']
   },
   {
     id: 3,
     name: 'VIP Sleeper',
-    image: 'https://coreva-normal.trae.ai/api/ide/v1/text_to_image?prompt=Luxury%20sleeper%20bus%20interior%20beds%20night%20lighting%20premium&image_size=landscape_4_3',
+    image: '/assets/mini_magick20260128-32058-ez8bgi.jpg',
     description: 'Travel overnight in ultimate comfort with our sleeper buses featuring lie-flat beds and privacy curtains.',
     features: ['Lie-flat Beds', 'Privacy Curtains', 'Blankets & Pillows', 'Premium WiFi', 'Meals Included']
   }

@@ -15,7 +15,7 @@ const About = () => {
       <div className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <OptimizedImage
-            src="https://coreva-normal.trae.ai/api/ide/v1/text_to_image?prompt=Modern%20luxury%20bus%20travel%20experience%20scenic%20landscape%20east%20africa%20cinematic%20lighting%204k&image_size=landscape_16_9"
+            src="/assets/kampala.jpg"
             alt="Trinity Express Experience"
             className="w-full h-full object-cover scale-105"
           />
