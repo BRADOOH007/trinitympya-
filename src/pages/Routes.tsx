@@ -226,14 +226,11 @@ const RoutesPage = () => {
                   <div className="text-right">
                     <p className="text-xs text-gray-500 uppercase font-medium mb-1">Starting from</p>
                     <p className="text-2xl font-extrabold text-[#1E3A8A] group-hover:text-[#1E88E5] transition-colors">{route.price}</p>
-                    <p className="text-xs text-orange-600 font-bold mt-1">
-                      VIP: {(() => {
-                        const basePrice = parseFloat(route.price.replace(/[^0-9.]/g, ''));
-                        const vipPrice = basePrice + 1500;
-                        const currency = route.price.includes('UGX') ? 'UGX' : route.price.includes('RWF') ? 'RWF' : route.price.includes('USD') ? 'USD' : 'KSh';
-                        return `${currency} ${vipPrice.toLocaleString()}`;
-                      })()}
-                    </p>
+                    {route.vip_price && (
+                      <p className="text-xs text-orange-600 font-bold mt-1">
+                        VIP: {route.vip_price}
+                      </p>
+                    )}
                     <div className="flex items-center justify-end text-xs text-gray-400 gap-1 mt-1">
                       <Clock className="w-3 h-3" />
                       <span>{route.duration}</span>

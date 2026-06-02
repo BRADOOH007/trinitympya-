@@ -215,8 +215,6 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       if (!tablesExist) return;
       
       await fetchRoutes();
-      await seedAdditionalRoutes();
-      await fetchRoutes();
       fetchBookings();
       fetchContactInfo();
       fetchPaymentMethods();
