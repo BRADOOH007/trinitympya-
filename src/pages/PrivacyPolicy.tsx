@@ -39,7 +39,7 @@ const PrivacyPolicy = () => {
             <p>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed.</p>
 
             <h3 className="text-xl font-bold text-gray-800 mt-6 mb-3">5. Contact Us</h3>
-            <p>If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:info@trinitybusexpress.com" className="text-blue-600 hover:underline">info@trinitybusexpress.com</a></p>
+            <p>If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:Trinityexpressbus@gmail.com" className="text-blue-600 hover:underline">Trinityexpressbus@gmail.com</a></p>
           </div>
         </div>
       </div>
