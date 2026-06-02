@@ -440,17 +440,13 @@ Please confirm availability and send payment details. Thank you!`;
                     <h3 className="font-bold text-gray-900">Select Departure Time</h3>
                   </div>
 
-                  {/* Dynamic Departure Times */}
+                  {/* Departure Times - Standard schedule for all routes */}
                   {(() => {
                     const schedule = [
-                      { time: '06:00 AM', hour: 6, period: 'Morning', icon: Sun, color: 'text-orange-400' },
-                      { time: '08:00 AM', hour: 8, period: 'Morning', icon: Sun, color: 'text-orange-400' },
-                      { time: '10:00 AM', hour: 10, period: 'Morning', icon: Sun, color: 'text-orange-400' },
-                      { time: '12:00 PM', hour: 12, period: 'Afternoon', icon: Sun, color: 'text-yellow-500' },
-                      { time: '02:00 PM', hour: 14, period: 'Afternoon', icon: Sun, color: 'text-yellow-500' },
-                      { time: '04:00 PM', hour: 16, period: 'Afternoon', icon: Sun, color: 'text-yellow-500' },
-                      { time: '08:00 PM', hour: 20, period: 'Evening', icon: Moon, color: 'text-indigo-400' },
-                      { time: '10:00 PM', hour: 22, period: 'Evening', icon: Moon, color: 'text-indigo-400' },
+                      { time: '06:00 AM', period: 'Morning', icon: Sun, color: 'text-orange-400' },
+                      { time: '12:00 PM', period: 'Afternoon', icon: Sun, color: 'text-yellow-500' },
+                      { time: '04:00 PM', period: 'Afternoon', icon: Sun, color: 'text-yellow-500' },
+                      { time: '08:00 PM', period: 'Evening', icon: Moon, color: 'text-indigo-400' },
                     ];
                     
                     // Show all slots regardless of current time
