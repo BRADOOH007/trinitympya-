@@ -12,16 +12,16 @@ const NairobiKampalaTravelGuide = () => {
     "@type": "Article",
     "headline": "Nairobi to Kampala Bus: Complete 2025 Travel Guide",
     "description": "Everything you need to know about travelling by bus from Nairobi to Kampala in 2025. Prices, schedules, border crossing tips, and how to book online.",
-    "image": "https://www.trinitybusexpress.com/assets/kampala.jpg",
+    "image": "https://traveltrinityexpress.online/assets/kampala.jpg",
     "datePublished": publishDate,
     "dateModified": modifiedDate,
     "author": { "@type": "Organization", "name": "Trinity Express Bus" },
     "publisher": {
       "@type": "Organization",
       "name": "Trinity Express Bus",
-      "logo": { "@type": "ImageObject", "url": "https://www.trinitybusexpress.com/assets/logo.jpeg" }
+      "logo": { "@type": "ImageObject", "url": "https://traveltrinityexpress.online/assets/logo.jpeg" }
     },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.trinitybusexpress.com/blog/nairobi-to-kampala-bus-travel-guide" }
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://traveltrinityexpress.online/blog/nairobi-to-kampala-bus-travel-guide" }
   };
 
   const faqSchema = {
@@ -41,12 +41,12 @@ const NairobiKampalaTravelGuide = () => {
         <title>Nairobi to Kampala Bus: Complete 2025 Travel Guide | Trinity Express</title>
         <meta name="description" content="Everything you need to know about the Nairobi to Kampala bus in 2025. Prices from KSh 3,500, schedules, border tips, and how to book online with Trinity Express." />
         <meta name="keywords" content="Nairobi to Kampala bus 2025, Nairobi Kampala bus price, how to travel Nairobi to Kampala, Nairobi Kampala bus guide, Trinity Express Nairobi Kampala, Kenya Uganda bus" />
-        <link rel="canonical" href="https://www.trinitybusexpress.com/blog/nairobi-to-kampala-bus-travel-guide" />
+        <link rel="canonical" href="https://traveltrinityexpress.online/blog/nairobi-to-kampala-bus-travel-guide" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Nairobi to Kampala Bus: Complete 2025 Travel Guide" />
         <meta property="og:description" content="Prices, schedules, border crossing tips, and how to book your Nairobi to Kampala bus ticket online in 2025." />
-        <meta property="og:url" content="https://www.trinitybusexpress.com/blog/nairobi-to-kampala-bus-travel-guide" />
-        <meta property="og:image" content="https://www.trinitybusexpress.com/assets/kampala.jpg" />
+        <meta property="og:url" content="https://traveltrinityexpress.online/blog/nairobi-to-kampala-bus-travel-guide" />
+        <meta property="og:image" content="https://traveltrinityexpress.online/assets/kampala.jpg" />
         <meta property="article:published_time" content={publishDate} />
         <meta property="article:modified_time" content={modifiedDate} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>

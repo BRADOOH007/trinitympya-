@@ -20,14 +20,14 @@ const NakuruKampalaTravelGuide = () => {
         <title>Nakuru to Kampala Bus: Complete 2025 Travel Guide | Trinity Express</title>
         <meta name="description" content="Everything you need to know about the Nakuru to Kampala bus in 2025. Prices from KSh 2,500, schedules, Malaba border tips, and how to book online." />
         <meta name="keywords" content="Nakuru to Kampala bus, Nakuru Kampala bus ticket, bus from Nakuru to Kampala, Trinity Express Nakuru Kampala, Nakuru Uganda bus, Nakuru to Kampala 2025" />
-        <link rel="canonical" href="https://www.trinitybusexpress.com/blog/nakuru-to-kampala-bus-travel-guide" />
+        <link rel="canonical" href="https://traveltrinityexpress.online/blog/nakuru-to-kampala-bus-travel-guide" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Nakuru to Kampala Bus: Complete 2025 Travel Guide" />
         <meta property="og:description" content="Prices, schedules, Malaba border tips, and how to book your Nakuru to Kampala bus ticket online in 2025." />
-        <meta property="og:url" content="https://www.trinitybusexpress.com/blog/nakuru-to-kampala-bus-travel-guide" />
-        <meta property="og:image" content="https://www.trinitybusexpress.com/assets/nairobi.jpg" />
+        <meta property="og:url" content="https://traveltrinityexpress.online/blog/nakuru-to-kampala-bus-travel-guide" />
+        <meta property="og:image" content="https://traveltrinityexpress.online/assets/nairobi.jpg" />
         <meta property="article:published_time" content={publishDate} />
-        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Nakuru to Kampala Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://www.trinitybusexpress.com/assets/logo.jpeg" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.trinitybusexpress.com/blog/nakuru-to-kampala-bus-travel-guide" } })}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Nakuru to Kampala Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://traveltrinityexpress.online/assets/logo.jpeg" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://traveltrinityexpress.online/blog/nakuru-to-kampala-bus-travel-guide" } })}</script>
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
 

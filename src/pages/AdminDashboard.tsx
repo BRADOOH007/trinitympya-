@@ -34,11 +34,12 @@ const AdminDashboard = () => {
 
   const [activeTab, setActiveTab] = useState<'routes' | 'bookings' | 'settings'>('routes');
   
-  // Route Editing State
-  const [editingRouteId, setEditingRouteId] = useState<number | null>(null);
+  // Route Editing State — now uses a modal instead of inline
+  const [editingRoute, setEditingRoute] = useState<Route | null>(null);
   const [editRouteForm, setEditRouteForm] = useState<Partial<Route>>({});
   const [showImageModal, setShowImageModal] = useState(false);
-  
+  const [imageModalTarget, setImageModalTarget] = useState<'edit' | 'add'>('edit');
+
   // Add Route State
   const [showAddRouteModal, setShowAddRouteModal] = useState(false);
   const [newRouteForm, setNewRouteForm] = useState<Omit<Route, 'id'>>({
@@ -54,6 +55,10 @@ const AdminDashboard = () => {
     rating: 0,
     nextBus: ''
   });
+
+  // Auto-capitalize: Title Case for city/country names
+  const titleCase = (str: string) =>
+    str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
   // Contact Info Editing State
   const [isEditingContact, setIsEditingContact] = useState(false);
@@ -131,33 +136,29 @@ const AdminDashboard = () => {
   // --- Handlers ---
 
   const handleEditRouteClick = (route: Route) => {
-    setEditingRouteId(route.id);
-    setEditRouteForm(route);
+    setEditingRoute(route);
+    setEditRouteForm({ ...route });
   };
 
   const handleRouteSave = (id: number) => {
-    // Capitalize city names (first letter of each word)
-    const capitalizeWords = (str: string) => {
-      return str.split(' ').map(word => 
-        word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-      ).join(' ');
-    };
-    
     const normalizedRoute = {
       ...editRouteForm,
-      origin: editRouteForm.origin ? capitalizeWords(editRouteForm.origin) : editRouteForm.origin,
-      destination: editRouteForm.destination ? capitalizeWords(editRouteForm.destination) : editRouteForm.destination,
-      country_origin: editRouteForm.country_origin ? capitalizeWords(editRouteForm.country_origin) : editRouteForm.country_origin,
-      country_dest: editRouteForm.country_dest ? capitalizeWords(editRouteForm.country_dest) : editRouteForm.country_dest,
-      country: editRouteForm.country ? capitalizeWords(editRouteForm.country) : editRouteForm.country
+      origin: editRouteForm.origin ? titleCase(editRouteForm.origin.trim()) : editRouteForm.origin,
+      destination: editRouteForm.destination ? titleCase(editRouteForm.destination.trim()) : editRouteForm.destination,
+      country_origin: editRouteForm.country_origin ? titleCase(editRouteForm.country_origin.trim()) : editRouteForm.country_origin,
+      country_dest: editRouteForm.country_dest ? titleCase(editRouteForm.country_dest.trim()) : editRouteForm.country_dest,
+      country: editRouteForm.country ? titleCase(editRouteForm.country.trim()) : editRouteForm.country,
     };
-    
     updateRoute(id, normalizedRoute);
-    setEditingRouteId(null);
+    setEditingRoute(null);
   };
 
   const handleImageSelect = (imageValue: string) => {
-    setEditRouteForm({ ...editRouteForm, image: imageValue });
+    if (imageModalTarget === 'edit') {
+      setEditRouteForm({ ...editRouteForm, image: imageValue });
+    } else {
+      setNewRouteForm({ ...newRouteForm, image: imageValue });
+    }
     setShowImageModal(false);
   };
 
@@ -182,37 +183,19 @@ const AdminDashboard = () => {
       alert('Please fill in all required fields (Origin, Destination, Price, Duration)');
       return;
     }
-    
-    // Capitalize city names (first letter of each word)
-    const capitalizeWords = (str: string) => {
-      return str.split(' ').map(word => 
-        word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-      ).join(' ');
-    };
-    
     const normalizedRoute = {
       ...newRouteForm,
-      origin: capitalizeWords(newRouteForm.origin),
-      destination: capitalizeWords(newRouteForm.destination),
-      country_origin: newRouteForm.country_origin ? capitalizeWords(newRouteForm.country_origin) : '',
-      country_dest: newRouteForm.country_dest ? capitalizeWords(newRouteForm.country_dest) : '',
-      country: newRouteForm.country ? capitalizeWords(newRouteForm.country) : ''
+      origin: titleCase(newRouteForm.origin.trim()),
+      destination: titleCase(newRouteForm.destination.trim()),
+      country_origin: newRouteForm.country_origin ? titleCase(newRouteForm.country_origin.trim()) : '',
+      country_dest: newRouteForm.country_dest ? titleCase(newRouteForm.country_dest.trim()) : '',
+      country: newRouteForm.country ? titleCase(newRouteForm.country.trim()) : ''
     };
-    
     await addRoute(normalizedRoute);
     setShowAddRouteModal(false);
     setNewRouteForm({
-      origin: '',
-      country_origin: '',
-      destination: '',
-      country_dest: '',
-      price: '',
-      vip_price: '',
-      duration: '',
-      country: '',
-      image: '',
-      rating: 0,
-      nextBus: ''
+      origin: '', country_origin: '', destination: '', country_dest: '',
+      price: '', vip_price: '', duration: '', country: '', image: '', rating: 0, nextBus: ''
     });
   };
 
@@ -302,101 +285,33 @@ const AdminDashboard = () => {
                     {routes.map((route) => (
                       <tr key={route.id} className="hover:bg-gray-50 transition-colors">
                         <td className="px-6 py-4">
-                          {editingRouteId === route.id ? (
-                            <div className="flex flex-col gap-2">
-                              <input 
-                                type="text" 
-                                value={editRouteForm.origin} 
-                                onChange={(e) => setEditRouteForm({...editRouteForm, origin: e.target.value})}
-                                className="border rounded px-2 py-1 text-xs w-full"
-                                placeholder="Origin"
-                              />
-                              <input 
-                                type="text" 
-                                value={editRouteForm.destination} 
-                                onChange={(e) => setEditRouteForm({...editRouteForm, destination: e.target.value})}
-                                className="border rounded px-2 py-1 text-xs w-full"
-                                placeholder="Destination"
-                              />
-                            </div>
-                          ) : (
-                            <div>
-                              <p className="font-bold text-gray-900">{route.origin} → {route.destination}</p>
-                              <p className="text-xs text-gray-500">{route.country_origin} to {route.country_dest}</p>
-                            </div>
-                          )}
+                          <p className="font-bold text-gray-900">{route.origin} → {route.destination}</p>
+                          <p className="text-xs text-gray-500">{route.country_origin} to {route.country_dest}</p>
+                          {route.nextBus && <p className="text-xs text-blue-500 mt-0.5">🕐 {route.nextBus}</p>}
                         </td>
                         <td className="px-6 py-4">
-                          {editingRouteId === route.id ? (
-                            <button
-                              onClick={() => setShowImageModal(true)}
-                              className="flex items-center gap-2 px-3 py-2 bg-white border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-sm transition-all group w-full"
-                            >
-                              <div className="w-10 h-8 rounded overflow-hidden bg-gray-100 shrink-0 border border-gray-200">
-                                {editRouteForm.image ? (
-                                  <img src={editRouteForm.image} alt="Selected" className="w-full h-full object-cover" />
-                                ) : (
-                                  <div className="w-full h-full flex items-center justify-center text-xs text-gray-400">?</div>
-                                )}
-                              </div>
-                              <span className="text-sm text-gray-600 truncate flex-1 text-left">
-                                {AVAILABLE_IMAGES.find(i => i.value === editRouteForm.image)?.name || 'Select Image'}
-                              </span>
-                            </button>
-                          ) : (
-                            <div className="w-16 h-12 rounded overflow-hidden bg-gray-100 border border-gray-200">
-                              {route.image ? (
-                                <img src={route.image} alt="Route" className="w-full h-full object-cover" />
-                              ) : (
-                                <div className="w-full h-full flex items-center justify-center text-xs text-gray-400">No Img</div>
-                              )}
-                            </div>
-                          )}
+                          <div className="w-16 h-12 rounded overflow-hidden bg-gray-100 border border-gray-200">
+                            {route.image ? (
+                              <img src={route.image} alt="Route" className="w-full h-full object-cover" />
+                            ) : (
+                              <div className="w-full h-full flex items-center justify-center text-xs text-gray-400">No Img</div>
+                            )}
+                          </div>
                         </td>
                         <td className="px-6 py-4">
-                          {editingRouteId === route.id ? (
-                            <input 
-                              type="text" 
-                              value={editRouteForm.price} 
-                              onChange={(e) => setEditRouteForm({...editRouteForm, price: e.target.value})}
-                              className="border rounded px-2 py-1 w-24"
-                            />
-                          ) : (
-                            <span className="font-medium text-blue-600">{route.price}</span>
-                          )}
+                          <span className="font-medium text-blue-600">{route.price}</span>
+                          {route.vip_price && <p className="text-xs text-orange-500 mt-0.5">VIP: {route.vip_price}</p>}
                         </td>
-                        <td className="px-6 py-4 text-gray-500">
-                          {editingRouteId === route.id ? (
-                            <input 
-                              type="text" 
-                              value={editRouteForm.duration} 
-                              onChange={(e) => setEditRouteForm({...editRouteForm, duration: e.target.value})}
-                              className="border rounded px-2 py-1 w-24"
-                            />
-                          ) : (
-                            route.duration
-                          )}
-                        </td>
+                        <td className="px-6 py-4 text-gray-500">{route.duration}</td>
                         <td className="px-6 py-4 text-right">
-                          {editingRouteId === route.id ? (
-                            <div className="flex justify-end gap-2">
-                              <button onClick={() => handleRouteSave(route.id)} className="p-2 bg-green-100 text-green-600 rounded hover:bg-green-200">
-                                <Save className="w-4 h-4" />
-                              </button>
-                              <button onClick={() => setEditingRouteId(null)} className="p-2 bg-red-100 text-red-600 rounded hover:bg-red-200">
-                                <X className="w-4 h-4" />
-                              </button>
-                            </div>
-                          ) : (
-                            <div className="flex justify-end gap-2">
-                              <button onClick={() => handleEditRouteClick(route)} className="p-2 bg-gray-100 text-gray-600 rounded hover:bg-gray-200" title="Edit">
-                                <Edit2 className="w-4 h-4" />
-                              </button>
-                              <button onClick={() => deleteRoute(route.id)} className="p-2 bg-red-50 text-red-600 rounded hover:bg-red-100" title="Delete">
-                                <X className="w-4 h-4" />
-                              </button>
-                            </div>
-                          )}
+                          <div className="flex justify-end gap-2">
+                            <button onClick={() => handleEditRouteClick(route)} className="p-2 bg-gray-100 text-gray-600 rounded hover:bg-gray-200" title="Edit">
+                              <Edit2 className="w-4 h-4" />
+                            </button>
+                            <button onClick={() => deleteRoute(route.id)} className="p-2 bg-red-50 text-red-600 rounded hover:bg-red-100" title="Delete">
+                              <X className="w-4 h-4" />
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     ))}

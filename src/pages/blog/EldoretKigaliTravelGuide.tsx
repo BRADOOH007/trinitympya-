@@ -20,14 +20,14 @@ const EldoretKigaliTravelGuide = () => {
         <title>Eldoret to Kigali Bus: Complete 2025 Travel Guide | Trinity Express</title>
         <meta name="description" content="Everything you need to know about the Eldoret to Kigali bus in 2025. Prices from KSh 4,000, schedules, border tips via Kampala, and how to book online." />
         <meta name="keywords" content="Eldoret to Kigali bus, Eldoret Kigali bus ticket, bus from Eldoret to Kigali, Trinity Express Eldoret Kigali, Eldoret Rwanda bus, Eldoret to Kigali 2025" />
-        <link rel="canonical" href="https://www.trinitybusexpress.com/blog/eldoret-to-kigali-bus-travel-guide" />
+        <link rel="canonical" href="https://traveltrinityexpress.online/blog/eldoret-to-kigali-bus-travel-guide" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Eldoret to Kigali Bus: Complete 2025 Travel Guide" />
         <meta property="og:description" content="Prices, schedules, border tips, and how to book your Eldoret to Kigali bus ticket online in 2025." />
-        <meta property="og:url" content="https://www.trinitybusexpress.com/blog/eldoret-to-kigali-bus-travel-guide" />
-        <meta property="og:image" content="https://www.trinitybusexpress.com/assets/kampala.jpg" />
+        <meta property="og:url" content="https://traveltrinityexpress.online/blog/eldoret-to-kigali-bus-travel-guide" />
+        <meta property="og:image" content="https://traveltrinityexpress.online/assets/kampala.jpg" />
         <meta property="article:published_time" content={publishDate} />
-        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Eldoret to Kigali Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://www.trinitybusexpress.com/assets/logo.jpeg" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.trinitybusexpress.com/blog/eldoret-to-kigali-bus-travel-guide" } })}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Eldoret to Kigali Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://traveltrinityexpress.online/assets/logo.jpeg" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://traveltrinityexpress.online/blog/eldoret-to-kigali-bus-travel-guide" } })}</script>
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
 

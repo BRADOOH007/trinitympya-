@@ -9,7 +9,7 @@ const About = () => {
       <Helmet>
         <title>About Us - Trinity Express Bus | Safe & Reliable Travel in East Africa</title>
         <meta name="description" content="Learn more about Trinity Express Bus, East Africa's leading passenger transport company. Connecting Kenya, Uganda, Rwanda, and South Sudan with safety and comfort." />
-        <link rel="canonical" href="https://www.trinitybusexpress.com/about" />
+        <link rel="canonical" href="https://traveltrinityexpress.online/about" />
       </Helmet>
       {/* Hero Section - Immersive with Overlay */}
       <div className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">

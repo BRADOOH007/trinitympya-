@@ -32,7 +32,7 @@ const Fleet = () => {
       <Helmet>
         <title>Our Fleet - Trinity Express Bus | Luxury & VIP Coaches</title>
         <meta name="description" content="Explore our modern fleet of luxury buses. Air-conditioned, reclining seats, free WiFi, and charging ports. Experience VIP travel across East Africa." />
-        <link rel="canonical" href="https://www.trinitybusexpress.com/fleet" />
+        <link rel="canonical" href="https://traveltrinityexpress.online/fleet" />
       </Helmet>
       {/* Hero */}
       <div className="bg-primary py-20 text-white">

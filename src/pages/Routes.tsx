@@ -132,16 +132,16 @@ const RoutesPage = () => {
         <title>Bus Routes & Schedules | Nairobi to Kampala, Kigali, Juba - Trinity Express</title>
         <meta name="description" content="Check our daily bus schedules and ticket prices. We offer direct buses from Nairobi to Kampala, Kigali, Juba, and Dar es Salaam. Book your seat today." />
         <meta name="keywords" content="Trinity Express routes, Nairobi to Kampala bus, Nairobi to Kigali bus, Nairobi to Juba bus, Nairobi to Dar es Salaam bus, East Africa bus routes, international bus Kenya" />
-        <link rel="canonical" href="https://www.trinitybusexpress.com/routes" />
+        <link rel="canonical" href="https://traveltrinityexpress.online/routes" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ItemList",
           "name": "Trinity Express Bus Routes",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Nairobi to Kampala Bus", "url": "https://www.trinitybusexpress.com/routes/nairobi-kampala" },
-            { "@type": "ListItem", "position": 2, "name": "Nairobi to Kigali Bus", "url": "https://www.trinitybusexpress.com/routes/nairobi-kigali" },
-            { "@type": "ListItem", "position": 3, "name": "Nairobi to Juba Bus", "url": "https://www.trinitybusexpress.com/routes/nairobi-juba" },
-            { "@type": "ListItem", "position": 4, "name": "Nairobi to Dar es Salaam Bus", "url": "https://www.trinitybusexpress.com/routes/nairobi-dar-es-salaam" }
+            { "@type": "ListItem", "position": 1, "name": "Nairobi to Kampala Bus", "url": "https://traveltrinityexpress.online/routes/nairobi-kampala" },
+            { "@type": "ListItem", "position": 2, "name": "Nairobi to Kigali Bus", "url": "https://traveltrinityexpress.online/routes/nairobi-kigali" },
+            { "@type": "ListItem", "position": 3, "name": "Nairobi to Juba Bus", "url": "https://traveltrinityexpress.online/routes/nairobi-juba" },
+            { "@type": "ListItem", "position": 4, "name": "Nairobi to Dar es Salaam Bus", "url": "https://traveltrinityexpress.online/routes/nairobi-dar-es-salaam" }
           ]
         })}</script>
       </Helmet>

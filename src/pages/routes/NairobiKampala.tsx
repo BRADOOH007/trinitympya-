@@ -39,11 +39,11 @@ const NairobiKampala = () => {
         <title>Nairobi to Kampala Bus | Daily Departures | Book Online - Trinity Express</title>
         <meta name="description" content="Book Nairobi to Kampala bus tickets online with Trinity Express. Daily departures, comfortable seats, affordable prices from KSh 3,500. Instant confirmation." />
         <meta name="keywords" content="Nairobi to Kampala bus, Nairobi Kampala bus ticket, Nairobi to Kampala bus price, Trinity Express Nairobi Kampala, bus from Nairobi to Kampala, Kampala bus booking" />
-        <link rel="canonical" href="https://www.trinitybusexpress.com/routes/nairobi-kampala" />
+        <link rel="canonical" href="https://traveltrinityexpress.online/routes/nairobi-kampala" />
         <meta property="og:title" content="Nairobi to Kampala Bus | Daily Departures | Trinity Express" />
         <meta property="og:description" content="Book Nairobi to Kampala bus tickets online. Daily departures from KSh 3,500. Safe, comfortable, and reliable." />
-        <meta property="og:url" content="https://www.trinitybusexpress.com/routes/nairobi-kampala" />
-        <meta property="og:image" content="https://www.trinitybusexpress.com/assets/kampala.jpg" />
+        <meta property="og:url" content="https://traveltrinityexpress.online/routes/nairobi-kampala" />
+        <meta property="og:image" content="https://traveltrinityexpress.online/assets/kampala.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
@@ -57,7 +57,7 @@ const NairobiKampala = () => {
           "@context": "https://schema.org",
           "@type": "BusTrip",
           "name": "Nairobi to Kampala Bus",
-          "provider": { "@type": "Organization", "name": "Trinity Express Bus", "url": "https://www.trinitybusexpress.com" },
+          "provider": { "@type": "Organization", "name": "Trinity Express Bus", "url": "https://traveltrinityexpress.online" },
           "departureBusStop": { "@type": "BusStop", "name": "Nairobi Terminal, Duruma Road", "address": { "@type": "PostalAddress", "addressLocality": "Nairobi", "addressCountry": "KE" } },
           "arrivalBusStop": { "@type": "BusStop", "name": "Kampala Terminal, Namirembe Road", "address": { "@type": "PostalAddress", "addressLocality": "Kampala", "addressCountry": "UG" } },
           "departureTime": "07:00",

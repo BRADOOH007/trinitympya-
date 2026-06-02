@@ -13,7 +13,7 @@ const Home = () => {
         <title>Trinity Express Bus - Book Online Bus Tickets | Nairobi, Kampala, Kigali</title>
         <meta name="description" content="Book affordable and comfortable bus tickets online with Trinity Express. Daily departures from Nairobi to Kampala, Kigali, Juba, and more. Instant confirmation." />
         <meta name="keywords" content="Trinity Express, Bus Booking Kenya, Nairobi to Kampala Bus, Kampala to Kigali Bus, Online Bus Ticket, Trinity Bus Online Booking" />
-        <link rel="canonical" href="https://www.trinitybusexpress.com/" />
+        <link rel="canonical" href="https://traveltrinityexpress.online/" />
         
         {/* Structured Data for FAQ */}
         <script type="application/ld+json">

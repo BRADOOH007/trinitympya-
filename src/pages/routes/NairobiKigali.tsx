@@ -39,11 +39,11 @@ const NairobiKigali = () => {
         <title>Nairobi to Kigali Bus | Daily Departures | Book Online - Trinity Express</title>
         <meta name="description" content="Book Nairobi to Kigali bus tickets online with Trinity Express. Daily departures, comfortable seats, affordable prices. Instant confirmation." />
         <meta name="keywords" content="Nairobi to Kigali bus, Nairobi Kigali bus ticket, bus from Nairobi to Kigali, Trinity Express Nairobi Kigali, Kigali bus booking Kenya" />
-        <link rel="canonical" href="https://www.trinitybusexpress.com/routes/nairobi-kigali" />
+        <link rel="canonical" href="https://traveltrinityexpress.online/routes/nairobi-kigali" />
         <meta property="og:title" content="Nairobi to Kigali Bus | Daily Departures | Trinity Express" />
         <meta property="og:description" content="Book Nairobi to Kigali bus tickets online. Daily departures. Safe, comfortable, and reliable." />
-        <meta property="og:url" content="https://www.trinitybusexpress.com/routes/nairobi-kigali" />
-        <meta property="og:image" content="https://www.trinitybusexpress.com/assets/kampala.jpg" />
+        <meta property="og:url" content="https://traveltrinityexpress.online/routes/nairobi-kigali" />
+        <meta property="og:image" content="https://traveltrinityexpress.online/assets/kampala.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",

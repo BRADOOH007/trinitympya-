@@ -18,14 +18,14 @@ const NairobiDarEsSalaamTravelGuide = () => {
         <title>Nairobi to Dar es Salaam Bus: Complete 2025 Travel Guide | Trinity Express</title>
         <meta name="description" content="Everything you need to know about the Nairobi to Dar es Salaam bus in 2025. Prices from KSh 4,500, schedules, Namanga border tips, and how to book online." />
         <meta name="keywords" content="Nairobi to Dar es Salaam bus 2025, Nairobi Dar es Salaam bus price, Trinity Express Nairobi Dar es Salaam, Kenya Tanzania bus" />
-        <link rel="canonical" href="https://www.trinitybusexpress.com/blog/nairobi-to-dar-es-salaam-bus-travel-guide" />
+        <link rel="canonical" href="https://traveltrinityexpress.online/blog/nairobi-to-dar-es-salaam-bus-travel-guide" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Nairobi to Dar es Salaam Bus: Complete 2025 Travel Guide" />
-        <meta property="og:url" content="https://www.trinitybusexpress.com/blog/nairobi-to-dar-es-salaam-bus-travel-guide" />
+        <meta property="og:url" content="https://traveltrinityexpress.online/blog/nairobi-to-dar-es-salaam-bus-travel-guide" />
         <meta property="og:description" content="Prices, schedules, Namanga border tips, and how to book your Nairobi to Dar es Salaam bus ticket online in 2025." />
-        <meta property="og:image" content="https://www.trinitybusexpress.com/assets/nairobi.jpg" />
+        <meta property="og:image" content="https://traveltrinityexpress.online/assets/nairobi.jpg" />
         <meta property="article:published_time" content={publishDate} />
-        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Nairobi to Dar es Salaam Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://www.trinitybusexpress.com/assets/logo.jpeg" } } })}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Nairobi to Dar es Salaam Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://traveltrinityexpress.online/assets/logo.jpeg" } } })}</script>
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
       <div className="bg-[#1E3A8A] py-16 text-white">
