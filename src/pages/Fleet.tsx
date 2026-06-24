@@ -1,6 +1,4 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Wifi, Battery, Coffee, Snowflake } from 'lucide-react';
+import { Wifi, Battery, Coffee, Snowflake, CheckCircle } from 'lucide-react';
 
 const buses = [
   {
@@ -26,71 +24,63 @@ const buses = [
   }
 ];
 
+const amenities = [
+  { icon: Snowflake, label: 'Air Conditioning' },
+  { icon: Wifi, label: 'Free WiFi' },
+  { icon: Battery, label: 'Charging Ports' },
+  { icon: Coffee, label: 'Onboard Service' }
+];
+
 const Fleet = () => {
   return (
-    <div className="bg-white">
-      <Helmet>
-        <title>Our Fleet - Trinity Express Bus | Luxury & VIP Coaches</title>
-        <meta name="description" content="Explore our modern fleet of luxury buses. Air-conditioned, reclining seats, free WiFi, and charging ports. Experience VIP travel across East Africa." />
-        <link rel="canonical" href="https://traveltrinityexpress.online/fleet" />
-      </Helmet>
+    <div className="min-h-screen bg-slate-50">
       {/* Hero */}
-      <div className="bg-primary py-20 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Modern Fleet</h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Experience the difference with our state-of-the-art buses designed for your comfort and safety.
+      <section className="bg-gradient-to-br from-primary-600 to-secondary-600 py-20 text-white">
+        <div className="container-wide text-center">
+          <h1 className="title-display mb-4">Our Modern Fleet</h1>
+          <p className="text-xl opacity-90 max-w-2xl mx-auto">
+            Experience the difference with our state-of-the-art buses designed for your comfort and safety
           </p>
         </div>
-      </div>
+      </section>
 
       {/* Amenities */}
-      <section className="py-12 border-b">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-white">
+        <div className="container-wide">
           <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-            <div className="flex items-center space-x-3 text-gray-700">
-              <Snowflake className="w-6 h-6 text-secondary" />
-              <span className="font-medium">Air Conditioning</span>
-            </div>
-            <div className="flex items-center space-x-3 text-gray-700">
-              <Wifi className="w-6 h-6 text-secondary" />
-              <span className="font-medium">Free WiFi</span>
-            </div>
-            <div className="flex items-center space-x-3 text-gray-700">
-              <Battery className="w-6 h-6 text-secondary" />
-              <span className="font-medium">Charging Ports</span>
-            </div>
-            <div className="flex items-center space-x-3 text-gray-700">
-              <Coffee className="w-6 h-6 text-secondary" />
-              <span className="font-medium">Onboard Service</span>
-            </div>
+            {amenities.map((amenity, index) => (
+              <div key={index} className="flex items-center gap-3 text-slate-700">
+                <amenity.icon className="w-7 h-7 text-primary-600" />
+                <span className="font-semibold text-lg">{amenity.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Bus Types */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 gap-16">
+      {/* Fleet */}
+      <section className="section">
+        <div className="container-wide">
+          <div className="grid gap-16">
             {buses.map((bus, index) => (
               <div key={bus.id} className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12`}>
                 <div className="w-full lg:w-1/2">
                   <img 
                     src={bus.image} 
                     alt={bus.name} 
-                    className="rounded-2xl shadow-xl w-full hover:scale-[1.02] transition-transform duration-300"
+                    className="card-modern w-full hover:scale-[1.02] transition-all duration-300 object-cover h-80"
                   />
                 </div>
                 <div className="w-full lg:w-1/2">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">{bus.name}</h2>
-                  <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                  <h2 className="title-section text-slate-900 mb-4">{bus.name}</h2>
+                  <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                     {bus.description}
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     {bus.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                        <span className="text-gray-700 font-medium">{feature}</span>
+                      <div key={idx} className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary-600" />
+                        <span className="text-slate-700 font-medium">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -105,4 +95,3 @@ const Fleet = () => {
 };
 
 export default Fleet;
-

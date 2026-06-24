@@ -3,105 +3,89 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
- 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
- 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
- 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
- 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
- 
-    --radius: 0.5rem;
+  * {
+    @apply box-border;
   }
- 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
- 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
- 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
- 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
- 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
- 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
- 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 font-sans;
   }
 }
- 
+
+@layer utilities {
+  .shadow-elevation-1 {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+  .shadow-elevation-2 {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  .shadow-elevation-3 {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  .shadow-elevation-4 {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+}
+
 @layer components {
-  /* Sharp Button Effect */
-  .btn-sharp {
-    @apply relative overflow-hidden transition-all duration-300 transform skew-x-[-10deg] hover:skew-x-[-15deg] active:skew-x-[-5deg] rounded-none !important;
-  }
-  
-  .btn-sharp > * {
-    @apply transform skew-x-[10deg] hover:skew-x-[15deg] active:skew-x-[5deg];
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-500 text-white font-semibold rounded-xl hover:bg-primary-600 transition-all duration-200 shadow-elevation-2 hover:shadow-elevation-3;
   }
 
-  .btn-sharp::after {
-    content: '';
-    @apply absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-all duration-500 skew-x-[20deg];
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary-500 text-primary-600 font-semibold rounded-xl hover:bg-primary-50 hover:text-primary-700 transition-all duration-200;
   }
 
-  .btn-sharp:hover::after {
-    @apply left-[100%];
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-100 text-slate-700 font-semibold rounded-xl hover:bg-slate-200 transition-all duration-200;
   }
-}
 
-/* Force IntaSend Modal to be on top of everything */
-.intasend-modal, 
-.intasend-iframe-container,
-.intasend-overlay,
-.intasend-wrapper,
-#intasend-modal,
-div[class*="intasend"] {
-    z-index: 2147483650 !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+  /* Container */
+  .container-wide {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-narrow {
+    @apply w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Cards */
+  .card-modern {
+    @apply bg-white rounded-2xl shadow-elevation-2 hover:shadow-elevation-3 transition-all duration-300 overflow-hidden;
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-2xl shadow-elevation-4;
+  }
+
+  /* Typography */
+  .title-display {
+    @apply font-bold text-4xl md:text-5xl lg:text-6xl leading-tight;
+  }
+
+  .title-section {
+    @apply font-bold text-3xl md:text-4xl;
+  }
+
+  .title-card {
+    @apply font-semibold text-xl text-slate-900;
+  }
+
+  /* Layout sections */
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-header {
+    @apply text-center mb-12 md:mb-16;
+  }
+
+  .section-subtitle {
+    @apply text-primary-600 font-semibold uppercase tracking-widest text-sm mb-3;
+  }
 }

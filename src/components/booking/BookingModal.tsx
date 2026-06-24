@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Calendar, Clock, ArrowRight, Sun, Moon, Users, CheckCircle, Smartphone } from 'lucide-react';
+import { X, Calendar, Clock, ArrowRight, Sun, Moon, Users, CheckCircle, Smartphone, MapPin } from 'lucide-react';
 import logo from '../../assets/logo.jpeg';
 import { Route, useAdmin } from '../../context/AdminContext';
 
@@ -229,157 +229,178 @@ Please confirm availability and send payment details. Thank you!`;
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col animate-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+      <div className="bg-white rounded-3xl shadow-elevation-4 w-full max-w-5xl max-h-[90vh] overflow-hidden flex flex-col">
         
         {/* Header */}
-        <div className="p-6 border-b border-gray-100 flex justify-between items-start">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full overflow-hidden shadow-sm">
-              <img 
-                src={logo} 
-                alt="Trinity Express Logo" 
-                className="w-full h-full object-cover" 
-              />
+        <div className="p-8 border-b border-slate-100 bg-gradient-to-br from-primary-50 to-secondary-50">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-elevation-1 bg-white p-1">
+                <img 
+                  src={logo} 
+                  alt="Trinity Express Logo" 
+                  className="w-full h-full object-cover rounded-xl" 
+                />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-slate-900">{step === 1 ? 'Book Your Seat' : 'Confirm & Pay'}</h2>
+                <p className="text-slate-600">{step === 1 ? 'Select your departure time and preferred seat' : 'Choose payment method to complete booking'}</p>
+              </div>
             </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900">{step === 1 ? 'Book Your Seat' : 'Confirm & Pay'}</h2>
-              <p className="text-gray-500 text-sm">{step === 1 ? 'Select your departure time and preferred seat' : 'Choose payment method to complete booking'}</p>
-            </div>
+            <button onClick={onClose} className="p-3 hover:bg-slate-100 rounded-full transition-all hover:shadow-elevation-1">
+              <X className="w-6 h-6 text-slate-600" />
+            </button>
           </div>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-            <X className="w-6 h-6 text-gray-500" />
-          </button>
         </div>
 
         {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto p-6">
+        <div className="flex-1 overflow-y-auto p-8">
           
           {step === 1 ? (
             <>
               {/* Step 1 Content: Seat Selection (Existing Code) */}
               
               {/* Trip Summary Card */}
-              <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm mb-8">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                  <div className="text-center md:text-left">
-                    <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Departure</p>
-                    <h3 className="text-2xl font-bold text-gray-900">{route.origin}</h3>
-                    <p className="text-[#1E88E5] font-bold mt-1">{route.price}</p>
-                    <div className="flex items-center justify-center md:justify-start text-gray-500 text-sm mt-1">
-                      <Clock className="w-3 h-3 mr-1" />
+              <div className="card-modern p-8 mb-8">
+                <div className="grid md:grid-cols-3 gap-8 items-center">
+                  <div className="text-center">
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                      <MapPin className="w-5 h-5 text-primary-600" />
+                      <span className="text-xs text-slate-500 uppercase tracking-widest font-semibold">Departure</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-slate-900">{route.origin}</h3>
+                    <p className="text-primary-600 font-bold mt-1 text-lg">{route.price}</p>
+                    <div className="flex items-center justify-center text-slate-500 text-sm mt-1">
+                      <Clock className="w-4 h-4 mr-1" />
                       <span>{route.duration}</span>
                     </div>
                   </div>
 
-                  <div className="hidden md:flex items-center text-[#1E88E5]">
-                    <div className="h-[2px] w-24 bg-[#1E88E5]/20 relative">
-                      <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                        <ArrowRight className="w-5 h-5" />
+                  <div className="flex items-center justify-center">
+                    <div className="flex items-center gap-4">
+                      <div className="flex gap-1">
+                        <div className="w-2 h-2 rounded-full bg-slate-300"></div>
+                        <div className="w-2 h-2 rounded-full bg-slate-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-slate-300"></div>
+                      </div>
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-secondary-600 text-white flex items-center justify-center shadow-elevation-2">
+                        <ArrowRight className="w-6 h-6" />
+                      </div>
+                      <div className="flex gap-1">
+                        <div className="w-2 h-2 rounded-full bg-slate-300"></div>
+                        <div className="w-2 h-2 rounded-full bg-slate-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-slate-300"></div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="text-center md:text-right">
-                    <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Destination</p>
-                    <div className="flex items-center justify-center md:justify-end gap-2">
-                      <h3 className="text-2xl font-bold text-gray-900">{route.destination}</h3>
-                      <span className="text-gray-400 text-sm">({route.country})</span>
+                  <div className="text-center">
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                      <MapPin className="w-5 h-5 text-secondary-600" />
+                      <span className="text-xs text-slate-500 uppercase tracking-widest font-semibold">Destination</span>
                     </div>
-                    <div className="flex items-center justify-center md:justify-end text-gray-500 text-sm mt-1">
-                      <Calendar className="w-3 h-3 mr-1" />
+                    <div className="flex items-center justify-center gap-2">
+                      <h3 className="text-2xl font-bold text-slate-900">{route.destination}</h3>
+                      <span className="text-slate-400 text-sm">({route.country})</span>
+                    </div>
+                    <div className="flex items-center justify-center text-slate-500 text-sm mt-1">
+                      <Calendar className="w-4 h-4 mr-1" />
                       <span>{new Date(bookingDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Travel Date Selection */}
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#1E88E5]">
-                    <Calendar className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Travel Date</h4>
-                    <p className="text-sm text-gray-500">Select or change your travel date</p>
+              {/* Travel Date & Passenger Count */}
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <div className="card-modern p-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center text-primary-600">
+                        <Calendar className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-slate-900">Travel Date</h4>
+                        <p className="text-sm text-slate-600">Select or change your travel date</p>
+                      </div>
+                    </div>
+                    <input 
+                      type="date"
+                      value={bookingDate}
+                      onChange={(e) => setBookingDate(e.target.value)}
+                      min={new Date().toISOString().split('T')[0]}
+                      className="px-4 py-3 border border-slate-200 rounded-xl bg-white text-slate-900 font-medium focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none cursor-pointer transition-all"
+                    />
                   </div>
                 </div>
-                <div className="relative">
-                  <input 
-                    type="date"
-                    value={bookingDate}
-                    onChange={(e) => setBookingDate(e.target.value)}
-                    min={new Date().toISOString().split('T')[0]}
-                    className="px-4 py-2 border-2 border-blue-200 rounded-lg bg-white text-gray-900 font-medium focus:ring-2 focus:ring-[#1E88E5] focus:border-transparent outline-none cursor-pointer"
-                  />
-                </div>
-              </div>
 
-              {/* Passenger Count Selection */}
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#1E88E5]">
-                    <Users className="w-5 h-5" />
+                <div className="card-modern p-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-secondary-100 flex items-center justify-center text-secondary-600">
+                        <Users className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-slate-900">Passengers</h4>
+                        <p className="text-sm text-slate-600">How many people are travelling?</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center bg-slate-50 rounded-xl border border-slate-200 p-1">
+                      {[1, 2, 3, 4, 5].map((num) => (
+                        <button
+                          key={num}
+                          onClick={() => setPassengers(num)}
+                          className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-sm transition-all ${
+                            passengers === num 
+                              ? 'bg-gradient-to-br from-primary-500 to-secondary-600 text-white shadow-elevation-1' 
+                              : 'text-slate-600 hover:bg-slate-100'
+                          }`}
+                        >
+                          {num}
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Passengers</h4>
-                    <p className="text-sm text-gray-500">How many people are travelling?</p>
-                  </div>
-                </div>
-                <div className="flex items-center bg-white rounded-lg border border-blue-200 p-1">
-                  {[1, 2, 3, 4, 5].map((num) => (
-                    <button
-                      key={num}
-                      onClick={() => setPassengers(num)}
-                      className={`w-10 h-10 rounded-md flex items-center justify-center font-bold text-sm transition-all ${
-                        passengers === num 
-                          ? 'bg-[#1E88E5] text-white shadow-sm' 
-                          : 'text-gray-600 hover:bg-gray-50'
-                      }`}
-                    >
-                      {num}
-                    </button>
-                  ))}
                 </div>
               </div>
 
               {/* Bus Class Selection */}
               <div className="mb-8">
-                <h3 className="font-bold text-gray-900 mb-4">Select Bus Class</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <h3 className="text-xl font-bold text-slate-900 mb-6">Select Bus Class</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Regular Class */}
                   <button
                     onClick={() => setBusClass('regular')}
-                    className={`relative p-6 rounded-xl border-2 transition-all text-left ${
+                    className={`card-modern p-8 transition-all text-left ${
                       busClass === 'regular'
-                        ? 'border-[#1E88E5] bg-blue-50 ring-2 ring-[#1E88E5]/20'
-                        : 'border-gray-200 hover:border-gray-300 bg-white'
+                        ? 'border-primary-500 bg-primary-50'
+                        : ''
                     }`}
                   >
                     {busClass === 'regular' && (
-                      <div className="absolute top-3 right-3 w-6 h-6 bg-[#1E88E5] rounded-full flex items-center justify-center">
-                        <CheckCircle className="w-4 h-4 text-white" />
+                      <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-full flex items-center justify-center shadow-elevation-1">
+                        <CheckCircle className="w-5 h-5 text-white" />
                       </div>
                     )}
-                    <div className="mb-3">
-                      <h4 className="font-bold text-gray-900 text-lg">Regular</h4>
-                      <p className="text-xs text-gray-500 mt-1">Seats R20-R42 (23 seats)</p>
-                    </div>
                     <div className="mb-4">
-                      <p className="text-2xl font-bold text-[#1E88E5]">{getCurrency()} {getBasePrice().toLocaleString()}</p>
+                      <h4 className="font-bold text-slate-900 text-xl">Regular</h4>
+                      <p className="text-sm text-slate-500 mt-1">Seats R20-R42 (23 seats)</p>
                     </div>
-                    <ul className="space-y-2 text-sm text-gray-600">
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-500" />
+                    <div className="mb-6">
+                      <p className="text-3xl font-bold text-primary-600">{getCurrency()} {getBasePrice().toLocaleString()}</p>
+                    </div>
+                    <ul className="space-y-3 text-slate-700">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500" />
                         Standard seating
                       </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-500" />
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500" />
                         Air conditioning
                       </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-500" />
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500" />
                         Safe & comfortable
                       </li>
                     </ul>
@@ -388,43 +409,43 @@ Please confirm availability and send payment details. Thank you!`;
                   {/* VIP Class */}
                   <button
                     onClick={() => setBusClass('vip')}
-                    className={`relative p-6 rounded-xl border-2 transition-all text-left ${
+                    className={`card-modern p-8 transition-all text-left relative ${
                       busClass === 'vip'
-                        ? 'border-orange-500 bg-orange-50 ring-2 ring-orange-500/20'
-                        : 'border-gray-200 hover:border-gray-300 bg-white'
+                        ? 'border-orange-500 bg-orange-50'
+                        : ''
                     }`}
                   >
-                    <div className="absolute top-3 right-3">
+                    <div className="absolute top-4 right-4">
                       {busClass === 'vip' ? (
-                        <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                          <CheckCircle className="w-4 h-4 text-white" />
+                        <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center shadow-elevation-1">
+                          <CheckCircle className="w-5 h-5 text-white" />
                         </div>
                       ) : (
-                        <span className="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">VIP</span>
+                        <span className="bg-orange-500 text-white text-sm font-bold px-3 py-1 rounded-full">VIP</span>
                       )}
                     </div>
-                    <div className="mb-3">
-                      <h4 className="font-bold text-gray-900 text-lg">Executive VIP</h4>
-                      <p className="text-xs text-gray-500 mt-1">Seats V1-V19 (19 seats)</p>
-                    </div>
                     <div className="mb-4">
-                      <p className="text-2xl font-bold text-orange-600">{getCurrency()} {getVIPPrice().toLocaleString()}</p>
+                      <h4 className="font-bold text-slate-900 text-xl">Executive VIP</h4>
+                      <p className="text-sm text-slate-500 mt-1">Seats V1-V19 (19 seats)</p>
                     </div>
-                    <ul className="space-y-2 text-sm text-gray-600">
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-orange-500" />
+                    <div className="mb-6">
+                      <p className="text-3xl font-bold text-orange-600">{getCurrency()} {getVIPPrice().toLocaleString()}</p>
+                    </div>
+                    <ul className="space-y-3 text-slate-700">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-orange-500" />
                         Reclining leather seats
                       </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-orange-500" />
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-orange-500" />
                         Extra legroom
                       </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-orange-500" />
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-orange-500" />
                         WiFi & USB charging
                       </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-orange-500" />
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-orange-500" />
                         Refreshments included
                       </li>
                     </ul>
@@ -432,12 +453,12 @@ Please confirm availability and send payment details. Thank you!`;
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-2 gap-10">
                 {/* Section 1: Departure Time */}
-                <div className="space-y-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-6 h-6 rounded-full bg-blue-100 text-[#1E88E5] flex items-center justify-center font-bold text-sm">1</div>
-                    <h3 className="font-bold text-gray-900">Select Departure Time</h3>
+                <div className="space-y-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-secondary-600 text-white flex items-center justify-center font-bold text-sm shadow-elevation-1">1</div>
+                    <h3 className="text-xl font-bold text-slate-900">Select Departure Time</h3>
                   </div>
 
                   {/* Departure Times - Standard schedule for all routes */}
@@ -460,20 +481,20 @@ Please confirm availability and send payment details. Thank you!`;
                       const PeriodIcon = slots[0].icon;
                       
                       return (
-                        <div key={period} className="mb-4">
-                          <div className="flex items-center gap-2 text-gray-600 mb-3 text-sm font-medium">
+                        <div key={period} className="mb-6">
+                          <div className="flex items-center gap-2 text-slate-600 mb-3 text-sm font-semibold">
                             <PeriodIcon className={`w-4 h-4 ${slots[0].color}`} />
                             <span>{period}</span>
                           </div>
-                          <div className="grid grid-cols-2 gap-3">
+                          <div className="grid grid-cols-2 gap-4">
                             {slots.map((slot) => (
                               <button
                                 key={slot.time}
                                 onClick={() => setSelectedTime(slot.time)}
-                                className={`py-3 px-4 rounded-lg border text-sm font-medium transition-all ${
+                                className={`py-4 px-6 rounded-xl border text-sm font-semibold transition-all ${
                                   selectedTime === slot.time 
-                                    ? 'border-[#1E88E5] bg-blue-50 text-[#1E88E5] ring-1 ring-[#1E88E5]' 
-                                    : 'border-gray-200 hover:border-gray-300 text-gray-700 hover:bg-gray-50'
+                                    ? 'border-primary-500 bg-gradient-to-br from-primary-50 to-secondary-50 text-primary-700 ring-2 ring-primary-200 shadow-elevation-1' 
+                                    : 'border-slate-200 hover:border-slate-300 text-slate-700 hover:bg-slate-50'
                                 }`}
                               >
                                 {slot.time}
@@ -486,66 +507,66 @@ Please confirm availability and send payment details. Thank you!`;
                   })()}
 
                   {/* Seat Legend */}
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <p className="font-bold text-sm text-gray-900 mb-3">Seat Legend:</p>
-                    <div className="space-y-2 text-xs">
-                      <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded bg-orange-100 border-2 border-orange-300"></div>
-                        <span>VIP Available (V1-V19)</span>
+                  <div className="card-modern p-6">
+                    <p className="font-bold text-slate-900 mb-4">Seat Legend:</p>
+                    <div className="space-y-3 text-sm">
+                      <div className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-lg bg-orange-100 border-2 border-orange-300"></div>
+                        <span className="text-slate-700">VIP Available (V1-V19)</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded bg-green-500"></div>
-                        <span>Regular Available (R20-R42)</span>
+                      <div className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-lg bg-green-500"></div>
+                        <span className="text-slate-700">Regular Available (R20-R42)</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded bg-[#1E88E5]"></div>
-                        <span>Selected</span>
+                      <div className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-600"></div>
+                        <span className="text-slate-700">Selected</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded bg-red-400"></div>
-                        <span>Booked</span>
+                      <div className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-lg bg-red-400"></div>
+                        <span className="text-slate-700">Booked</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Section 2: Seat Selection */}
-                <div className="border-l border-gray-100 pl-0 md:pl-8">
-                  <div className="flex items-center gap-2 mb-6">
-                    <div className="w-6 h-6 rounded-full bg-blue-100 text-[#1E88E5] flex items-center justify-center font-bold text-sm">2</div>
-                    <h3 className="font-bold text-gray-900">Choose Your Seat</h3>
+                <div className="border-l border-slate-100 pl-0 md:pl-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-secondary-600 text-white flex items-center justify-center font-bold text-sm shadow-elevation-1">2</div>
+                    <h3 className="text-xl font-bold text-slate-900">Choose Your Seat</h3>
                   </div>
 
                   {!selectedTime ? (
-                    <div className="h-64 flex flex-col items-center justify-center text-center p-6 bg-gray-50 rounded-xl border border-dashed border-gray-300">
-                      <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mb-3">
-                        <Clock className="w-6 h-6 text-gray-400" />
+                    <div className="h-80 flex flex-col items-center justify-center text-center p-8 bg-slate-50 rounded-2xl border border-dashed border-slate-300">
+                      <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mb-4">
+                        <Clock className="w-8 h-8 text-slate-400" />
                       </div>
-                      <p className="text-gray-500 font-medium">Please select a departure time first to view available seats</p>
+                      <p className="text-slate-600 font-medium max-w-xs">Please select a departure time first to view available seats</p>
                     </div>
                   ) : (
-                    <div className="max-w-[400px] mx-auto bg-gray-100 p-6 rounded-xl relative">
+                    <div className="max-w-md mx-auto bg-slate-100 p-8 rounded-2xl relative">
                       {/* Driver */}
-                      <div className="flex justify-end mb-6">
-                         <div className="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center">
-                           <svg className="w-7 h-7 opacity-50" viewBox="0 0 24 24" fill="currentColor">
+                      <div className="flex justify-end mb-8">
+                         <div className="w-14 h-14 rounded-full bg-slate-300 flex items-center justify-center">
+                           <svg className="w-8 h-8 opacity-50" viewBox="0 0 24 24" fill="currentColor">
                              <path d="M12,6.5A1.5,1.5 0 0,1 13.5,8A1.5,1.5 0 0,1 12,9.5A1.5,1.5 0 0,1 10.5,8A1.5,1.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,11.38 17.81,13.47 16,14.74V17A1,1 0 0,1 15,18H9A1,1 0 0,1 8,17V14.74C6.19,13.47 5,11.38 5,9A7,7 0 0,1 12,2M9,13.5V20H15V13.5L16.5,12.5C17.41,11.87 18,10.81 18,9.63C18,7.57 16.43,6 14.37,6H9.63C7.57,6 6,7.57 6,9.63C6,10.81 6.59,11.87 7.5,12.5L9,13.5Z" />
                            </svg>
                          </div>
                       </div>
                       
                       {/* Door Label */}
-                      <div className="absolute left-2 top-20 text-xs text-gray-400 font-bold transform -rotate-90 origin-center">
+                      <div className="absolute left-3 top-24 text-xs text-slate-400 font-bold transform -rotate-90 origin-center">
                         DOOR
                       </div>
                       
                       {/* VIP Section Header */}
-                      <div className="mb-3 text-center">
-                        <span className="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">VIP SECTION</span>
+                      <div className="mb-4 text-center">
+                        <span className="bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-elevation-1">VIP SECTION</span>
                       </div>
                       
                       {/* VIP Seats: V1-V19 (2-2 layout) */}
-                      <div className="space-y-2 mb-6">
+                      <div className="space-y-3 mb-8">
                         {Array.from({ length: 5 }, (_, rowIndex) => {
                           const startSeat = rowIndex * 4 + 1;
                           const rowSeats = seats.filter(s => 
@@ -557,7 +578,7 @@ Please confirm availability and send payment details. Thank you!`;
                           if (rowSeats.length === 0) return null;
                           
                           return (
-                            <div key={`vip-row-${rowIndex}`} className="grid grid-cols-5 gap-2">
+                            <div key={`vip-row-${rowIndex}`} className="grid grid-cols-5 gap-3">
                               {/* Left side - 2 seats */}
                               {rowSeats.slice(0, 2).map((seat) => (
                                 <button
@@ -565,11 +586,11 @@ Please confirm availability and send payment details. Thank you!`;
                                   disabled={seat.status === 'booked'}
                                   onClick={() => handleSeatClick(seat.id)}
                                   className={`
-                                    aspect-square rounded-lg flex items-center justify-center text-xs font-bold transition-all
+                                    aspect-square rounded-xl flex items-center justify-center text-sm font-bold transition-all
                                     ${seat.status === 'booked' 
                                       ? 'bg-red-400 text-white cursor-not-allowed opacity-50' 
                                       : selectedSeats.includes(seat.id)
-                                        ? 'bg-orange-500 text-white shadow-md transform scale-105'
+                                        ? 'bg-gradient-to-br from-orange-500 to-orange-600 text-white shadow-elevation-1 transform scale-105'
                                         : 'bg-orange-100 text-orange-700 hover:bg-orange-200 shadow-sm border-2 border-orange-300'
                                     }
                                   `}
@@ -588,11 +609,11 @@ Please confirm availability and send payment details. Thank you!`;
                                   disabled={seat.status === 'booked'}
                                   onClick={() => handleSeatClick(seat.id)}
                                   className={`
-                                    aspect-square rounded-lg flex items-center justify-center text-xs font-bold transition-all
+                                    aspect-square rounded-xl flex items-center justify-center text-sm font-bold transition-all
                                     ${seat.status === 'booked' 
                                       ? 'bg-red-400 text-white cursor-not-allowed opacity-50' 
                                       : selectedSeats.includes(seat.id)
-                                        ? 'bg-orange-500 text-white shadow-md transform scale-105'
+                                        ? 'bg-gradient-to-br from-orange-500 to-orange-600 text-white shadow-elevation-1 transform scale-105'
                                         : 'bg-orange-100 text-orange-700 hover:bg-orange-200 shadow-sm border-2 border-orange-300'
                                     }
                                   `}
@@ -606,12 +627,12 @@ Please confirm availability and send payment details. Thank you!`;
                       </div>
                       
                       {/* Regular Section Header */}
-                      <div className="mb-3 text-center border-t-2 border-dashed border-gray-300 pt-4">
-                        <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">REGULAR SECTION</span>
+                      <div className="mb-4 text-center border-t-2 border-dashed border-slate-300 pt-6">
+                        <span className="bg-gradient-to-br from-primary-500 to-secondary-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-elevation-1">REGULAR SECTION</span>
                       </div>
                       
                       {/* Regular Seats: R20-R42 (2-2 layout) */}
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         {Array.from({ length: 6 }, (_, rowIndex) => {
                           const startSeat = 20 + (rowIndex * 4);
                           const rowSeats = seats.filter(s => 
@@ -623,7 +644,7 @@ Please confirm availability and send payment details. Thank you!`;
                           if (rowSeats.length === 0) return null;
                           
                           return (
-                            <div key={`regular-row-${rowIndex}`} className="grid grid-cols-5 gap-2">
+                            <div key={`regular-row-${rowIndex}`} className="grid grid-cols-5 gap-3">
                               {/* Left side - 2 seats */}
                               {rowSeats.slice(0, 2).map((seat) => (
                                 <button
@@ -631,11 +652,11 @@ Please confirm availability and send payment details. Thank you!`;
                                   disabled={seat.status === 'booked'}
                                   onClick={() => handleSeatClick(seat.id)}
                                   className={`
-                                    aspect-square rounded-lg flex items-center justify-center text-xs font-bold transition-all
+                                    aspect-square rounded-xl flex items-center justify-center text-sm font-bold transition-all
                                     ${seat.status === 'booked' 
                                       ? 'bg-red-400 text-white cursor-not-allowed opacity-50' 
                                       : selectedSeats.includes(seat.id)
-                                        ? 'bg-[#1E88E5] text-white shadow-md transform scale-105'
+                                        ? 'bg-gradient-to-br from-primary-500 to-secondary-600 text-white shadow-elevation-1 transform scale-105'
                                         : 'bg-green-500 text-white hover:bg-green-600 shadow-sm'
                                     }
                                   `}
@@ -654,11 +675,11 @@ Please confirm availability and send payment details. Thank you!`;
                                   disabled={seat.status === 'booked'}
                                   onClick={() => handleSeatClick(seat.id)}
                                   className={`
-                                    aspect-square rounded-lg flex items-center justify-center text-xs font-bold transition-all
+                                    aspect-square rounded-xl flex items-center justify-center text-sm font-bold transition-all
                                     ${seat.status === 'booked' 
                                       ? 'bg-red-400 text-white cursor-not-allowed opacity-50' 
                                       : selectedSeats.includes(seat.id)
-                                        ? 'bg-[#1E88E5] text-white shadow-md transform scale-105'
+                                        ? 'bg-gradient-to-br from-primary-500 to-secondary-600 text-white shadow-elevation-1 transform scale-105'
                                         : 'bg-green-500 text-white hover:bg-green-600 shadow-sm'
                                     }
                                   `}
@@ -677,19 +698,19 @@ Please confirm availability and send payment details. Thank you!`;
             </>
           ) : (
             // Step 2: Payment
-            <div className="max-w-xl mx-auto space-y-8">
-              <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Booking Summary</h3>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Route:</span>
-                    <span className="font-medium text-gray-900">{route.origin} → {route.destination}</span>
+            <div className="max-w-2xl mx-auto space-y-10">
+              <div className="card-modern p-8">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Booking Summary</h3>
+                <div className="space-y-4 text-base">
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-600">Route:</span>
+                    <span className="font-semibold text-slate-900">{route.origin} → {route.destination}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Bus Class:</span>
-                    <span className="font-medium text-gray-900">
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-600">Bus Class:</span>
+                    <span className="font-semibold text-slate-900">
                       {busClass === 'vip' ? (
-                        <span className="inline-flex items-center gap-1">
+                        <span className="inline-flex items-center gap-2">
                           Executive VIP
                           <span className="bg-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">VIP</span>
                         </span>
@@ -698,78 +719,87 @@ Please confirm availability and send payment details. Thank you!`;
                       )}
                     </span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Date/Time:</span>
-                    <span className="font-medium text-gray-900">{new Date(bookingDate).toLocaleDateString()} at {selectedTime}</span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-600">Date/Time:</span>
+                    <span className="font-semibold text-slate-900">{new Date(bookingDate).toLocaleDateString()} at {selectedTime}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Seat:</span>
-                    <span className="font-medium text-gray-900">{selectedSeats.join(', ')}</span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-600">Seat:</span>
+                    <span className="font-semibold text-slate-900">{selectedSeats.join(', ')}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Passengers:</span>
-                    <span className="font-medium text-gray-900">{passengers}</span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-600">Passengers:</span>
+                    <span className="font-semibold text-slate-900">{passengers}</span>
                   </div>
-                  <div className="border-t border-gray-200 pt-2 mt-2 flex justify-between text-base font-bold">
+                  <div className="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center text-xl font-bold">
                     <span>Total Amount:</span>
-                    <span className="text-[#1E88E5]">{calculateTotal()}</span>
+                    <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">{calculateTotal()}</span>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Passenger Details</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Passenger Details</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-1">Full Name <span className="text-gray-400 font-normal">(Optional)</span></label>
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">Full Name <span className="text-slate-400 font-normal">(Optional)</span></label>
                     <input 
                       type="text" 
                       value={passengerName}
                       onChange={(e) => setPassengerName(e.target.value)}
                       placeholder="e.g. John Doe"
-                      className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#1E88E5] outline-none transition-all"
+                      className="w-full border border-slate-200 rounded-xl p-4 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-1">Phone Number <span className="text-red-500">*</span></label>
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">Phone Number <span className="text-red-500">*</span></label>
                     <input 
                       type="tel" 
                       value={phoneNumber}
                       onChange={(e) => setPhoneNumber(e.target.value)}
                       placeholder="e.g. +254 700 000 000"
-                      className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#1E88E5] outline-none transition-all"
+                      className="w-full border border-slate-200 rounded-xl p-4 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all"
                     />
                   </div>
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-bold text-gray-700 mb-1">ID or Passport Number <span className="text-gray-400 font-normal">(Optional)</span></label>
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">ID or Passport Number <span className="text-slate-400 font-normal">(Optional)</span></label>
                     <input 
                       type="text" 
                       value={idNumber}
                       onChange={(e) => setIdNumber(e.target.value)}
                       placeholder="e.g. 12345678 or AB1234567"
-                      className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#1E88E5] outline-none transition-all"
+                      className="w-full border border-slate-200 rounded-xl p-4 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all"
                     />
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Payment Method</h3>
-                <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
-                  <div className="border-2 rounded-xl p-4 flex flex-col gap-3 transition-all border-[#25D366] bg-green-50 ring-1 ring-[#25D366]">
-                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-[#25D366]">
-                      <Smartphone className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900">Get Payment Info / WhatsApp</h4>
-                      <p className="text-xs text-gray-500 mt-1">Book via WhatsApp. Receive payment details.</p>
-                    </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Payment Method</h3>
+                <div className="card-modern border-2 border-green-500 p-6 flex flex-col gap-4 bg-green-50">
+                  <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                    <Smartphone className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-lg">Get Payment Info / WhatsApp</h4>
+                    <p className="text-slate-500 mt-1">Book via WhatsApp. Receive payment details.</p>
                   </div>
                 </div>
                 
-                <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200 text-sm">
-                  <p className="font-bold text-gray-800 mb-2">Instructions:</p>
-                  <p className="text-gray-600 mb-2">1. Click "Confirm Booking" to open WhatsApp.</p>
-                  <p className="text-gray-600">2. Send the pre-filled message to our agent.</p>
-                  <p className="text-gray-600">3. Wait for confirmation and payment details.</p>
+                <div className="mt-8 p-6 bg-slate-50 rounded-xl border border-slate-200">
+                  <p className="font-bold text-slate-800 mb-4 text-lg">Instructions:</p>
+                  <div className="space-y-2 text-slate-700">
+                    <p className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                      <span>1. Click "Confirm Booking" to open WhatsApp.</span>
+                    </p>
+                    <p className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                      <span>2. Send the pre-filled message to our agent.</span>
+                    </p>
+                    <p className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                      <span>3. Wait for confirmation and payment details.</span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -778,16 +808,16 @@ Please confirm availability and send payment details. Thank you!`;
         </div>
 
         {/* Footer */}
-        <div className="p-6 border-t border-gray-100 bg-gray-50">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-gray-600 text-sm">
+        <div className="p-8 border-t border-slate-100 bg-gradient-to-br from-slate-50 to-white">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="text-slate-700">
               {step === 1 ? (
                 <>
-                  Selected: <span className="font-bold text-gray-900">{selectedTime || 'No time selected'}</span> | 
-                  Seat: <span className="font-bold text-gray-900">{selectedSeats.length > 0 ? selectedSeats.join(', ') : 'None'}</span>
+                  Selected: <span className="font-bold text-slate-900 text-lg">{selectedTime || 'No time selected'}</span> | 
+                  Seat: <span className="font-bold text-slate-900 text-lg">{selectedSeats.length > 0 ? selectedSeats.join(', ') : 'None'}</span>
                 </>
               ) : (
-                <button onClick={() => setStep(1)} className="text-[#1E88E5] hover:underline font-medium">
+                <button onClick={() => setStep(1)} className="text-primary-600 hover:underline font-semibold text-lg flex items-center gap-2">
                   ← Back to Seat Selection
                 </button>
               )}
@@ -798,15 +828,15 @@ Please confirm availability and send payment details. Thank you!`;
                 onClick={handleProceed}
                 disabled={!selectedTime || selectedSeats.length !== passengers}
                 className={`
-                  flex items-center gap-2 px-8 py-3 rounded-lg font-bold text-white transition-all
+                  flex items-center gap-3 px-10 py-4 rounded-xl font-bold text-white transition-all
                   ${selectedTime && selectedSeats.length === passengers 
-                    ? 'bg-[#1E88E5] hover:bg-blue-600 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5' 
-                    : 'bg-gray-300 cursor-not-allowed'
+                    ? 'bg-gradient-to-br from-primary-500 to-secondary-600 hover:from-primary-600 hover:to-secondary-700 shadow-elevation-2 hover:shadow-elevation-3 transform hover:-translate-y-0.5' 
+                    : 'bg-slate-300 cursor-not-allowed'
                   }
                 `}
               >
                 Continue to Payment
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-6 h-6" />
               </button>
             ) : (
               <button 
@@ -814,14 +844,14 @@ Please confirm availability and send payment details. Thank you!`;
                 onClick={handleWhatsAppBooking}
                 disabled={!phoneNumber}
                 className={`
-                  flex items-center gap-2 px-8 py-3 rounded-lg font-bold text-white transition-all
+                  flex items-center gap-3 px-10 py-4 rounded-xl font-bold text-white transition-all
                   ${!phoneNumber
-                    ? 'bg-gray-300 cursor-not-allowed'
-                    : 'bg-[#25D366] hover:bg-[#20bd5a] shadow-lg'
+                    ? 'bg-slate-300 cursor-not-allowed'
+                    : 'bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 shadow-elevation-2 hover:shadow-elevation-3 transform hover:-translate-y-0.5'
                   }
                 `}
               >
-                <CheckCircle className="w-5 h-5" />
+                <CheckCircle className="w-6 h-6" />
                 Confirm Booking
               </button>
             )}

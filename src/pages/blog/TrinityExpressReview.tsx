@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Clock, Calendar, User, Star } from 'lucide-react';
@@ -12,16 +12,16 @@ const TrinityExpressReview = () => {
     "@type": "Article",
     "headline": "Trinity Express Bus Review 2025: Is It the Best Bus from Nairobi?",
     "description": "An honest review of Trinity Express Bus in 2025. Comfort, prices, punctuality, and how it compares to other bus companies on East African routes.",
-    "image": "https://traveltrinityexpress.online/assets/nairobi.jpg",
+    "image": "https://eattrinityexpress.site/assets/nairobi.jpg",
     "datePublished": publishDate,
     "dateModified": modifiedDate,
     "author": { "@type": "Organization", "name": "Trinity Express Bus" },
     "publisher": {
       "@type": "Organization",
       "name": "Trinity Express Bus",
-      "logo": { "@type": "ImageObject", "url": "https://traveltrinityexpress.online/assets/logo.jpeg" }
+      "logo": { "@type": "ImageObject", "url": "https://eattrinityexpress.site/assets/logo.jpeg" }
     },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://traveltrinityexpress.online/blog/trinity-express-bus-review" }
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://eattrinityexpress.site/blog/trinity-express-bus-review" }
   };
 
   const reviewSchema = {
@@ -30,7 +30,7 @@ const TrinityExpressReview = () => {
     "itemReviewed": {
       "@type": "LocalBusiness",
       "name": "Trinity Express Bus",
-      "url": "https://traveltrinityexpress.online"
+      "url": "https://eattrinityexpress.site"
     },
     "reviewRating": {
       "@type": "Rating",
@@ -55,12 +55,12 @@ const TrinityExpressReview = () => {
         <title>Trinity Express Bus Review 2025: Best Bus from Nairobi? | Trinity Express</title>
         <meta name="description" content="Honest Trinity Express Bus review for 2025. Comfort, prices, punctuality, online booking, and how it compares to other East Africa bus companies." />
         <meta name="keywords" content="Trinity Express Bus review, Trinity Express review 2025, best bus Nairobi to Kampala, Trinity Express vs other buses, East Africa bus company review, Trinity Express online booking review" />
-        <link rel="canonical" href="https://traveltrinityexpress.online/blog/trinity-express-bus-review" />
+        <link rel="canonical" href="https://eattrinityexpress.site/blog/trinity-express-bus-review" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Trinity Express Bus Review 2025: Is It the Best Bus from Nairobi?" />
         <meta property="og:description" content="Comfort, prices, punctuality, and online booking — a full review of Trinity Express Bus in 2025." />
-        <meta property="og:url" content="https://traveltrinityexpress.online/blog/trinity-express-bus-review" />
-        <meta property="og:image" content="https://traveltrinityexpress.online/assets/nairobi.jpg" />
+        <meta property="og:url" content="https://eattrinityexpress.site/blog/trinity-express-bus-review" />
+        <meta property="og:image" content="https://eattrinityexpress.site/assets/nairobi.jpg" />
         <meta property="article:published_time" content={publishDate} />
         <meta property="article:modified_time" content={modifiedDate} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>

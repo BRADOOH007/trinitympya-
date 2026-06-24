@@ -320,33 +320,66 @@ const AdminDashboard = () => {
               </div>
             </div>
 
-            {/* Side Panel: Security */}
-            <div className="space-y-8">
+            {/* Side Panel: Analytics + Security */}
+            <div className="space-y-6">
+              {/* Page Visits */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                <div className="p-6 border-b border-gray-100">
-                  <h2 className="text-lg font-bold text-gray-900">Security Watch</h2>
+                <div className="p-5 border-b border-gray-100 flex items-center justify-between">
+                  <h2 className="text-base font-bold text-gray-900">Page Visits</h2>
+                  <span className="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded-full">{stats.visits} total</span>
                 </div>
-                <div className="p-6">
-                  <div className="space-y-4">
-                    {stats.suspiciousIPs.map((item, idx) => (
-                      <div key={idx} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                        <div>
-                          <p className="font-mono text-sm text-gray-800">{item.ip}</p>
-                          <p className="text-xs text-red-500">{item.attempts} failed attempts</p>
+                <div className="p-4">
+                  {stats.topPages.length === 0 ? (
+                    <p className="text-sm text-gray-400 text-center py-4">No visits recorded yet</p>
+                  ) : (
+                    <div className="space-y-2">
+                      {stats.topPages.map((page: { path: string; views: number }, idx: number) => (
+                        <div key={idx} className="flex items-center justify-between">
+                          <span className="text-xs font-mono text-gray-600 truncate flex-1">{page.path}</span>
+                          <span className="text-xs font-bold text-blue-600 ml-2 shrink-0">{page.views}</span>
                         </div>
-                        <button 
-                          onClick={() => blockIP(item.ip)}
-                          className={`px-3 py-1 text-xs font-bold rounded-full transition-colors ${
-                            item.blocked 
-                              ? 'bg-red-100 text-red-600 hover:bg-red-200' 
-                              : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
-                          }`}
-                        >
-                          {item.blocked ? 'Unblock' : 'Block'}
-                        </button>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Security Watch */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div className="p-5 border-b border-gray-100 flex items-center justify-between">
+                  <h2 className="text-base font-bold text-gray-900">Security Watch</h2>
+                  <span className="bg-red-100 text-red-600 text-xs font-bold px-2 py-1 rounded-full">
+                    {stats.suspiciousIPs.filter((i: { blocked: boolean }) => !i.blocked).length} active
+                  </span>
+                </div>
+                <div className="p-4">
+                  {stats.suspiciousIPs.length === 0 ? (
+                    <p className="text-sm text-gray-400 text-center py-4">No suspicious activity detected</p>
+                  ) : (
+                    <div className="space-y-3">
+                      {stats.suspiciousIPs.map((item: { ip: string; attempts: number; blocked: boolean; lastSeen?: string }, idx: number) => (
+                        <div key={idx} className="p-3 bg-gray-50 rounded-lg border border-gray-100">
+                          <div className="flex items-center justify-between mb-1">
+                            <p className="font-mono text-xs text-gray-800 truncate flex-1">{item.ip}</p>
+                            <button
+                              onClick={() => blockIP(item.ip)}
+                              className={`ml-2 px-2 py-0.5 text-xs font-bold rounded-full shrink-0 transition-colors ${
+                                item.blocked
+                                  ? 'bg-red-100 text-red-600 hover:bg-red-200'
+                                  : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+                              }`}
+                            >
+                              {item.blocked ? 'Unblock' : 'Block'}
+                            </button>
+                          </div>
+                          <p className="text-xs text-red-500">{item.attempts} failed login attempt{item.attempts !== 1 ? 's' : ''}</p>
+                          {item.lastSeen && (
+                            <p className="text-xs text-gray-400 mt-0.5">{new Date(item.lastSeen).toLocaleString()}</p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

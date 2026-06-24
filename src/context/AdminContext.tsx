@@ -100,6 +100,7 @@ interface AdminContextType {
     totalBookings: number;
   };
   blockIP: (ip: string) => void;
+  recordSuspiciousActivity: (ip: string) => void;
 }
 
 const AdminContext = createContext<AdminContextType | undefined>(undefined);
@@ -133,22 +134,42 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     isLive: false
   });
   
-  // Stats (Keep local for now as per requirement scope)
-  const [stats, setStats] = useState({
-    visits: 12453,
-    topPages: [
-      { path: '/routes', views: 5432 },
-      { path: '/', views: 4123 },
-      { path: '/booking', views: 2100 },
-    ],
-    suspiciousIPs: [
-      { ip: '192.168.1.45', attempts: 5, blocked: false },
-      { ip: '10.0.0.12', attempts: 8, blocked: true },
-      { ip: '172.16.0.99', attempts: 3, blocked: false },
-    ],
-    totalRevenue: 0,
-    totalBookings: 0
-  });
+  // Stats - real tracking via localStorage
+  const loadStats = () => {
+    try {
+      const saved = localStorage.getItem('trinity_stats');
+      if (saved) return JSON.parse(saved);
+    } catch {}
+    return {
+      visits: 0,
+      topPages: [] as { path: string; views: number }[],
+      suspiciousIPs: [] as { ip: string; attempts: number; blocked: boolean; lastSeen: string }[],
+      totalRevenue: 0,
+      totalBookings: 0
+    };
+  };
+
+  const [stats, setStats] = useState(loadStats);
+
+  const persistStats = (newStats: typeof stats) => {
+    try { localStorage.setItem('trinity_stats', JSON.stringify(newStats)); } catch {}
+    setStats(newStats);
+  };
+
+  // Track page visit on mount
+  useEffect(() => {
+    const path = window.location.pathname;
+    setStats(prev => {
+      const existing = prev.topPages.find((p: { path: string; views: number }) => p.path === path);
+      const topPages = existing
+        ? prev.topPages.map((p: { path: string; views: number }) => p.path === path ? { ...p, views: p.views + 1 } : p)
+        : [...prev.topPages, { path, views: 1 }];
+      const sorted = topPages.sort((a: { path: string; views: number }, b: { path: string; views: number }) => b.views - a.views).slice(0, 10);
+      const updated = { ...prev, visits: prev.visits + 1, topPages: sorted };
+      try { localStorage.setItem('trinity_stats', JSON.stringify(updated)); } catch {}
+      return updated;
+    });
+  }, []);
 
   // Calculate revenue and booking stats whenever bookings change
   useEffect(() => {
@@ -407,6 +428,9 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       setIsAdmin(true);
       return true;
     }
+    // Record failed login attempt
+    const ip = 'unknown-' + Date.now(); // can't get real IP client-side, use timestamp as proxy
+    recordSuspiciousActivity(ip);
     return false;
   };
 
@@ -630,12 +654,30 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   const blockIP = (ip: string) => {
-    setStats(prev => ({
-      ...prev,
-      suspiciousIPs: prev.suspiciousIPs.map(item => 
-        item.ip === ip ? { ...item, blocked: !item.blocked } : item
-      )
-    }));
+    setStats(prev => {
+      const updated = {
+        ...prev,
+        suspiciousIPs: prev.suspiciousIPs.map((item: { ip: string; attempts: number; blocked: boolean; lastSeen: string }) =>
+          item.ip === ip ? { ...item, blocked: !item.blocked } : item
+        )
+      };
+      try { localStorage.setItem('trinity_stats', JSON.stringify(updated)); } catch {}
+      return updated;
+    });
+  };
+
+  const recordSuspiciousActivity = (ip: string) => {
+    setStats(prev => {
+      const existing = prev.suspiciousIPs.find((item: { ip: string }) => item.ip === ip);
+      const suspiciousIPs = existing
+        ? prev.suspiciousIPs.map((item: { ip: string; attempts: number; blocked: boolean; lastSeen: string }) =>
+            item.ip === ip ? { ...item, attempts: item.attempts + 1, lastSeen: new Date().toISOString() } : item
+          )
+        : [...prev.suspiciousIPs, { ip, attempts: 1, blocked: false, lastSeen: new Date().toISOString() }];
+      const updated = { ...prev, suspiciousIPs };
+      try { localStorage.setItem('trinity_stats', JSON.stringify(updated)); } catch {}
+      return updated;
+    });
   };
 
   const refreshBookings = async () => {
@@ -650,7 +692,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       contactInfo, updateContactInfo,
       paymentMethods, addPaymentMethod, removePaymentMethod,
       paymentSettings, updatePaymentSettings,
-      stats, blockIP 
+      stats, blockIP, recordSuspiciousActivity
     }}>
       {children}
     </AdminContext.Provider>

@@ -39,11 +39,11 @@ const NairobiJuba = () => {
         <title>Nairobi to Juba Bus | Book Online - Trinity Express Bus</title>
         <meta name="description" content="Book Nairobi to Juba bus tickets online with Trinity Express. Safe and reliable bus service from Kenya to South Sudan. Instant confirmation." />
         <meta name="keywords" content="Nairobi to Juba bus, Nairobi Juba bus ticket, bus from Nairobi to Juba, Trinity Express Nairobi Juba, South Sudan bus from Nairobi" />
-        <link rel="canonical" href="https://traveltrinityexpress.online/routes/nairobi-juba" />
+        <link rel="canonical" href="https://eattrinityexpress.site/routes/nairobi-juba" />
         <meta property="og:title" content="Nairobi to Juba Bus | Book Online - Trinity Express" />
         <meta property="og:description" content="Book Nairobi to Juba bus tickets online. Safe, reliable service from Kenya to South Sudan." />
-        <meta property="og:url" content="https://traveltrinityexpress.online/routes/nairobi-juba" />
-        <meta property="og:image" content="https://traveltrinityexpress.online/assets/juba.jpg" />
+        <meta property="og:url" content="https://eattrinityexpress.site/routes/nairobi-juba" />
+        <meta property="og:image" content="https://eattrinityexpress.site/assets/juba.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",

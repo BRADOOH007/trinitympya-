@@ -20,14 +20,14 @@ const NairobiKigaliTravelGuide = () => {
         <title>Nairobi to Kigali Bus: Complete 2025 Travel Guide | Trinity Express</title>
         <meta name="description" content="Everything you need to know about the Nairobi to Kigali bus in 2025. Prices from KSh 5,000, schedules, border tips via Kampala, and how to book online." />
         <meta name="keywords" content="Nairobi to Kigali bus 2025, Nairobi Kigali bus price, how to travel Nairobi to Kigali, Nairobi Kigali bus guide, Trinity Express Nairobi Kigali, Kenya Rwanda bus" />
-        <link rel="canonical" href="https://traveltrinityexpress.online/blog/nairobi-to-kigali-bus-travel-guide" />
+        <link rel="canonical" href="https://eattrinityexpress.site/blog/nairobi-to-kigali-bus-travel-guide" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Nairobi to Kigali Bus: Complete 2025 Travel Guide" />
         <meta property="og:description" content="Prices, schedules, border tips, and how to book your Nairobi to Kigali bus ticket online in 2025." />
-        <meta property="og:url" content="https://traveltrinityexpress.online/blog/nairobi-to-kigali-bus-travel-guide" />
-        <meta property="og:image" content="https://traveltrinityexpress.online/assets/kampala.jpg" />
+        <meta property="og:url" content="https://eattrinityexpress.site/blog/nairobi-to-kigali-bus-travel-guide" />
+        <meta property="og:image" content="https://eattrinityexpress.site/assets/kampala.jpg" />
         <meta property="article:published_time" content={publishDate} />
-        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Nairobi to Kigali Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://traveltrinityexpress.online/assets/logo.jpeg" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://traveltrinityexpress.online/blog/nairobi-to-kigali-bus-travel-guide" } })}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Nairobi to Kigali Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://eattrinityexpress.site/assets/logo.jpeg" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://eattrinityexpress.site/blog/nairobi-to-kigali-bus-travel-guide" } })}</script>
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
 

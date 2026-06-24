@@ -20,14 +20,14 @@ const KisumuKigaliTravelGuide = () => {
         <title>Kisumu to Kigali Bus: Complete 2025 Travel Guide | Trinity Express</title>
         <meta name="description" content="Everything you need to know about the Kisumu to Kigali bus in 2025. Prices from KSh 4,500, schedules, border tips, and how to book online with Trinity Express." />
         <meta name="keywords" content="Kisumu to Kigali bus, Kisumu Kigali bus ticket, bus from Kisumu to Kigali, Trinity Express Kisumu Kigali, Kisumu Rwanda bus, Kisumu to Kigali 2025" />
-        <link rel="canonical" href="https://traveltrinityexpress.online/blog/kisumu-to-kigali-bus-travel-guide" />
+        <link rel="canonical" href="https://eattrinityexpress.site/blog/kisumu-to-kigali-bus-travel-guide" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Kisumu to Kigali Bus: Complete 2025 Travel Guide" />
         <meta property="og:description" content="Prices, schedules, border tips, and how to book your Kisumu to Kigali bus ticket online in 2025." />
-        <meta property="og:url" content="https://traveltrinityexpress.online/blog/kisumu-to-kigali-bus-travel-guide" />
-        <meta property="og:image" content="https://traveltrinityexpress.online/assets/kampala.jpg" />
+        <meta property="og:url" content="https://eattrinityexpress.site/blog/kisumu-to-kigali-bus-travel-guide" />
+        <meta property="og:image" content="https://eattrinityexpress.site/assets/kampala.jpg" />
         <meta property="article:published_time" content={publishDate} />
-        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Kisumu to Kigali Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://traveltrinityexpress.online/assets/logo.jpeg" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://traveltrinityexpress.online/blog/kisumu-to-kigali-bus-travel-guide" } })}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Kisumu to Kigali Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://eattrinityexpress.site/assets/logo.jpeg" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://eattrinityexpress.site/blog/kisumu-to-kigali-bus-travel-guide" } })}</script>
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
 

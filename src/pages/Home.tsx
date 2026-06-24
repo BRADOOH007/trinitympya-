@@ -1,139 +1,238 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import Hero from '../components/home/Hero';
-import BookingWidget from '../components/home/BookingWidget';
-import BookingSteps from '../components/home/BookingSteps';
-import FeaturedRoutes from '../components/home/FeaturedRoutes';
-import ReadyToTravel from '../components/home/ReadyToTravel';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Shield, Clock, MapPin, Users, Star, Calendar, Bus } from 'lucide-react';
+import BookingModal from '../components/booking/BookingModal';
+import { useAdmin } from '../context/AdminContext';
 
 const Home = () => {
+  const { routes } = useAdmin();
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [selectedRoute, setSelectedRoute] = React.useState<typeof routes[0] | null>(null);
+
+  const features = [
+    { icon: Shield, title: 'Safe Travel', desc: 'Your safety is our top priority with trained drivers and maintained vehicles' },
+    { icon: Clock, title: 'On Time', desc: 'Punctual departures and arrivals you can always rely on' },
+    { icon: Users, title: 'Friendly Crew', desc: 'Professional staff dedicated to making your journey comfortable' },
+    { icon: MapPin, title: 'Wide Network', desc: 'Connecting major cities across East Africa' },
+  ];
+
+  const featuredRoutes = routes.slice(0, 6);
+
+  const handleBookRoute = (route: typeof routes[0]) => {
+    setSelectedRoute(route);
+    setIsModalOpen(true);
+  };
+
   return (
-    <div className="flex flex-col">
-      <Helmet>
-        <title>Trinity Express Bus - Book Online Bus Tickets | Nairobi, Kampala, Kigali</title>
-        <meta name="description" content="Book affordable and comfortable bus tickets online with Trinity Express. Daily departures from Nairobi to Kampala, Kigali, Juba, and more. Instant confirmation." />
-        <meta name="keywords" content="Trinity Express, Bus Booking Kenya, Nairobi to Kampala Bus, Kampala to Kigali Bus, Online Bus Ticket, Trinity Bus Online Booking" />
-        <link rel="canonical" href="https://traveltrinityexpress.online/" />
-        
-        {/* Structured Data for FAQ */}
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [{
-                "@type": "Question",
-                "name": "How do I book a Trinity Express bus ticket online?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "You can easily book your ticket on our homepage by selecting your origin, destination, and travel date. Click 'Search Buses', choose your seat, and pay via M-Pesa or Card."
-                }
-              }, {
-                "@type": "Question",
-                "name": "What routes does Trinity Express cover?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "We operate daily routes connecting Nairobi, Kampala, Kigali, Juba, Dar es Salaam, and Bukavu. We serve major cities across East Africa."
-                }
-              }, {
-                "@type": "Question",
-                "name": "Is it safe to travel with Trinity Express?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, passenger safety is our top priority. We have professional drivers, well-maintained modern buses, and 24/7 customer support."
-                }
-              }]
-            }
-          `}
-        </script>
-      </Helmet>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-secondary-50 to-slate-50">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-100 to-transparent opacity-50"></div>
 
-      <Hero />
-      <div className="container mx-auto px-4">
-        <BookingWidget />
-      </div>
-      
-      <BookingSteps />
-
-      <FeaturedRoutes />
-
-      <ReadyToTravel />
-
-      {/* SEO Content Section */}
-      <section className="bg-gradient-to-b from-white to-gray-50 py-24 relative overflow-hidden">
-        {/* Decorative Background Elements */}
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50"></div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            
-            {/* Main Heading */}
-            <div className="text-center mb-16">
-              <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-700 text-sm font-bold mb-4 tracking-wide uppercase">
-                Premium Travel Experience
-              </span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-                The Best Way to Travel <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A8A] to-[#1E88E5]">Across East Africa</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                Welcome to <strong className="text-[#1E3A8A]">Trinity Express Bus</strong>, where your journey matters as much as your destination. Connecting <strong>Nairobi, Kampala, Kigali, Juba, and Dar es Salaam</strong> with unmatched comfort.
-              </p>
-            </div>
-
-            {/* Content Grid */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                <div className="absolute inset-0 bg-blue-600 rounded-2xl rotate-3 opacity-10"></div>
-                <img 
-                  src="/assets/juba.jpg"
-                  alt="Luxury Bus Interior" 
-                  className="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover transform transition-transform hover:scale-[1.02] duration-500"
-                />
-                <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border border-gray-100 hidden md:block">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-500 font-semibold uppercase">Customer Rating</p>
-                      <p className="text-2xl font-bold text-gray-900">4.9/5.0</p>
-                    </div>
-                  </div>
-                </div>
+        <div className="container-wide py-20 lg:py-28">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100 text-primary-700 rounded-full font-semibold text-sm">
+                <Star className="w-4 h-4 fill-primary-600" />
+                East Africa's Trusted Bus Service
               </div>
 
-              <div className="space-y-8">
-                <h3 className="text-3xl font-bold text-gray-900">Why Choose Trinity Express?</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  Our <strong>online bus booking system</strong> revolutionizes how you travel. Skip the long queues and secure your ticket in just 3 simple steps from the comfort of your home.
-                </p>
-                
-                <div className="grid gap-6">
-                  {[
-                    { title: "Modern Fleet", desc: "Air-conditioned buses with extra legroom & charging ports.", icon: "🚌", color: "bg-blue-100 text-blue-600" },
-                    { title: "Affordable Rates", desc: "Competitive pricing for all international routes.", icon: "💰", color: "bg-green-100 text-green-600" },
-                    { title: "Daily Departures", desc: "Flexible schedules to suit your travel plans.", icon: "🗓️", color: "bg-orange-100 text-orange-600" },
-                    { title: "Professional Crew", desc: "Experienced drivers dedicated to your safety.", icon: "👨‍✈️", color: "bg-purple-100 text-purple-600" }
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-4 p-4 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-100">
-                      <div className={`w-12 h-12 ${item.color} rounded-lg flex items-center justify-center text-xl shrink-0`}>
-                        {item.icon}
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-900 text-lg">{item.title}</h4>
-                        <p className="text-gray-600">{item.desc}</p>
-                      </div>
-                    </div>
+              <h1 className="title-display">
+                Travel with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">Confidence</span>
+              </h1>
+
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Experience safe, comfortable, and affordable travel across East Africa.
+                Daily departures, modern buses, and friendly service.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/routes" className="btn-primary text-lg py-4 px-8">
+                  Book Your Journey <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link to="/about" className="btn-outline text-lg py-4 px-8">
+                  Learn More
+                </Link>
+              </div>
+
+              <div className="flex items-center gap-6 pt-4">
+                <div className="flex -space-x-3">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gradient-to-br from-primary-400 to-secondary-400 flex items-center justify-center text-white font-bold text-xs"></div>
                   ))}
                 </div>
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-1">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-slate-600 font-medium">10,000+ Happy Travelers</p>
+                </div>
               </div>
             </div>
 
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-3xl blur-3xl opacity-50"></div>
+              <img
+                src="/assets/nairobi.jpg"
+                alt="Trinity Express Bus"
+                className="relative w-full h-[500px] object-cover rounded-3xl shadow-elevation-4"
+              />
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Features Section */}
+      <section className="section bg-white">
+        <div className="container-wide">
+          <div className="section-header">
+            <p className="section-subtitle">Why Choose Trinity</p>
+            <h2 className="title-section text-slate-900 mb-4">Your Journey, Our Priority</h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              We are committed to providing a seamless and comfortable travel experience
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="card-modern p-8 text-center hover:-translate-y-1 transition-all">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-primary-600">
+                  <feature.icon className="w-8 h-8" />
+                </div>
+                <h3 className="title-card mb-3">{feature.title}</h3>
+                <p className="text-slate-600">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Routes Section - COMPLETELY REVAMPED */}
+      <section className="section bg-slate-900 text-white overflow-hidden relative">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-600/20 rounded-full blur-3xl"></div>
+
+        <div className="container-wide relative z-10">
+          <div className="section-header">
+            <p className="text-primary-400 font-semibold uppercase tracking-widest text-sm mb-3">Featured Routes</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Explore Our Top Destinations</h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              Daily departures to the most popular cities across East Africa
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredRoutes.map((route, _index) => (
+              <div 
+                key={route.id} 
+                className="group relative bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:border-primary-500/50 transition-all duration-300 overflow-hidden"
+              >
+                {/* Decorative gradient line */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-500 to-secondary-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+
+                {/* Route header */}
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center gap-3">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500/20 to-secondary-500/20 flex items-center justify-center text-primary-400">
+                      <Bus className="w-7 h-7" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-slate-400 uppercase tracking-wider font-medium">Direct Route</p>
+                      <p className="text-xs text-slate-500">{route.duration}</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-slate-400">From</p>
+                    <p className="text-3xl font-extrabold text-primary-400">{route.price}</p>
+                  </div>
+                </div>
+
+                {/* From → To */}
+                <div className="flex items-center justify-between mb-8">
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold text-white">{route.origin}</h3>
+                    <p className="text-sm text-slate-500">{route.country_origin}</p>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 px-6">
+                    <div className="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
+                      <ArrowRight className="w-5 h-5" />
+                    </div>
+                    <div className="flex gap-1">
+                      {[1,2,3,4].map(i => (
+                        <div key={i} className="w-1 h-1 rounded-full bg-slate-500"></div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold text-white">{route.destination}</h3>
+                    <p className="text-sm text-slate-500">{route.country_dest}</p>
+                  </div>
+                </div>
+
+                {/* Book button */}
+                <button
+                  onClick={() => handleBookRoute(route)}
+                  className="w-full py-4 bg-white text-slate-900 font-bold rounded-2xl hover:bg-primary-500 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-elevation-3"
+                >
+                  <Calendar className="w-5 h-5" />
+                  Book Now
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/routes" className="inline-flex items-center gap-3 px-8 py-4 bg-primary-500 text-white font-bold rounded-2xl hover:bg-primary-600 transition-all duration-300 text-lg shadow-elevation-3">
+              View All Routes
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Booking CTA */}
+      <section className="section bg-white">
+        <div className="container-wide">
+          <div className="card-elevated bg-gradient-to-br from-primary-500 to-secondary-600 text-white p-12 rounded-3xl">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-4xl font-bold mb-4">Ready to Book Your Journey?</h2>
+                <p className="text-xl opacity-90 mb-8">
+                  Get instant booking confirmation via WhatsApp
+                </p>
+                <Link to="/routes" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary-700 font-bold rounded-2xl hover:bg-slate-50 transition-all duration-300 text-lg shadow-elevation-3">
+                  Explore All Routes
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
+              <div className="hidden lg:flex items-center justify-center">
+                <div className="flex gap-4">
+                  <div className="flex flex-col gap-4 animate-bounce">
+                    <div className="w-24 h-24 bg-white/20 rounded-2xl"></div>
+                    <div className="w-24 h-24 bg-white/20 rounded-2xl"></div>
+                  </div>
+                  <div className="flex flex-col gap-4 pt-8">
+                    <div className="w-24 h-24 bg-white/20 rounded-2xl"></div>
+                    <div className="w-24 h-24 bg-white/20 rounded-2xl"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Modal */}
+      {selectedRoute && (
+        <BookingModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          route={selectedRoute}
+        />
+      )}
     </div>
   );
 };
