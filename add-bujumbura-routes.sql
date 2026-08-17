@@ -2,12 +2,12 @@
 -- Run this SQL in your Supabase SQL Editor
 
 -- Check if routes already exist
-SELECT * FROM public.trinity_routes 
+SELECT * FROM public.simba_routes 
 WHERE (origin = 'Bujumbura' AND destination = 'Nairobi') 
    OR (origin = 'Nairobi' AND destination = 'Bujumbura');
 
 -- Insert Bujumbura to Nairobi route (if not exists)
-INSERT INTO public.trinity_routes (
+INSERT INTO public.simba_routes (
   origin, 
   country_origin, 
   destination, 
@@ -36,7 +36,7 @@ VALUES (
 ON CONFLICT DO NOTHING;
 
 -- Insert Nairobi to Bujumbura route (reverse - if not exists)
-INSERT INTO public.trinity_routes (
+INSERT INTO public.simba_routes (
   origin, 
   country_origin, 
   destination, 
@@ -66,7 +66,7 @@ ON CONFLICT DO NOTHING;
 
 -- Verify the routes were added
 SELECT id, origin, destination, price, vip_price, next_bus 
-FROM public.trinity_routes 
+FROM public.simba_routes 
 WHERE (origin = 'Bujumbura' AND destination = 'Nairobi') 
    OR (origin = 'Nairobi' AND destination = 'Bujumbura')
 ORDER BY origin;

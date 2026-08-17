@@ -1,65 +1,49 @@
-import { useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
-import Navbar from '../components/layout/Navbar';
+import { useEffect, useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import AppHeader from '../components/layout/AppHeader';
+import BottomNav from '../components/layout/BottomNav';
 import Footer from '../components/layout/Footer';
+import Chatbot from '../components/chat/Chatbot';
 
 const Layout = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const location = useLocation();
+
   useEffect(() => {
-    // Disable right-click context menu
-    const handleContextMenu = (e: MouseEvent) => {
-      e.preventDefault();
-      return false;
-    };
+    setDrawerOpen(false);
+  }, [location.pathname]);
 
-    // Disable common keyboard shortcuts for copying/inspecting
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Disable Ctrl+U (view source)
-      if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
-        e.preventDefault();
-        return false;
-      }
-
-      // Disable Ctrl+Shift+I (inspect)
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'I') {
-        e.preventDefault();
-        return false;
-      }
-
-      // Disable Ctrl+Shift+C (inspect element)
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
-        e.preventDefault();
-        return false;
-      }
-
-      // Disable Ctrl+Shift+J (console)
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'J') {
-        e.preventDefault();
-        return false;
-      }
-
-      // Disable F12 (dev tools)
-      if (e.key === 'F12') {
-        e.preventDefault();
-        return false;
-      }
-    };
-
-    document.addEventListener('contextmenu', handleContextMenu);
-    document.addEventListener('keydown', handleKeyDown);
-
+  useEffect(() => {
+    document.body.style.overflow = drawerOpen ? 'hidden' : '';
     return () => {
-      document.removeEventListener('contextmenu', handleContextMenu);
-      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
     };
-  }, []);
+  }, [drawerOpen]);
 
   return (
     <div className="flex flex-col min-h-screen select-none">
-      <Navbar />
-      <main className="flex-grow">
-        <Outlet />
-      </main>
-      <Footer />
+      {/* Top Announcement Banner */}
+      <div className="bg-[#151515] text-white text-center text-xs py-2.5 px-4 font-semibold flex items-center justify-center gap-2 border-b border-neutral-700">
+        <span className="text-amber-400 text-base leading-none">🎉</span>
+        <span>Receive up to 25% discount when you book with our website!</span>
+      </div>
+
+      {/* Header */}
+      <AppHeader drawerOpen={drawerOpen} onToggleDrawer={() => setDrawerOpen(v => !v)} />
+
+      {/* App Container */}
+      <div className="w-full md:max-w-md mx-auto bg-white md:shadow-2xl md:shadow-slate-200/80 md:border md:border-white/60 relative min-h-screen md:min-h-[85vh] md:rounded-3xl md:my-6 pb-24 flex-1">
+        <main className="min-h-screen">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+
+      {/* Bottom Navigation */}
+      <BottomNav />
+
+      {/* Chatbot */}
+      <Chatbot />
     </div>
   );
 };

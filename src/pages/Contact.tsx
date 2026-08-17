@@ -51,9 +51,8 @@ const Contact = () => {
             </div>
             <h3 className="title-card mb-4">Call Us</h3>
             <div className="space-y-2 text-slate-600">
-              <p className="font-medium">+256 747 180552 (Kampala)</p>
-              <p className="font-medium">+254 755 356109 (Nairobi)</p>
-              <p className="font-medium">+254 751 115139 (Nairobi)</p>
+              <p className="font-medium">+254 781 346337 (Nairobi)</p>
+              <p className="font-medium">+254 735 893829 (Nairobi)</p>
             </div>
           </div>
 
@@ -63,7 +62,7 @@ const Contact = () => {
             </div>
             <h3 className="title-card mb-4">WhatsApp Us</h3>
             <div className="space-y-2">
-              <a href="https://wa.me/254755356109" className="text-slate-600 hover:text-green-600 font-medium">+254 755 356109</a>
+              <a href="https://wa.me/254735893829" className="text-slate-600 hover:text-green-600 font-medium">+254 735 893829</a>
             </div>
           </div>
 
@@ -73,8 +72,8 @@ const Contact = () => {
             </div>
             <h3 className="title-card mb-4">Email Us</h3>
             <div className="space-y-2">
-              <a href="mailto:info@trinityexpress.com" className="text-slate-600 hover:text-primary-600 font-medium">info@trinityexpress.com</a>
-              <a href="mailto:support@trinityexpress.com" className="text-slate-600 hover:text-primary-600 font-medium">support@trinityexpress.com</a>
+              <a href="mailto:info@simbacoach.com" className="text-slate-600 hover:text-primary-600 font-medium">info@simbacoach.com</a>
+              <a href="mailto:info@simbacoach.co.ke" className="text-slate-600 hover:text-primary-600 font-medium">info@simbacoach.co.ke</a>
             </div>
           </div>
 
@@ -84,9 +83,8 @@ const Contact = () => {
             </div>
             <h3 className="title-card mb-4">Visit Us</h3>
             <div className="space-y-2 text-slate-600">
-              <p className="font-medium">Duruma Road, Nairobi</p>
-              <p className="font-medium">Namirembe Road, Kampala</p>
-              <p className="font-medium">Nyabugogo, Kigali</p>
+              <p className="font-medium">Nairobi, Kenya</p>
+              <p className="font-medium">Kampala, Uganda</p>
             </div>
           </div>
         </div>
@@ -190,7 +188,7 @@ const Contact = () => {
             ></iframe>
             <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-elevation-3 border-l-4 border-primary-600">
               <h4 className="font-bold text-slate-900 mb-2">Our Office</h4>
-              <p className="text-slate-600 text-sm mb-3">Trinity Express Office, Nairobi</p>
+              <p className="text-slate-600 text-sm mb-3">SimbaCoach Office, Nairobi</p>
               <div className="flex items-center text-sm text-primary-600 font-medium">
                 <Clock className="w-4 h-4 mr-2" />
                 Open daily from 6:00 AM to 10:00 PM

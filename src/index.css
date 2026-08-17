@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply bg-slate-50 text-slate-800 font-sans;
+    @apply bg-gradient-to-tr from-slate-100 via-slate-50 to-blue-50/40 text-slate-800 font-sans;
   }
 }
 
@@ -28,6 +28,44 @@
   }
   .shadow-elevation-4 {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: .4; }
+    50% { opacity: 1; }
+  }
+  .pulse-dot { animation: pulse-dot 1.4s infinite both; }
+  .pulse-dot:nth-child(2) { animation-delay: .2s; }
+  .pulse-dot:nth-child(3) { animation-delay: .4s; }
+
+  @keyframes slide-up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  .animate-slide-up { animation: slide-up 0.3s ease-out; }
+
+  @keyframes route-flow {
+    0% { stroke-dashoffset: 0; opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { stroke-dashoffset: -20; opacity: 0.6; }
+  }
+  .animate-route-flow {
+    stroke-dasharray: 4 4;
+    animation: route-flow 6s linear infinite;
+  }
+
+  @keyframes map-ripple {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+  .map-ripple {
+    animation: map-ripple 2s ease-out infinite;
   }
 }
 
@@ -87,5 +125,79 @@
 
   .section-subtitle {
     @apply text-primary-600 font-semibold uppercase tracking-widest text-sm mb-3;
+  }
+
+  /* Bus seat map */
+  .bus-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  .seat-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+  .seat-aisle {
+    width: 0.75rem;
+    flex: 0 0 auto;
+  }
+  .seat-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 3rem;
+    height: 2.4rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+  .seat-btn svg {
+    width: 1.55rem;
+    height: 1.55rem;
+  }
+  .seat-btn .seat-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: #1f2937;
+    pointer-events: none;
+  }
+  .seat-btn.vip svg {
+    color: #ffb000;
+  }
+  .seat-btn.exec svg {
+    color: #3b82f6;
+  }
+  .seat-btn.normal svg {
+    color: #111827;
+  }
+  .seat-btn.selected {
+    background: #16a34a;
+    border-color: #16a34a;
+  }
+  .seat-btn.selected svg {
+    color: #fff;
+  }
+  .seat-btn.selected .seat-label {
+    color: #fff;
+  }
+  .seat-btn.booked,
+  .seat-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    background: #f3f4f6;
+  }
+  .seat-btn:hover:not(.booked):not(:disabled) {
+    transform: scale(1.05);
   }
 }

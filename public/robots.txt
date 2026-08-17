@@ -8,7 +8,7 @@ Disallow: /api/
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://eattrinityexpress.site/sitemap.xml
+Sitemap: https://simbacoachbus.online/sitemap.xml
 
 # Allow all major search engines
 User-agent: Googlebot

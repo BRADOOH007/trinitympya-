@@ -80,7 +80,7 @@ const FeaturedRoutes = () => {
             <div key={route.id} className="bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group border border-gray-100">
               <div className="h-56 overflow-hidden relative">
                 <OptimizedImage 
-                  src={route.image || '/assets/nairobi.jpg'} 
+                  src={route.image || '/assets/simba-bus-1.webp'} 
                   alt={`${route.origin} to ${route.destination}`} 
                   className="w-full h-full transform group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
@@ -98,12 +98,9 @@ const FeaturedRoutes = () => {
                 <div className="absolute bottom-4 left-4 text-white">
                   <p className="text-xs font-medium uppercase tracking-wider opacity-90 mb-1">Starting from</p>
                   <p className="text-2xl font-bold">{route.price}</p>
-                  <p className="text-xs opacity-75 mt-1">VIP: {(() => {
-                    const basePrice = parseFloat(route.price.replace(/[^0-9.]/g, ''));
-                    const vipPrice = basePrice + 1500;
-                    const currency = route.price.includes('UGX') ? 'UGX' : route.price.includes('RWF') ? 'RWF' : route.price.includes('USD') ? 'USD' : 'KSh';
-                    return `${currency} ${vipPrice.toLocaleString()}`;
-                  })()}</p>
+                  {route.vip_price && (
+                    <p className="text-xs opacity-75 mt-1">VIP: {route.vip_price}</p>
+                  )}
                 </div>
               </div>
               

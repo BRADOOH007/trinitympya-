@@ -36,7 +36,8 @@ const ReturnTripModal = ({ isOpen, onClose, onBookReturn, outboundRoute, returnR
     if (priceStr.includes('UGX')) return 'UGX';
     if (priceStr.includes('RWF')) return 'RWF';
     if (priceStr.includes('USD')) return 'USD';
-    return 'KSh';
+    if (priceStr.includes('KES') || priceStr.includes('KSh')) return 'KES';
+    return 'KES';
   };
 
   const returnPrice = getPrice(returnRoute.price);

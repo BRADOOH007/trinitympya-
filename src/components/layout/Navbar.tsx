@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, User, ArrowRight } from 'lucide-react';
-import logo from '../../assets/logo.jpeg';
+import logo from '../../assets/logo.webp';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,13 +25,13 @@ const Navbar = () => {
             <div className="w-12 h-12 rounded-2xl overflow-hidden shadow-elevation-2 bg-white p-1">
               <img
                 src={logo}
-                alt="Trinity Express"
+                alt="SimbaCoach"
                 className="w-full h-full object-cover rounded-xl"
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Trinity</span>
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-[0.15em]">Express</span>
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">SimbaCoach</span>
+              <span className="text-xs font-semibold text-slate-500 uppercase tracking-[0.15em]">The Pride of Travellers</span>
             </div>
           </Link>
 

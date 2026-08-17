@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Clock, Calendar, User } from 'lucide-react';
@@ -7,27 +7,27 @@ const EldoretKampalaTravelGuide = () => {
   const publishDate = '2025-05-17';
 
   const faqs = [
-    { q: 'How long is the Eldoret to Kampala bus journey?', a: 'The Eldoret to Kampala bus journey takes approximately 7–9 hours. Eldoret is close to the Malaba border, making this one of the quickest routes to Kampala from Kenya.' },
-    { q: 'What is the price of an Eldoret to Kampala bus ticket?', a: 'Trinity Express bus tickets from Eldoret to Kampala start from KSh 2,000 for standard class and KSh 3,500 for VIP.' },
+    { q: 'How long is the Eldoret to Kampala bus journey?', a: 'The Eldoret to Kampala bus journey takes approximately 7â€“9 hours. Eldoret is close to the Malaba border, making this one of the quickest routes to Kampala from Kenya.' },
+    { q: 'What is the price of an Eldoret to Kampala bus ticket?', a: 'SimbaCoach bus tickets from Eldoret to Kampala start from KSh 2,000 for standard class and KSh 3,500 for VIP.' },
     { q: 'Which border does the Eldoret to Kampala bus cross?', a: 'The bus crosses at the Malaba border between Kenya and Uganda, which is the closest border crossing to Eldoret.' },
-    { q: 'Where does the bus depart from in Eldoret?', a: 'Buses depart from the Trinity Express terminal in Eldoret town centre. We recommend arriving 30 minutes before departure.' },
-    { q: 'Can I book an Eldoret to Kampala bus ticket online?', a: 'Yes. Book on the Trinity Express website, choose your date and seat, and pay via M-Pesa or card for instant confirmation.' },
+    { q: 'Where does the bus depart from in Eldoret?', a: 'Buses depart from the SimbaCoach terminal in Eldoret town centre. We recommend arriving 30 minutes before departure.' },
+    { q: 'Can I book an Eldoret to Kampala bus ticket online?', a: 'Yes. Book on the SimbaCoach website, choose your date and seat, and pay via M-Pesa or card for instant confirmation.' },
   ];
 
   return (
     <div className="bg-gray-50 min-h-screen">
       <Helmet>
-        <title>Eldoret to Kampala Bus: Complete 2025 Travel Guide | Trinity Express</title>
+        <title>Eldoret to Kampala Bus: Complete 2025 Travel Guide | SimbaCoach</title>
         <meta name="description" content="Everything you need to know about the Eldoret to Kampala bus in 2025. Prices from KSh 2,000, schedules, Malaba border tips, and how to book online." />
-        <meta name="keywords" content="Eldoret to Kampala bus, Eldoret Kampala bus ticket, bus from Eldoret to Kampala, Trinity Express Eldoret Kampala, Eldoret Uganda bus, Eldoret to Kampala 2025" />
-        <link rel="canonical" href="https://eattrinityexpress.site/blog/eldoret-to-kampala-bus-travel-guide" />
+        <meta name="keywords" content="Eldoret to Kampala bus, Eldoret Kampala bus ticket, bus from Eldoret to Kampala, SimbaCoach Eldoret Kampala, Eldoret Uganda bus, Eldoret to Kampala 2025" />
+        <link rel="canonical" href="https://simbacoachbus.online/blog/eldoret-to-kampala-bus-travel-guide" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Eldoret to Kampala Bus: Complete 2025 Travel Guide" />
         <meta property="og:description" content="Prices, schedules, Malaba border tips, and how to book your Eldoret to Kampala bus ticket online in 2025." />
-        <meta property="og:url" content="https://eattrinityexpress.site/blog/eldoret-to-kampala-bus-travel-guide" />
-        <meta property="og:image" content="https://eattrinityexpress.site/assets/kampala.jpg" />
+        <meta property="og:url" content="https://simbacoachbus.online/blog/eldoret-to-kampala-bus-travel-guide" />
+        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-bus-hero-80XU48vz.webp" />
         <meta property="article:published_time" content={publishDate} />
-        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Eldoret to Kampala Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "Trinity Express Bus" }, "publisher": { "@type": "Organization", "name": "Trinity Express Bus", "logo": { "@type": "ImageObject", "url": "https://eattrinityexpress.site/assets/logo.jpeg" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://eattrinityexpress.site/blog/eldoret-to-kampala-bus-travel-guide" } })}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Eldoret to Kampala Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "SimbaCoach Bus" }, "publisher": { "@type": "Organization", "name": "SimbaCoach Bus", "logo": { "@type": "ImageObject", "url": "https://simbacoachbus.online/assets/logo.webp" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://simbacoachbus.online/blog/eldoret-to-kampala-bus-travel-guide" } })}</script>
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
 
@@ -42,11 +42,11 @@ const EldoretKampalaTravelGuide = () => {
           </nav>
           <div className="flex items-center gap-4 text-sm text-blue-300 mb-4 flex-wrap">
             <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> April 24, 2025</span>
-            <span className="flex items-center gap-1"><User className="w-4 h-4" /> Trinity Express Team</span>
+            <span className="flex items-center gap-1"><User className="w-4 h-4" /> SimbaCoach Team</span>
             <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> 6 min read</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">Eldoret to Kampala Bus: Complete 2025 Travel Guide</h1>
-          <p className="text-xl text-blue-200">Prices, schedules, Malaba border tips, and everything you need for a smooth Eldoret–Kampala journey.</p>
+          <p className="text-xl text-blue-200">Prices, schedules, Malaba border tips, and everything you need for a smooth Eldoretâ€“Kampala journey.</p>
         </div>
       </div>
 
@@ -59,7 +59,7 @@ const EldoretKampalaTravelGuide = () => {
 
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">How Long Does the Journey Take?</h2>
-            <p className="text-gray-600 leading-relaxed">The Eldoret to Kampala bus takes approximately <strong>7–9 hours</strong>. The route crosses into Uganda at the Malaba border. Trinity Express operates daily departures from Eldoret.</p>
+            <p className="text-gray-600 leading-relaxed">The Eldoret to Kampala bus takes approximately <strong>7â€“9 hours</strong>. The route crosses into Uganda at the Malaba border. SimbaCoach operates daily departures from Eldoret.</p>
           </div>
 
           <div>
@@ -80,7 +80,7 @@ const EldoretKampalaTravelGuide = () => {
             <ul className="list-disc pl-6 space-y-2 text-gray-600">
               <li><strong>Documents:</strong> Valid passport or EAC travel document. Kenyan and Ugandan nationals can use national IDs.</li>
               <li><strong>Yellow fever certificate:</strong> Required for entry into Uganda.</li>
-              <li><strong>Border wait time:</strong> Usually 30–60 minutes at Malaba.</li>
+              <li><strong>Border wait time:</strong> Usually 30â€“60 minutes at Malaba.</li>
               <li><strong>Currency:</strong> Ugandan Shillings (UGX) are used in Kampala.</li>
             </ul>
           </div>
@@ -98,7 +98,7 @@ const EldoretKampalaTravelGuide = () => {
           </div>
 
           <div className="bg-[#1E3A8A] rounded-2xl p-8 text-center text-white">
-            <h3 className="text-2xl font-bold mb-3">Book Your Eldoret → Kampala Seat</h3>
+            <h3 className="text-2xl font-bold mb-3">Book Your Eldoret â†’ Kampala Seat</h3>
             <p className="text-blue-200 mb-6">Daily departures. Instant confirmation.</p>
             <Link to="/routes" state={{ origin: 'Eldoret', destination: 'Kampala' }} className="inline-block px-8 py-4 bg-gradient-to-r from-[#F97316] to-[#FB923C] text-white font-bold rounded-xl shadow-lg transition-all">
               Book Now

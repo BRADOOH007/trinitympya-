@@ -74,6 +74,7 @@ const RoutesPage = () => {
     } else if (!searchParams) {
       setFilteredRoutes(routes);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.state, routes]);
 
   const handleClearSearch = () => {
@@ -204,6 +205,11 @@ const RoutesPage = () => {
                     <div className="text-center md:text-right">
                       <p className="text-sm text-slate-500">Starting from</p>
                       <p className="text-3xl font-extrabold text-primary-600">{route.price}</p>
+                      {route.executive_price && (
+                        <p className="text-xs text-secondary-600 font-bold mt-1">
+                          Executive: {route.executive_price}
+                        </p>
+                      )}
                       {route.vip_price && (
                         <p className="text-xs text-secondary-600 font-bold mt-1">
                           VIP: {route.vip_price}

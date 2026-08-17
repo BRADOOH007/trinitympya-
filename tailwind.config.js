@@ -9,35 +9,44 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#FFF5E6',
-          100: '#FFE4C0',
-          200: '#FFC680',
-          300: '#FFA840',
-          400: '#FF8A00',
-          500: '#E67700',
-          600: '#CC6600',
-          700: '#994C00',
-          800: '#663300',
-          900: '#331A00'
+          50: '#EEF2F8',
+          100: '#DCE5F2',
+          200: '#B3C5E1',
+          300: '#8AA6CF',
+          400: '#547FBD',
+          500: '#2C5AA0',
+          600: '#36498C',
+          700: '#092752',
+          800: '#1A2A5E',
+          900: '#04101F'
         },
         secondary: {
-          50: '#F0F9FF',
-          100: '#E0F2FE',
-          200: '#BAE6FD',
-          300: '#7DD3FC',
-          400: '#38BDF8',
-          500: '#0EA5E9',
-          600: '#0284C7',
-          700: '#0369A1',
-          800: '#075985',
-          900: '#0C4A6E'
+          50: '#FEF1F0',
+          100: '#FDE3E1',
+          200: '#FAC6C1',
+          300: '#F59E95',
+          400: '#EF6A5E',
+          500: '#CC0000',
+          600: '#C92A1E',
+          700: '#A3241A',
+          800: '#7C1C15',
+          900: '#561310'
         },
-        dark: '#0F172A',
-        darker: '#020617'
+        gold: {
+          400: '#F7C84B',
+          500: '#FFB000',
+          600: '#D99E14'
+        },
+        ink: '#151515',
+        navy: '#36498C',
+        brandred: '#CC0000',
+        wagreen: '#00A859',
+        dark: '#0B2B5A',
+        darker: '#04101F'
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-        display: ['"Poppins"', 'system-ui', 'sans-serif']
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        display: ['"Inter"', 'system-ui', 'sans-serif']
       },
       boxShadow: {
         'elevation-1': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',

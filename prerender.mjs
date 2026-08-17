@@ -30,7 +30,7 @@ const routes = [
   '/blog/eldoret-to-kampala-bus-travel-guide',
   '/blog/eldoret-to-kigali-bus-travel-guide',
   '/blog/nakuru-to-kampala-bus-travel-guide',
-  '/blog/trinity-express-bus-review',
+  '/blog/simba-bus-review',
   '/privacy-policy',
   '/terms',
 ];

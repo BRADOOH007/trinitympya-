@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
+import { simbaRoutes } from '../data/simbaRoutes';
 
 // Types
 export interface Route {
@@ -9,12 +10,14 @@ export interface Route {
   destination: string;
   country_dest?: string;
   price: string;
+  executive_price?: string;
   vip_price?: string;
   duration: string;
   country?: string;
   image?: string;
   rating?: number;
   nextBus?: string; // Mapped to next_bus in DB
+  departures?: string[];
 }
 
 export interface Booking {
@@ -107,13 +110,13 @@ const AdminContext = createContext<AdminContextType | undefined>(undefined);
 
 // Default Fallback Data (used only while loading or if DB is empty/error)
 const defaultContactInfo: ContactInfo = {
-  phoneKE: '+254 751 494 564',
+  phoneKE: '+254 781 346 337',
   phoneUG: '+256 747 180 552',
   phoneRW: '+250 735 589 845',
-  whatsapp: '+254 755 356 109',
-  email: 'Trinityexpressbus@gmail.com',
-  addressKE: 'Duruma Road, Nairobi, Kenya',
-  addressUG: 'Namirembe Road, Bakuli, Kampala',
+  whatsapp: '+254 735 893 829',
+  email: 'info@simbacoach.com',
+  addressKE: 'Nairobi, Kenya',
+  addressUG: 'Kampala, Uganda',
 };
 
 export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -123,7 +126,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return saved === 'true';
   });
 
-  const [routes, setRoutes] = useState<Route[]>([]);
+  const [routes, setRoutes] = useState<Route[]>(() => simbaRoutes as unknown as Route[]);
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [contactInfo, setContactInfo] = useState<ContactInfo>(defaultContactInfo);
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
@@ -137,9 +140,11 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   // Stats - real tracking via localStorage
   const loadStats = () => {
     try {
-      const saved = localStorage.getItem('trinity_stats');
+      const saved = localStorage.getItem('simba_stats');
       if (saved) return JSON.parse(saved);
-    } catch {}
+    } catch {
+      // fall through to defaults
+    }
     return {
       visits: 0,
       topPages: [] as { path: string; views: number }[],
@@ -151,11 +156,6 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const [stats, setStats] = useState(loadStats);
 
-  const persistStats = (newStats: typeof stats) => {
-    try { localStorage.setItem('trinity_stats', JSON.stringify(newStats)); } catch {}
-    setStats(newStats);
-  };
-
   // Track page visit on mount
   useEffect(() => {
     const path = window.location.pathname;
@@ -166,7 +166,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         : [...prev.topPages, { path, views: 1 }];
       const sorted = topPages.sort((a: { path: string; views: number }, b: { path: string; views: number }) => b.views - a.views).slice(0, 10);
       const updated = { ...prev, visits: prev.visits + 1, topPages: sorted };
-      try { localStorage.setItem('trinity_stats', JSON.stringify(updated)); } catch {}
+      try { localStorage.setItem('simba_stats', JSON.stringify(updated)); } catch { /* ignore */ }
       return updated;
     });
   }, []);
@@ -198,26 +198,14 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     
     // Try to seed routes - if table doesn't exist, user needs to run SQL manually
     const { error: routesError } = await supabase
-      .from('trinity_routes')
+      .from('simba_routes')
       .select('id')
       .limit(1);
     
     if (routesError) {
       console.error('❌ DATABASE ERROR:', routesError);
-      console.error('Error code:', routesError.code);
-      console.error('Error message:', routesError.message);
-      console.error('Error details:', routesError.details);
-      
-      // Show user-friendly error
-      const errorMsg = `DATABASE ERROR: ${routesError.message}\n\n` +
-        `The trinity_routes table doesn't exist in your Supabase database.\n\n` +
-        `SOLUTION:\n` +
-        `1. Go to: https://supabase.com/dashboard/project/awowbixrozodsdrovswr/sql\n` +
-        `2. Copy and paste the ENTIRE contents of supabase_schema.sql\n` +
-        `3. Click "Run"\n` +
-        `4. Refresh this page`;
-      
-      alert(errorMsg);
+      // The site runs on built-in Dreamline route data, so a missing database
+      // does not block browsing or booking.
       return false;
     }
     
@@ -245,13 +233,11 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const fetchRoutes = async () => {
     console.log('Fetching routes from database...');
-    const { data, error } = await supabase.from('trinity_routes').select('*').order('id');
+    const { data, error } = await supabase.from('simba_routes').select('*').order('id');
     if (error) {
       console.error('❌ Error fetching routes:', error);
-      console.error('Error code:', error.code);
-      console.error('Error message:', error.message);
-      // Don't show alert here, just log - the initializeTables will handle it
-    } else if (data) {
+      // Keep the built-in Dreamline route data when the database is unavailable.
+    } else if (data && data.length > 0) {
       console.log(`✅ Fetched ${data.length} routes from database`);
       // Map DB columns to frontend types if needed
       const mappedRoutes = data.map((r: any) => ({
@@ -259,98 +245,16 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         nextBus: r.next_bus,
         country_origin: r.country_origin,
         country_dest: r.country_dest,
+        executive_price: r.executive_price,
         vip_price: r.vip_price
       }));
       setRoutes(mappedRoutes);
     }
   };
 
-  const seedAdditionalRoutes = async () => {
-    const additionalRoutes = [
-      {
-        origin: 'Kisumu',
-        country_origin: 'Kenya',
-        destination: 'Kampala',
-        country_dest: 'Uganda',
-        price: 'KSh 2,500',
-        duration: '9 hours',
-        country: 'Uganda'
-      },
-      {
-        origin: 'Kisumu',
-        country_origin: 'Kenya',
-        destination: 'Kigali',
-        country_dest: 'Rwanda',
-        price: 'KSh 5,500',
-        duration: '14 hours',
-        country: 'Rwanda'
-      },
-      {
-        origin: 'Eldoret',
-        country_origin: 'Kenya',
-        destination: 'Kigali',
-        country_dest: 'Rwanda',
-        price: 'KSh 6,000',
-        duration: '12 hours',
-        country: 'Rwanda'
-      },
-      {
-        origin: 'Eldoret',
-        country_origin: 'Kenya',
-        destination: 'Kampala',
-        country_dest: 'Uganda',
-        price: 'KSh 2,500',
-        duration: '7 hours',
-        country: 'Uganda'
-      },
-      {
-        origin: 'Nakuru',
-        country_origin: 'Kenya',
-        destination: 'Kampala',
-        country_dest: 'Uganda',
-        price: 'KSh 3,000',
-        duration: '10 hours',
-        country: 'Uganda'
-      },
-      {
-        origin: 'Nakuru',
-        country_origin: 'Kenya',
-        destination: 'Jinja',
-        country_dest: 'Uganda',
-        price: 'KSh 2,500',
-        duration: '8 hours',
-        country: 'Uganda'
-      },
-      {
-        origin: 'Nakuru',
-        country_origin: 'Kenya',
-        destination: 'Kigali',
-        country_dest: 'Rwanda',
-        price: 'KSh 6,500',
-        duration: '13 hours',
-        country: 'Rwanda'
-      }
-    ];
-
-    const { data: existing, error: fetchErr } = await supabase
-      .from('trinity_routes')
-      .select('origin,destination');
-    if (fetchErr) {
-      console.error('Error checking existing routes:', fetchErr);
-      return;
-    }
-    const exists = new Set((existing || []).map((r: any) => `${r.origin}|${r.destination}`));
-    const toInsert = additionalRoutes.filter(r => !exists.has(`${r.origin}|${r.destination}`));
-    if (toInsert.length > 0) {
-      const { error: insertErr } = await supabase.from('trinity_routes').insert(toInsert);
-      if (insertErr) console.error('Error inserting additional routes:', insertErr);
-      else console.log(`✅ Added ${toInsert.length} new routes`);
-    }
-  };
-
   const fetchBookings = async () => {
     console.log('Fetching bookings from database...');
-    const { data, error } = await supabase.from('trinity_bookings').select('*').order('created_at', { ascending: false });
+    const { data, error } = await supabase.from('simba_bookings').select('*').order('created_at', { ascending: false });
     if (error) {
       console.error('Error fetching bookings:', error);
       console.error('Error details:', JSON.stringify(error, null, 2));
@@ -373,7 +277,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   const fetchContactInfo = async () => {
-    const { data, error } = await supabase.from('trinity_contact_info').select('*').limit(1).single();
+    const { data, error } = await supabase.from('simba_contact_info').select('*').limit(1).single();
     if (error) {
        console.error('Error fetching contact info:', error);
        // If no data, we might want to insert default? For now, keep default state.
@@ -392,7 +296,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   const fetchPaymentMethods = async () => {
-    const { data, error } = await supabase.from('trinity_payment_methods').select('*');
+    const { data, error } = await supabase.from('simba_payment_methods').select('*');
     if (error) console.error('Error fetching payment methods:', error);
     else if (data) {
       const mapped = data.map((p: any) => ({
@@ -405,7 +309,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   const fetchPaymentSettings = async () => {
-    const { data, error } = await supabase.from('trinity_payment_settings').select('*').limit(1).single();
+    const { data, error } = await supabase.from('simba_payment_settings').select('*').limit(1).single();
     if (error) {
       console.warn('Error fetching payment settings (might not exist yet):', error);
     } else if (data) {
@@ -446,7 +350,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const dbUpdate: any = { ...updatedRoute };
     if (updatedRoute.nextBus) { dbUpdate.next_bus = updatedRoute.nextBus; delete dbUpdate.nextBus; }
     
-    const { error } = await supabase.from('trinity_routes').update(dbUpdate).eq('id', id);
+    const { error } = await supabase.from('simba_routes').update(dbUpdate).eq('id', id);
     if (error) {
       console.error('Error updating route:', error);
       fetchRoutes(); // Revert on error
@@ -462,6 +366,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       destination: routeData.destination,
       country_dest: routeData.country_dest,
       price: routeData.price,
+      executive_price: routeData.executive_price,
       vip_price: routeData.vip_price,
       duration: routeData.duration,
       country: routeData.country,
@@ -470,7 +375,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       next_bus: routeData.nextBus
     };
 
-    const { data, error } = await supabase.from('trinity_routes').insert([dbRoute]).select();
+    const { data, error } = await supabase.from('simba_routes').insert([dbRoute]).select();
     
     if (error) {
       console.error('❌ Error adding route to database:', error);
@@ -485,11 +390,11 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
           `SOLUTION:\n` +
           `1. Go to: https://supabase.com/dashboard/project/awowbixrozodsdrovswr/sql\n` +
           `2. Run this SQL:\n\n` +
-          `drop policy if exists "Public routes are viewable by everyone" on public.trinity_routes;\n` +
-          `create policy "Enable all access for routes" on public.trinity_routes for all using (true);\n\n` +
+          `drop policy if exists "Public routes are viewable by everyone" on public.simba_routes;\n` +
+          `create policy "Enable all access for routes" on public.simba_routes for all using (true);\n\n` +
           `3. Try adding the route again`;
       } else {
-        errorMsg += `This usually means the trinity_routes table doesn't exist.\n\n` +
+        errorMsg += `This usually means the simba_routes table doesn't exist.\n\n` +
           `Please run supabase_schema.sql in your Supabase SQL Editor.`;
       }
       
@@ -507,7 +412,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     // Optimistic update
     setRoutes(prev => prev.filter(route => route.id !== id));
     
-    const { error } = await supabase.from('trinity_routes').delete().eq('id', id);
+    const { error } = await supabase.from('simba_routes').delete().eq('id', id);
     if (error) {
       console.error('Error deleting route:', error);
       alert('Failed to delete route. Please try again.');
@@ -549,7 +454,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     };
 
     console.log('Attempting to save to database:', dbBooking);
-    const { data, error } = await supabase.from('trinity_bookings').insert([dbBooking]).select();
+    const { data, error } = await supabase.from('simba_bookings').insert([dbBooking]).select();
     
     if (error) {
       console.error('❌ Error adding booking to database:', error);
@@ -572,7 +477,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const updateBookingStatus = async (id: string, status: Booking['status']) => {
     setBookings(prev => prev.map(b => b.id === id ? { ...b, status } : b));
     
-    const { error } = await supabase.from('trinity_bookings').update({ status }).eq('id', id);
+    const { error } = await supabase.from('simba_bookings').update({ status }).eq('id', id);
     if (error) {
       console.error('Error updating booking status:', error);
       fetchBookings();
@@ -594,7 +499,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     // Upsert (update if exists, insert if not)
     // Assuming ID 1 for single row
-    const { error } = await supabase.from('trinity_contact_info').upsert({ id: 1, ...dbInfo });
+    const { error } = await supabase.from('simba_contact_info').upsert({ id: 1, ...dbInfo });
     
     if (error) {
       console.error('Error updating contact info:', error);
@@ -611,7 +516,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       instructions: method.instructions
     };
 
-    const { data, error } = await supabase.from('trinity_payment_methods').insert([dbMethod]).select();
+    const { data, error } = await supabase.from('simba_payment_methods').insert([dbMethod]).select();
     
     if (error) {
       console.error('Error adding payment method:', error);
@@ -627,7 +532,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const removePaymentMethod = async (id: string) => {
     setPaymentMethods(prev => prev.filter(p => p.id !== id));
     
-    const { error } = await supabase.from('trinity_payment_methods').delete().eq('id', id);
+    const { error } = await supabase.from('simba_payment_methods').delete().eq('id', id);
     if (error) {
       console.error('Error removing payment method:', error);
       fetchPaymentMethods();
@@ -645,7 +550,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     // Upsert (update if exists, insert if not)
     // Assuming ID 1 or single row logic
-    const { error } = await supabase.from('trinity_payment_settings').upsert({ id: settings.id || 1, ...dbSettings });
+    const { error } = await supabase.from('simba_payment_settings').upsert({ id: settings.id || 1, ...dbSettings });
     
     if (error) {
       console.error('Error updating payment settings:', error);
@@ -661,7 +566,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
           item.ip === ip ? { ...item, blocked: !item.blocked } : item
         )
       };
-      try { localStorage.setItem('trinity_stats', JSON.stringify(updated)); } catch {}
+      try { localStorage.setItem('simba_stats', JSON.stringify(updated)); } catch { /* ignore */ }
       return updated;
     });
   };
@@ -675,7 +580,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
           )
         : [...prev.suspiciousIPs, { ip, attempts: 1, blocked: false, lastSeen: new Date().toISOString() }];
       const updated = { ...prev, suspiciousIPs };
-      try { localStorage.setItem('trinity_stats', JSON.stringify(updated)); } catch {}
+      try { localStorage.setItem('simba_stats', JSON.stringify(updated)); } catch { /* ignore */ }
       return updated;
     });
   };

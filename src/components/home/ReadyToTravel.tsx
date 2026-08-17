@@ -36,7 +36,7 @@ const ReadyToTravel = () => {
             </h2>
             
             <p className="text-xl text-blue-100 mb-10 max-w-xl leading-relaxed font-light">
-              Join thousands of satisfied travelers who choose Trinity Express for comfort, safety, and reliability across East Africa.
+              Join thousands of satisfied travelers who choose SimbaCoach for comfort, safety, and reliability across East Africa.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-5">

@@ -47,12 +47,12 @@ const Terms = () => {
 
               <section>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">6. Limitation of Liability</h3>
-                <p>Trinity Express Bus shall not be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits.</p>
+                <p>SimbaCoach Bus shall not be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits.</p>
               </section>
 
               <section>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">7. Contact Us</h3>
-                <p>For any questions about these Terms and Conditions, please contact us at: <a href="mailto:info@trinityexpress.com" className="text-primary-600 hover:underline font-medium">info@trinityexpress.com</a></p>
+                <p>For any questions about these Terms and Conditions, please contact us at: <a href="mailto:info@simbacoach.com" className="text-primary-600 hover:underline font-medium">info@simbacoach.com</a></p>
               </section>
             </div>
           </div>

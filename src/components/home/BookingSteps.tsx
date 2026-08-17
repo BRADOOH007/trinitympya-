@@ -2,7 +2,7 @@ import React from 'react';
 import { Phone, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import OptimizedImage from '../ui/OptimizedImage';
-import logo from '../../assets/logo.jpeg';
+import logo from '../../assets/logo.webp';
 
 const BookingSteps = () => {
   return (
@@ -35,10 +35,10 @@ const BookingSteps = () => {
               
               {/* Main Bus Image with Logo Overlay */}
               <div className="w-full h-full relative group">
-                {/* Bus Image - Local Trinity Express bus photo */}
+                {/* Bus Image */}
                 <OptimizedImage 
-                  src="/assets/mini_magick20260128-31102-68vlss.jpg"
-                  alt="Trinity Express Bus" 
+                  src="/assets/simba-bus-2.webp"
+                  alt="SimbaCoach Bus" 
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2s] ease-in-out"
                   priority={true}
                 />
@@ -47,7 +47,7 @@ const BookingSteps = () => {
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-24 bg-white/90 backdrop-blur-sm rounded-xl p-2 shadow-2xl flex items-center justify-center border-2 border-blue-500/20 z-20">
                    <OptimizedImage 
                     src={logo} 
-                    alt="Trinity Logo" 
+                    alt="SimbaCoach Logo" 
                     className="w-full h-full object-contain mix-blend-multiply"
                   />
                 </div>
@@ -55,8 +55,8 @@ const BookingSteps = () => {
               
               {/* Overlay Content */}
               <div className="absolute bottom-0 left-0 right-0 p-8 z-20 text-white">
-                <h3 className="text-2xl font-bold mb-2">TRINITY EXPRESS</h3>
-                <p className="text-blue-100 font-medium">Premium Travel Experience</p>
+                <h3 className="text-2xl font-bold mb-2">SIMBACOACH</h3>
+                <p className="text-blue-100 font-medium">The Pride of Travellers</p>
               </div>
 
               {/* 100+ Daily Trips Badge */}

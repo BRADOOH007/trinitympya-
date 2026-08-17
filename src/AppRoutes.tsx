@@ -8,6 +8,9 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Fleet from './pages/Fleet';
 import Login from './pages/Login';
+import PrintTicket from './pages/PrintTicket';
+import Help from './pages/Help';
+import Account from './pages/Account';
 import AdminDashboard from './pages/AdminDashboard';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
@@ -24,7 +27,7 @@ import KisumuKigaliTravelGuide from './pages/blog/KisumuKigaliTravelGuide';
 import EldoretKampalaTravelGuide from './pages/blog/EldoretKampalaTravelGuide';
 import EldoretKigaliTravelGuide from './pages/blog/EldoretKigaliTravelGuide';
 import NakuruKampalaTravelGuide from './pages/blog/NakuruKampalaTravelGuide';
-import TrinityExpressReview from './pages/blog/TrinityExpressReview';
+import SimbaCoachReview from './pages/blog/SimbaCoachReview';
 
 function AppRoutes() {
   return (
@@ -47,10 +50,13 @@ function AppRoutes() {
           <Route path="blog/eldoret-to-kampala-bus-travel-guide" element={<EldoretKampalaTravelGuide />} />
           <Route path="blog/eldoret-to-kigali-bus-travel-guide" element={<EldoretKigaliTravelGuide />} />
           <Route path="blog/nakuru-to-kampala-bus-travel-guide" element={<NakuruKampalaTravelGuide />} />
-          <Route path="blog/trinity-express-bus-review" element={<TrinityExpressReview />} />
+          <Route path="blog/simba-bus-review" element={<SimbaCoachReview />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="fleet" element={<Fleet />} />
+          <Route path="print-ticket" element={<PrintTicket />} />
+          <Route path="help" element={<Help />} />
+          <Route path="account" element={<Account />} />
           <Route path="login" element={<Login />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms" element={<Terms />} />

@@ -24,8 +24,8 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
-          src="/assets/nairobi.jpg"
-          alt="Nairobi cityscape"
+          src="/assets/simba-hero.webp"
+          alt="SimbaCoach bus"
           className="w-full h-full object-cover scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>

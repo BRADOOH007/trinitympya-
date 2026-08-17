@@ -59,21 +59,21 @@ const About = () => {
             <div>
               <h2 className="title-section text-slate-900 mb-6">Our Story</h2>
               <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                Trinity Express began with a simple yet ambitious vision: to transform how people move across East Africa. What started as a single route connecting Nairobi to Kampala has blossomed into a comprehensive network.
+                SimbaCoach began with a simple yet ambitious vision: to transform how people move across East Africa. What started as a single route connecting Nairobi to Kampala has blossomed into a comprehensive network.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
                 We understand that every ticket represents a story — a student returning home, a business deal in a new city, a family reunion. That's why we treat every mile with the care it deserves.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img src="/assets/kampala.jpg" alt="Travel" className="rounded-2xl shadow-elevation-3 h-64 w-full object-cover" />
+              <img src="/assets/simba-bus-1.webp" alt="Travel" className="rounded-2xl shadow-elevation-3 h-64 w-full object-cover" />
               <div className="space-y-4">
                 <div className="bg-gradient-to-br from-primary-600 to-primary-700 text-white p-6 rounded-2xl shadow-elevation-3">
                   <Globe className="w-8 h-8 mb-3" />
                   <h4 className="font-bold text-lg">7 Countries</h4>
                   <p className="text-sm opacity-90">Seamless cross-border travel</p>
                 </div>
-                <img src="/assets/nairobi.jpg" alt="Bus" className="rounded-2xl shadow-elevation-3 h-64 w-full object-cover" />
+                <img src="/assets/simba-bus-2.webp" alt="Bus" className="rounded-2xl shadow-elevation-3 h-64 w-full object-cover" />
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@ const About = () => {
       <section className="section bg-gradient-to-r from-primary-600 to-secondary-600 text-white">
         <div className="container-wide">
           <div className="text-center mb-12">
-            <h2 className="title-section mb-4">The Trinity Difference</h2>
+            <h2 className="title-section mb-4">The SimbaCoach Difference</h2>
             <p className="text-xl opacity-90">What sets us apart from the rest</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -133,7 +133,7 @@ const About = () => {
         <div className="container-wide text-center">
           <h2 className="title-section text-slate-900 mb-6">Ready to Start Your Journey?</h2>
           <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-            Book your ticket today and experience the Trinity Express difference
+            Book your ticket today and experience the SimbaCoach difference
           </p>
           <Link to="/routes" className="btn-primary text-lg">
             View Our Routes

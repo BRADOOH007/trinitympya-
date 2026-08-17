@@ -1,30 +1,24 @@
 import React, { useState } from 'react';
 import { useAdmin, Route, ContactInfo, PaymentMethod } from '../context/AdminContext';
-import { Shield, Globe, Lock, Edit2, Save, X, Ban, CheckCircle, Phone, CreditCard, Ticket } from 'lucide-react';
+import { Shield, Globe, Lock, Edit2, X, Ban, CheckCircle, Phone, CreditCard, Ticket } from 'lucide-react';
 
 const AVAILABLE_IMAGES = [
-  { name: 'Nairobi', value: '/assets/nairobi.jpg' },
-  { name: 'Kampala', value: '/assets/kampala.jpg' },
-  { name: 'Juba', value: '/assets/juba.jpg' },
-  { name: 'Goma', value: '/assets/goma.jpg' },
-  { name: 'Goma 2', value: '/assets/goma (2).jpg' },
-  { name: 'Bukavu', value: '/assets/bukavu.webp' },
-  { name: 'Bus 1', value: '/assets/mini_magick20260128-31102-68vlss.jpg' },
-  { name: 'Bus 2', value: '/assets/mini_magick20260128-31102-i1tltr.jpg' },
-  { name: 'Bus 3', value: '/assets/mini_magick20260128-31102-r8rmj3.jpg' },
-  { name: 'Bus 4', value: '/assets/mini_magick20260128-31102-u49wzm.jpg' },
-  { name: 'Bus 5', value: '/assets/mini_magick20260128-31585-78mbdj.jpg' },
-  { name: 'Bus 6', value: '/assets/mini_magick20260128-31585-lk5tcl.jpg' },
-  { name: 'Bus 7', value: '/assets/mini_magick20260128-32058-ez8bgi.jpg' },
-  { name: 'Bus 8', value: '/assets/mini_magick20260128-32058-vbgegz.jpg' },
-  { name: 'Bus 9', value: '/assets/mini_magick20260128-32454-7pm8cd.jpg' },
-  { name: 'Bus 10', value: '/assets/mini_magick20260128-32454-w502k8.jpg' },
+  { name: 'Bus 1', value: '/assets/simba-bus-1.webp' },
+  { name: 'Bus 2', value: '/assets/simba-bus-2.webp' },
+  { name: 'Bus 3', value: '/assets/simba-bus-3.webp' },
+  { name: 'Bus 4', value: '/assets/simba-hero.webp' },
+  { name: 'Bus 5', value: '/assets/simba-bus-1.webp' },
+  { name: 'Bus 6', value: '/assets/simba-bus-2.webp' },
+  { name: 'Bus 7', value: '/assets/simba-bus-3.webp' },
+  { name: 'Bus 8', value: '/assets/simba-hero.webp' },
+  { name: 'Bus 9', value: '/assets/simba-bus-1.webp' },
+  { name: 'Bus 10', value: '/assets/simba-bus-2.webp' },
 ];
 
 const AdminDashboard = () => {
   const { 
     isAdmin, logout, 
-    routes, updateRoute, addRoute, deleteRoute,
+    routes, addRoute, deleteRoute,
     bookings, updateBookingStatus, refreshBookings,
     contactInfo, updateContactInfo,
     paymentMethods, addPaymentMethod, removePaymentMethod,
@@ -35,10 +29,9 @@ const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState<'routes' | 'bookings' | 'settings'>('routes');
   
   // Route Editing State — now uses a modal instead of inline
-  const [editingRoute, setEditingRoute] = useState<Route | null>(null);
   const [editRouteForm, setEditRouteForm] = useState<Partial<Route>>({});
   const [showImageModal, setShowImageModal] = useState(false);
-  const [imageModalTarget, setImageModalTarget] = useState<'edit' | 'add'>('edit');
+  const imageModalTarget: 'edit' | 'add' = 'edit';
 
   // Add Route State
   const [showAddRouteModal, setShowAddRouteModal] = useState(false);
@@ -48,6 +41,7 @@ const AdminDashboard = () => {
     destination: '',
     country_dest: '',
     price: '',
+    executive_price: '',
     vip_price: '',
     duration: '',
     country: '',
@@ -109,7 +103,7 @@ const AdminDashboard = () => {
     const link = document.createElement('a');
     const url = URL.createObjectURL(blob);
     link.setAttribute('href', url);
-    link.setAttribute('download', `trinity-bookings-${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute('download', `simba-bookings-${new Date().toISOString().split('T')[0]}.csv`);
     link.style.visibility = 'hidden';
     document.body.appendChild(link);
     link.click();
@@ -136,21 +130,7 @@ const AdminDashboard = () => {
   // --- Handlers ---
 
   const handleEditRouteClick = (route: Route) => {
-    setEditingRoute(route);
     setEditRouteForm({ ...route });
-  };
-
-  const handleRouteSave = (id: number) => {
-    const normalizedRoute = {
-      ...editRouteForm,
-      origin: editRouteForm.origin ? titleCase(editRouteForm.origin.trim()) : editRouteForm.origin,
-      destination: editRouteForm.destination ? titleCase(editRouteForm.destination.trim()) : editRouteForm.destination,
-      country_origin: editRouteForm.country_origin ? titleCase(editRouteForm.country_origin.trim()) : editRouteForm.country_origin,
-      country_dest: editRouteForm.country_dest ? titleCase(editRouteForm.country_dest.trim()) : editRouteForm.country_dest,
-      country: editRouteForm.country ? titleCase(editRouteForm.country.trim()) : editRouteForm.country,
-    };
-    updateRoute(id, normalizedRoute);
-    setEditingRoute(null);
   };
 
   const handleImageSelect = (imageValue: string) => {
@@ -195,7 +175,7 @@ const AdminDashboard = () => {
     setShowAddRouteModal(false);
     setNewRouteForm({
       origin: '', country_origin: '', destination: '', country_dest: '',
-      price: '', vip_price: '', duration: '', country: '', image: '', rating: 0, nextBus: ''
+      price: '', executive_price: '', vip_price: '', duration: '', country: '', image: '', rating: 0, nextBus: ''
     });
   };
 
@@ -862,13 +842,23 @@ const AdminDashboard = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">Price *</label>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Price (Standard) *</label>
                   <input 
                     type="text" 
                     value={newRouteForm.price}
                     onChange={(e) => setNewRouteForm({...newRouteForm, price: e.target.value})}
                     className="w-full border rounded-lg px-3 py-2 text-sm"
-                    placeholder="e.g., KSh 3,500"
+                    placeholder="e.g., KES 1,300"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Executive Price</label>
+                  <input 
+                    type="text" 
+                    value={newRouteForm.executive_price}
+                    onChange={(e) => setNewRouteForm({...newRouteForm, executive_price: e.target.value})}
+                    className="w-full border rounded-lg px-3 py-2 text-sm"
+                    placeholder="e.g., KES 1,500"
                   />
                 </div>
                 <div>
@@ -878,7 +868,7 @@ const AdminDashboard = () => {
                     value={newRouteForm.vip_price}
                     onChange={(e) => setNewRouteForm({...newRouteForm, vip_price: e.target.value})}
                     className="w-full border rounded-lg px-3 py-2 text-sm"
-                    placeholder="e.g., KSh 5,000"
+                    placeholder="e.g., KES 1,800"
                   />
                 </div>
               </div>

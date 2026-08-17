@@ -18,7 +18,7 @@ const PrivacyPolicy = () => {
             <div className="space-y-6 text-slate-700">
               <section>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">1. Introduction</h3>
-                <p>Trinity Express Bus ("we", "our", or "us") respects your privacy and is committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.</p>
+                <p>SimbaCoach Bus ("we", "our", or "us") respects your privacy and is committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.</p>
               </section>
               
               <section>
@@ -48,7 +48,7 @@ const PrivacyPolicy = () => {
 
               <section>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">5. Contact Us</h3>
-                <p>If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:info@trinityexpress.com" className="text-primary-600 hover:underline font-medium">info@trinityexpress.com</a></p>
+                <p>If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:info@simbacoach.com" className="text-primary-600 hover:underline font-medium">info@simbacoach.com</a></p>
               </section>
             </div>
           </div>
