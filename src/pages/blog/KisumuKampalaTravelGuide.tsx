@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Clock, Calendar, User } from 'lucide-react';
@@ -7,7 +7,7 @@ const KisumuKampalaTravelGuide = () => {
   const publishDate = '2025-05-17';
 
   const faqs = [
-    { q: 'How long is the Kisumu to Kampala bus journey?', a: 'The Kisumu to Kampala bus journey takes approximately 8â€“10 hours. Kisumu is close to the Uganda border, making this one of the shorter cross-border routes.' },
+    { q: 'How long is the Kisumu to Kampala bus journey?', a: 'The Kisumu to Kampala bus journey takes approximately 8–10 hours. Kisumu is close to the Uganda border, making this one of the shorter cross-border routes.' },
     { q: 'What is the price of a Kisumu to Kampala bus ticket?', a: 'SimbaCoach bus tickets from Kisumu to Kampala start from KSh 2,500 for standard class and KSh 4,000 for VIP.' },
     { q: 'Where does the Kisumu to Kampala bus depart from?', a: 'Buses depart from the SimbaCoach terminal in Kisumu. We recommend arriving 30 minutes before departure.' },
     { q: 'Which border does the Kisumu to Kampala bus cross?', a: 'The bus crosses at the Busia border between Kenya and Uganda, which is the closest border crossing to Kisumu.' },
@@ -20,18 +20,18 @@ const KisumuKampalaTravelGuide = () => {
         <title>Kisumu to Kampala Bus: Complete 2025 Travel Guide | SimbaCoach</title>
         <meta name="description" content="Everything you need to know about the Kisumu to Kampala bus in 2025. Prices from KSh 2,500, schedules, Busia border tips, and how to book online." />
         <meta name="keywords" content="Kisumu to Kampala bus, Kisumu Kampala bus ticket, bus from Kisumu to Kampala, SimbaCoach Kisumu Kampala, Kisumu Uganda bus, Kisumu to Kampala 2025" />
-        <link rel="canonical" href="https://simbacoachbus.online/blog/kisumu-to-kampala-bus-travel-guide" />
+        <link rel="canonical" href="https://simba-coach-bus.online/blog/kisumu-to-kampala-bus-travel-guide" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Kisumu to Kampala Bus: Complete 2025 Travel Guide" />
         <meta property="og:description" content="Prices, schedules, Busia border tips, and how to book your Kisumu to Kampala bus ticket online in 2025." />
-        <meta property="og:url" content="https://simbacoachbus.online/blog/kisumu-to-kampala-bus-travel-guide" />
-        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta property="og:url" content="https://simba-coach-bus.online/blog/kisumu-to-kampala-bus-travel-guide" />
+        <meta property="og:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:site_name" content="SimbaCoach" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta name="twitter:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <meta property="article:published_time" content={publishDate} />
-        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Kisumu to Kampala Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "SimbaCoach Bus" }, "publisher": { "@type": "Organization", "name": "SimbaCoach Bus", "logo": { "@type": "ImageObject", "url": "https://simbacoachbus.online/assets/logo.webp" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://simbacoachbus.online/blog/kisumu-to-kampala-bus-travel-guide" } })}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Kisumu to Kampala Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "SimbaCoach Bus" }, "publisher": { "@type": "Organization", "name": "SimbaCoach Bus", "logo": { "@type": "ImageObject", "url": "https://simba-coach-bus.online/assets/logo.webp" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://simba-coach-bus.online/blog/kisumu-to-kampala-bus-travel-guide" } })}</script>
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
 
@@ -50,7 +50,7 @@ const KisumuKampalaTravelGuide = () => {
             <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> 6 min read</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">Kisumu to Kampala Bus: Complete 2025 Travel Guide</h1>
-          <p className="text-xl text-blue-200">Prices, schedules, Busia border tips, and everything you need for a smooth Kisumuâ€“Kampala journey.</p>
+          <p className="text-xl text-blue-200">Prices, schedules, Busia border tips, and everything you need for a smooth Kisumu–Kampala journey.</p>
         </div>
       </div>
 
@@ -58,12 +58,12 @@ const KisumuKampalaTravelGuide = () => {
         <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12 space-y-8">
 
           <p className="text-gray-600 text-lg leading-relaxed">
-            Travelling by bus from <strong>Kisumu to Kampala</strong> is one of the most convenient cross-border routes in East Africa. Kisumu's proximity to the Uganda border means this is a shorter journey than the Nairobiâ€“Kampala route, making it ideal for travellers in western Kenya.
+            Travelling by bus from <strong>Kisumu to Kampala</strong> is one of the most convenient cross-border routes in East Africa. Kisumu's proximity to the Uganda border means this is a shorter journey than the Nairobi–Kampala route, making it ideal for travellers in western Kenya.
           </p>
 
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">How Long Does the Journey Take?</h2>
-            <p className="text-gray-600 leading-relaxed">The Kisumu to Kampala bus takes approximately <strong>8â€“10 hours</strong>. The route crosses into Uganda at the Busia border. SimbaCoach operates daily departures from Kisumu.</p>
+            <p className="text-gray-600 leading-relaxed">The Kisumu to Kampala bus takes approximately <strong>8–10 hours</strong>. The route crosses into Uganda at the Busia border. SimbaCoach operates daily departures from Kisumu.</p>
           </div>
 
           <div>
@@ -84,7 +84,7 @@ const KisumuKampalaTravelGuide = () => {
             <ul className="list-disc pl-6 space-y-2 text-gray-600">
               <li><strong>Documents:</strong> Valid passport or EAC travel document. Kenyan and Ugandan nationals can use national IDs.</li>
               <li><strong>Yellow fever certificate:</strong> Required for entry into Uganda.</li>
-              <li><strong>Border wait time:</strong> Usually 30â€“60 minutes at Busia.</li>
+              <li><strong>Border wait time:</strong> Usually 30–60 minutes at Busia.</li>
               <li><strong>Currency:</strong> Ugandan Shillings (UGX) are used in Kampala.</li>
             </ul>
           </div>
@@ -112,7 +112,7 @@ const KisumuKampalaTravelGuide = () => {
           </div>
 
           <div className="bg-[#1E3A8A] rounded-2xl p-8 text-center text-white">
-            <h3 className="text-2xl font-bold mb-3">Book Your Kisumu â†’ Kampala Seat</h3>
+            <h3 className="text-2xl font-bold mb-3">Book Your Kisumu → Kampala Seat</h3>
             <p className="text-blue-200 mb-6">Daily departures. Instant confirmation.</p>
             <Link to="/routes" state={{ origin: 'Kisumu', destination: 'Kampala' }} className="inline-block px-8 py-4 bg-gradient-to-r from-[#F97316] to-[#FB923C] text-white font-bold rounded-xl shadow-lg transition-all">
               Book Now

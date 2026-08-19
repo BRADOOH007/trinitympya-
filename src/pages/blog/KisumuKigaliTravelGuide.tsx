@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Clock, Calendar, User } from 'lucide-react';
@@ -7,7 +7,7 @@ const KisumuKigaliTravelGuide = () => {
   const publishDate = '2025-05-17';
 
   const faqs = [
-    { q: 'How long is the Kisumu to Kigali bus journey?', a: 'The Kisumu to Kigali bus journey takes approximately 16â€“20 hours, passing through Uganda and crossing into Rwanda at the Gatuna/Katuna border.' },
+    { q: 'How long is the Kisumu to Kigali bus journey?', a: 'The Kisumu to Kigali bus journey takes approximately 16–20 hours, passing through Uganda and crossing into Rwanda at the Gatuna/Katuna border.' },
     { q: 'What is the price of a Kisumu to Kigali bus ticket?', a: 'SimbaCoach bus tickets from Kisumu to Kigali start from KSh 4,500 for standard class and KSh 6,500 for VIP.' },
     { q: 'Does the Kisumu to Kigali bus go through Kampala?', a: 'Yes, the route passes through Kampala, Uganda before continuing to Kigali, Rwanda.' },
     { q: 'What documents do I need to travel from Kisumu to Kigali?', a: 'A valid passport is required. EAC citizens may use national IDs. A yellow fever certificate is required for both Uganda and Rwanda.' },
@@ -20,18 +20,18 @@ const KisumuKigaliTravelGuide = () => {
         <title>Kisumu to Kigali Bus: Complete 2025 Travel Guide | SimbaCoach</title>
         <meta name="description" content="Everything you need to know about the Kisumu to Kigali bus in 2025. Prices from KSh 4,500, schedules, border tips, and how to book online with SimbaCoach." />
         <meta name="keywords" content="Kisumu to Kigali bus, Kisumu Kigali bus ticket, bus from Kisumu to Kigali, SimbaCoach Kisumu Kigali, Kisumu Rwanda bus, Kisumu to Kigali 2025" />
-        <link rel="canonical" href="https://simbacoachbus.online/blog/kisumu-to-kigali-bus-travel-guide" />
+        <link rel="canonical" href="https://simba-coach-bus.online/blog/kisumu-to-kigali-bus-travel-guide" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Kisumu to Kigali Bus: Complete 2025 Travel Guide" />
         <meta property="og:description" content="Prices, schedules, border tips, and how to book your Kisumu to Kigali bus ticket online in 2025." />
-        <meta property="og:url" content="https://simbacoachbus.online/blog/kisumu-to-kigali-bus-travel-guide" />
-        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta property="og:url" content="https://simba-coach-bus.online/blog/kisumu-to-kigali-bus-travel-guide" />
+        <meta property="og:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:site_name" content="SimbaCoach" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta name="twitter:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <meta property="article:published_time" content={publishDate} />
-        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Kisumu to Kigali Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "SimbaCoach Bus" }, "publisher": { "@type": "Organization", "name": "SimbaCoach Bus", "logo": { "@type": "ImageObject", "url": "https://simbacoachbus.online/assets/logo.webp" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://simbacoachbus.online/blog/kisumu-to-kigali-bus-travel-guide" } })}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Kisumu to Kigali Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "SimbaCoach Bus" }, "publisher": { "@type": "Organization", "name": "SimbaCoach Bus", "logo": { "@type": "ImageObject", "url": "https://simba-coach-bus.online/assets/logo.webp" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://simba-coach-bus.online/blog/kisumu-to-kigali-bus-travel-guide" } })}</script>
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
 
@@ -50,7 +50,7 @@ const KisumuKigaliTravelGuide = () => {
             <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> 6 min read</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">Kisumu to Kigali Bus: Complete 2025 Travel Guide</h1>
-          <p className="text-xl text-blue-200">Prices, schedules, border tips, and everything you need for a smooth Kisumuâ€“Kigali journey via Kampala.</p>
+          <p className="text-xl text-blue-200">Prices, schedules, border tips, and everything you need for a smooth Kisumu–Kigali journey via Kampala.</p>
         </div>
       </div>
 
@@ -63,7 +63,7 @@ const KisumuKigaliTravelGuide = () => {
 
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">How Long Does the Journey Take?</h2>
-            <p className="text-gray-600 leading-relaxed">The Kisumu to Kigali bus takes approximately <strong>16â€“20 hours</strong>, crossing two international borders â€” Kenya/Uganda at Busia and Uganda/Rwanda at Gatuna/Katuna.</p>
+            <p className="text-gray-600 leading-relaxed">The Kisumu to Kigali bus takes approximately <strong>16–20 hours</strong>, crossing two international borders — Kenya/Uganda at Busia and Uganda/Rwanda at Gatuna/Katuna.</p>
           </div>
 
           <div>
@@ -102,7 +102,7 @@ const KisumuKigaliTravelGuide = () => {
           </div>
 
           <div className="bg-[#1E3A8A] rounded-2xl p-8 text-center text-white">
-            <h3 className="text-2xl font-bold mb-3">Book Your Kisumu â†’ Kigali Seat</h3>
+            <h3 className="text-2xl font-bold mb-3">Book Your Kisumu → Kigali Seat</h3>
             <p className="text-blue-200 mb-6">Daily departures. Instant confirmation.</p>
             <Link to="/routes" state={{ origin: 'Kisumu', destination: 'Kigali' }} className="inline-block px-8 py-4 bg-gradient-to-r from-[#F97316] to-[#FB923C] text-white font-bold rounded-xl shadow-lg transition-all">
               Book Now

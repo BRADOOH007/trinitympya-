@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
 import { Clock, MapPin, ChevronRight, Star } from 'lucide-react';
@@ -13,7 +13,7 @@ const NairobiJuba = () => {
   const faqs = [
     {
       q: 'How long is the Nairobi to Juba bus journey?',
-      a: 'The Nairobi to Juba bus journey takes approximately 24â€“30 hours, crossing through Uganda and into South Sudan.',
+      a: 'The Nairobi to Juba bus journey takes approximately 24–30 hours, crossing through Uganda and into South Sudan.',
     },
     {
       q: 'What is the price of a Nairobi to Juba bus ticket?',
@@ -39,15 +39,15 @@ const NairobiJuba = () => {
         <title>Nairobi to Juba Bus | Book Online - SimbaCoach Bus</title>
         <meta name="description" content="Book Nairobi to Juba bus tickets online with SimbaCoach. Safe and reliable bus service from Kenya to South Sudan. Instant confirmation." />
         <meta name="keywords" content="Nairobi to Juba bus, Nairobi Juba bus ticket, bus from Nairobi to Juba, SimbaCoach Nairobi Juba, South Sudan bus from Nairobi" />
-        <link rel="canonical" href="https://simbacoachbus.online/routes/nairobi-juba" />
+        <link rel="canonical" href="https://simba-coach-bus.online/routes/nairobi-juba" />
         <meta property="og:title" content="Nairobi to Juba Bus | Book Online - SimbaCoach" />
         <meta property="og:description" content="Book Nairobi to Juba bus tickets online. Safe, reliable service from Kenya to South Sudan." />
-        <meta property="og:url" content="https://simbacoachbus.online/routes/nairobi-juba" />
-        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta property="og:url" content="https://simba-coach-bus.online/routes/nairobi-juba" />
+        <meta property="og:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:site_name" content="SimbaCoach" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta name="twitter:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
@@ -67,13 +67,13 @@ const NairobiJuba = () => {
             <ChevronRight className="w-4 h-4" />
             <Link to="/routes" className="hover:text-white">Routes</Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-white">Nairobi â†’ Juba</span>
+            <span className="text-white">Nairobi → Juba</span>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Nairobi to Juba Bus</h1>
           <p className="text-xl text-blue-200 max-w-2xl">Reliable bus service from Nairobi, Kenya to Juba, South Sudan. Safe travel with experienced drivers.</p>
           <div className="flex flex-wrap gap-6 mt-8 text-sm">
-            <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-orange-400" /><span>~24â€“30 hours</span></div>
-            <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-orange-400" /><span>Duruma Rd, Nairobi â†’ Juba, South Sudan</span></div>
+            <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-orange-400" /><span>~24–30 hours</span></div>
+            <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-orange-400" /><span>Duruma Rd, Nairobi → Juba, South Sudan</span></div>
             <div className="flex items-center gap-2"><Star className="w-4 h-4 text-orange-400 fill-orange-400" /><span>4.7/5 rated route</span></div>
           </div>
         </div>
@@ -106,7 +106,7 @@ const NairobiJuba = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
             {[
               { label: 'Departure', value: '7:00 AM Daily' },
-              { label: 'Duration', value: '24â€“30 Hours' },
+              { label: 'Duration', value: '24–30 Hours' },
               { label: 'Standard', value: 'USD 45' },
               { label: 'VIP', value: 'USD 60' },
             ].map((item) => (
@@ -136,9 +136,9 @@ const NairobiJuba = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Other Popular Routes</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { label: 'Nairobi â†’ Kampala', to: '/routes/nairobi-kampala' },
-              { label: 'Nairobi â†’ Kigali', to: '/routes/nairobi-kigali' },
-              { label: 'Nairobi â†’ Dar es Salaam', to: '/routes/nairobi-dar-es-salaam' },
+              { label: 'Nairobi → Kampala', to: '/routes/nairobi-kampala' },
+              { label: 'Nairobi → Kigali', to: '/routes/nairobi-kigali' },
+              { label: 'Nairobi → Dar es Salaam', to: '/routes/nairobi-dar-es-salaam' },
             ].map((r) => (
               <Link key={r.to} to={r.to} className="flex items-center justify-between p-4 border border-gray-200 rounded-xl hover:border-[#1E3A8A] hover:bg-blue-50 transition-all group">
                 <span className="font-semibold text-gray-700 group-hover:text-[#1E3A8A]">{r.label}</span>

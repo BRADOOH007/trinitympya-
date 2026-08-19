@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Clock, Calendar, User } from 'lucide-react';
@@ -12,16 +12,16 @@ const NairobiKampalaTravelGuide = () => {
     "@type": "Article",
     "headline": "Nairobi to Kampala Bus: Complete 2025 Travel Guide",
     "description": "Everything you need to know about travelling by bus from Nairobi to Kampala in 2025. Prices, schedules, border crossing tips, and how to book online.",
-    "image": "https://simbacoachbus.online/assets/simba-hero.webp",
+    "image": "https://simba-coach-bus.online/assets/simba-hero.webp",
     "datePublished": publishDate,
     "dateModified": modifiedDate,
     "author": { "@type": "Organization", "name": "SimbaCoach Bus" },
     "publisher": {
       "@type": "Organization",
       "name": "SimbaCoach Bus",
-      "logo": { "@type": "ImageObject", "url": "https://simbacoachbus.online/assets/logo.webp" }
+      "logo": { "@type": "ImageObject", "url": "https://simba-coach-bus.online/assets/logo.webp" }
     },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://simbacoachbus.online/blog/nairobi-to-kampala-bus-travel-guide" }
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://simba-coach-bus.online/blog/nairobi-to-kampala-bus-travel-guide" }
   };
 
   const faqSchema = {
@@ -29,9 +29,9 @@ const NairobiKampalaTravelGuide = () => {
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does a Nairobi to Kampala bus ticket cost in 2025?", "acceptedAnswer": { "@type": "Answer", "text": "In 2025, SimbaCoach bus tickets from Nairobi to Kampala start from KSh 3,500 for standard class and KSh 5,000 for VIP seats." } },
-      { "@type": "Question", "name": "How long does the Nairobi to Kampala bus journey take?", "acceptedAnswer": { "@type": "Answer", "text": "The journey takes approximately 10â€“12 hours depending on traffic and border crossing times at Busia or Malaba." } },
+      { "@type": "Question", "name": "How long does the Nairobi to Kampala bus journey take?", "acceptedAnswer": { "@type": "Answer", "text": "The journey takes approximately 10–12 hours depending on traffic and border crossing times at Busia or Malaba." } },
       { "@type": "Question", "name": "What documents do I need to cross from Kenya to Uganda by bus?", "acceptedAnswer": { "@type": "Answer", "text": "You need a valid passport or East African Community travel document. Kenyan and Ugandan citizens can use their national IDs. Ensure your documents are valid before travel." } },
-      { "@type": "Question", "name": "Is the Nairobi to Kampala bus journey safe?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. SimbaCoach operates modern, well-maintained buses with professional drivers. The Nairobiâ€“Kampala highway is one of the most travelled routes in East Africa." } },
+      { "@type": "Question", "name": "Is the Nairobi to Kampala bus journey safe?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. SimbaCoach operates modern, well-maintained buses with professional drivers. The Nairobi–Kampala highway is one of the most travelled routes in East Africa." } },
     ]
   };
 
@@ -41,16 +41,16 @@ const NairobiKampalaTravelGuide = () => {
         <title>Nairobi to Kampala Bus: Complete 2025 Travel Guide | SimbaCoach</title>
         <meta name="description" content="Everything you need to know about the Nairobi to Kampala bus in 2025. Prices from KSh 3,500, schedules, border tips, and how to book online with SimbaCoach." />
         <meta name="keywords" content="Nairobi to Kampala bus 2025, Nairobi Kampala bus price, how to travel Nairobi to Kampala, Nairobi Kampala bus guide, SimbaCoach Nairobi Kampala, Kenya Uganda bus" />
-        <link rel="canonical" href="https://simbacoachbus.online/blog/nairobi-to-kampala-bus-travel-guide" />
+        <link rel="canonical" href="https://simba-coach-bus.online/blog/nairobi-to-kampala-bus-travel-guide" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Nairobi to Kampala Bus: Complete 2025 Travel Guide" />
         <meta property="og:description" content="Prices, schedules, border crossing tips, and how to book your Nairobi to Kampala bus ticket online in 2025." />
-        <meta property="og:url" content="https://simbacoachbus.online/blog/nairobi-to-kampala-bus-travel-guide" />
-        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta property="og:url" content="https://simba-coach-bus.online/blog/nairobi-to-kampala-bus-travel-guide" />
+        <meta property="og:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:site_name" content="SimbaCoach" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta name="twitter:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <meta property="article:published_time" content={publishDate} />
         <meta property="article:modified_time" content={modifiedDate} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
@@ -73,7 +73,7 @@ const NairobiKampalaTravelGuide = () => {
             <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> 8 min read</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">Nairobi to Kampala Bus: Complete 2025 Travel Guide</h1>
-          <p className="text-xl text-blue-200">Everything you need to know â€” prices, schedules, border crossings, and tips for a smooth journey.</p>
+          <p className="text-xl text-blue-200">Everything you need to know — prices, schedules, border crossings, and tips for a smooth journey.</p>
         </div>
       </div>
 
@@ -128,13 +128,13 @@ const NairobiKampalaTravelGuide = () => {
           <ul className="list-disc pl-6 space-y-2 text-gray-600 mt-4">
             <li><strong>Documents required:</strong> Valid passport or EAC travel document. Kenyan and Ugandan nationals can use national IDs.</li>
             <li><strong>Yellow fever certificate:</strong> Required for entry into Uganda. Carry your vaccination card.</li>
-            <li><strong>Border wait time:</strong> Usually 30â€“90 minutes depending on the day and time.</li>
+            <li><strong>Border wait time:</strong> Usually 30–90 minutes depending on the day and time.</li>
             <li><strong>Currency:</strong> You can exchange Kenyan Shillings to Ugandan Shillings at the border or in Kampala.</li>
           </ul>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">What's Included on the Bus?</h2>
           <p className="text-gray-600 leading-relaxed">
-            All SimbaCoach buses on the Nairobiâ€“Kampala route are equipped with:
+            All SimbaCoach buses on the Nairobi–Kampala route are equipped with:
           </p>
           <ul className="list-disc pl-6 space-y-2 text-gray-600 mt-4">
             <li>Air conditioning throughout the journey</li>
@@ -154,14 +154,14 @@ const NairobiKampalaTravelGuide = () => {
             <li>Select <strong>Nairobi</strong> as your origin and <strong>Kampala</strong> as your destination</li>
             <li>Choose your travel date and click Search</li>
             <li>Select your preferred seat class (Standard or VIP)</li>
-            <li>Pay via M-Pesa or card â€” you'll receive instant confirmation</li>
+            <li>Pay via M-Pesa or card — you'll receive instant confirmation</li>
           </ol>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Tips for a Comfortable Journey</h2>
           <ul className="list-disc pl-6 space-y-2 text-gray-600 mt-4">
             <li>Arrive at the terminal at least <strong>30 minutes before departure</strong></li>
-            <li>Carry snacks and water for the journey â€” stops are scheduled but limited</li>
-            <li>Dress in layers â€” the bus AC can get cold on long journeys</li>
+            <li>Carry snacks and water for the journey — stops are scheduled but limited</li>
+            <li>Dress in layers — the bus AC can get cold on long journeys</li>
             <li>Keep your travel documents easily accessible for the border crossing</li>
             <li>Download offline maps of Kampala before you travel</li>
           </ul>
@@ -170,7 +170,7 @@ const NairobiKampalaTravelGuide = () => {
           <div className="space-y-6 mt-4">
             {[
               { q: 'How much does a Nairobi to Kampala bus ticket cost in 2025?', a: 'SimbaCoach tickets start from KSh 3,500 for standard class and KSh 5,000 for VIP.' },
-              { q: 'How long does the Nairobi to Kampala bus journey take?', a: 'Approximately 10â€“12 hours depending on traffic and border crossing times.' },
+              { q: 'How long does the Nairobi to Kampala bus journey take?', a: 'Approximately 10–12 hours depending on traffic and border crossing times.' },
               { q: 'What documents do I need to cross from Kenya to Uganda by bus?', a: 'A valid passport or EAC travel document. Kenyan and Ugandan citizens can use national IDs. A yellow fever certificate is also required.' },
               { q: 'Is the Nairobi to Kampala bus journey safe?', a: 'Yes. SimbaCoach operates modern buses with professional drivers on this well-travelled route.' },
             ].map((faq, i) => (
@@ -186,7 +186,7 @@ const NairobiKampalaTravelGuide = () => {
             <h3 className="text-2xl font-bold mb-3">Ready to Book Your Seat?</h3>
             <p className="text-blue-200 mb-6">Daily departures from Nairobi to Kampala. Instant confirmation.</p>
             <Link to="/routes/nairobi-kampala" className="inline-block px-8 py-4 bg-gradient-to-r from-[#F97316] to-[#FB923C] text-white font-bold rounded-xl shadow-lg hover:shadow-orange-400/40 transition-all">
-              Book Nairobi â†’ Kampala
+              Book Nairobi → Kampala
             </Link>
           </div>
 

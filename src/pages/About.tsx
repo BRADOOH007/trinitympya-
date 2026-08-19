@@ -24,7 +24,7 @@ const About = () => {
         description="SimbaCoach is East Africa's premium bus operator connecting 50+ destinations across 7 countries since 2010. Modern fleet, safe drivers, and affordable fares across Kenya, Uganda, Rwanda & beyond."
         path="/about"
         keywords="SimbaCoach about, SimbaCoach bus company, East Africa bus company, Kenya bus operator, premium bus Kenya"
-        jsonLd={[{ "@type": "AboutPage", "name": "About SimbaCoach Bus", "url": "https://simbacoachbus.online/about" }, breadcrumbJsonLd([
+        jsonLd={[{ "@type": "AboutPage", "name": "About SimbaCoach Bus", "url": "https://simba-coach-bus.online/about" }, breadcrumbJsonLd([
           { name: 'Home', path: '/' },
           { name: 'About' }
         ])]}

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Clock, Calendar, User } from 'lucide-react';
@@ -6,11 +6,11 @@ import { ChevronRight, Clock, Calendar, User } from 'lucide-react';
 const NairobiDarEsSalaamTravelGuide = () => {
   const publishDate = '2025-05-17';
   const faqs = [
-    { q: 'How long is the Nairobi to Dar es Salaam bus journey?', a: 'Approximately 14â€“16 hours, crossing into Tanzania at the Namanga border.' },
+    { q: 'How long is the Nairobi to Dar es Salaam bus journey?', a: 'Approximately 14–16 hours, crossing into Tanzania at the Namanga border.' },
     { q: 'What is the price of a Nairobi to Dar es Salaam bus ticket?', a: 'SimbaCoach tickets start from KSh 4,500 standard and KSh 6,500 VIP.' },
     { q: 'Which border does the bus cross?', a: 'The Namanga border between Kenya and Tanzania.' },
     { q: 'What documents do I need?', a: 'A valid passport or EAC travel document.' },
-    { q: 'Can I book online?', a: 'Yes â€” select your date, choose your seat, and pay via M-Pesa or card for instant confirmation.' },
+    { q: 'Can I book online?', a: 'Yes — select your date, choose your seat, and pay via M-Pesa or card for instant confirmation.' },
   ];
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -18,18 +18,18 @@ const NairobiDarEsSalaamTravelGuide = () => {
         <title>Nairobi to Dar es Salaam Bus: Complete 2025 Travel Guide | SimbaCoach</title>
         <meta name="description" content="Everything you need to know about the Nairobi to Dar es Salaam bus in 2025. Prices from KSh 4,500, schedules, Namanga border tips, and how to book online." />
         <meta name="keywords" content="Nairobi to Dar es Salaam bus 2025, Nairobi Dar es Salaam bus price, SimbaCoach Nairobi Dar es Salaam, Kenya Tanzania bus" />
-        <link rel="canonical" href="https://simbacoachbus.online/blog/nairobi-to-dar-es-salaam-bus-travel-guide" />
+        <link rel="canonical" href="https://simba-coach-bus.online/blog/nairobi-to-dar-es-salaam-bus-travel-guide" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Nairobi to Dar es Salaam Bus: Complete 2025 Travel Guide" />
-        <meta property="og:url" content="https://simbacoachbus.online/blog/nairobi-to-dar-es-salaam-bus-travel-guide" />
+        <meta property="og:url" content="https://simba-coach-bus.online/blog/nairobi-to-dar-es-salaam-bus-travel-guide" />
         <meta property="og:description" content="Prices, schedules, Namanga border tips, and how to book your Nairobi to Dar es Salaam bus ticket online in 2025." />
-        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta property="og:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:site_name" content="SimbaCoach" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta name="twitter:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <meta property="article:published_time" content={publishDate} />
-        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Nairobi to Dar es Salaam Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "SimbaCoach Bus" }, "publisher": { "@type": "Organization", "name": "SimbaCoach Bus", "logo": { "@type": "ImageObject", "url": "https://simbacoachbus.online/assets/logo.webp" } } })}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Nairobi to Dar es Salaam Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "SimbaCoach Bus" }, "publisher": { "@type": "Organization", "name": "SimbaCoach Bus", "logo": { "@type": "ImageObject", "url": "https://simba-coach-bus.online/assets/logo.webp" } } })}</script>
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>
       </Helmet>
       <div className="bg-[#1E3A8A] py-16 text-white">
@@ -55,7 +55,7 @@ const NairobiDarEsSalaamTravelGuide = () => {
           <p className="text-gray-600 text-lg leading-relaxed">The <strong>Nairobi to Dar es Salaam bus</strong> connects Kenya's capital with Tanzania's largest city. SimbaCoach operates this route daily with modern, air-conditioned buses.</p>
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">How Long Does the Journey Take?</h2>
-            <p className="text-gray-600 leading-relaxed">Approximately <strong>14â€“16 hours</strong>, crossing at Namanga. Departure at <strong>7:00 AM daily</strong> from Duruma Road, Nairobi.</p>
+            <p className="text-gray-600 leading-relaxed">Approximately <strong>14–16 hours</strong>, crossing at Namanga. Departure at <strong>7:00 AM daily</strong> from Duruma Road, Nairobi.</p>
           </div>
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Ticket Prices in 2025</h2>
@@ -81,7 +81,7 @@ const NairobiDarEsSalaamTravelGuide = () => {
             </div>
           </div>
           <div className="bg-[#1E3A8A] rounded-2xl p-8 text-center text-white">
-            <h3 className="text-2xl font-bold mb-3">Book Your Nairobi â†’ Dar es Salaam Seat</h3>
+            <h3 className="text-2xl font-bold mb-3">Book Your Nairobi → Dar es Salaam Seat</h3>
             <p className="text-blue-200 mb-6">Daily departures. Instant confirmation.</p>
             <Link to="/routes/nairobi-dar-es-salaam" className="inline-block px-8 py-4 bg-gradient-to-r from-[#F97316] to-[#FB923C] text-white font-bold rounded-xl shadow-lg transition-all">Book Now</Link>
           </div>

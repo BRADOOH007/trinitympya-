@@ -39,7 +39,7 @@ const Contact = () => {
         description="Contact SimbaCoach Bus for bookings, seat changes, refunds and enquiries. Call +254 781 346 337, WhatsApp +254 735 893 829 or email info@simbacoach.com. Support available daily 6 AM - 10 PM."
         path="/contact"
         keywords="SimbaCoach contact, SimbaCoach customer care, SimbaCoach phone number, SimbaCoach email, bus booking help Kenya"
-        jsonLd={[{ "@type": "ContactPage", "name": "Contact SimbaCoach", "url": "https://simbacoachbus.online/contact" }, breadcrumbJsonLd([
+        jsonLd={[{ "@type": "ContactPage", "name": "Contact SimbaCoach", "url": "https://simba-coach-bus.online/contact" }, breadcrumbJsonLd([
           { name: 'Home', path: '/' },
           { name: 'Contact' }
         ])]}

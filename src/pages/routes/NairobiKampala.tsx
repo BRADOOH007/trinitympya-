@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
 import { Clock, MapPin, ChevronRight, Star } from 'lucide-react';
@@ -13,7 +13,7 @@ const NairobiKampala = () => {
   const faqs = [
     {
       q: 'How long is the Nairobi to Kampala bus journey?',
-      a: 'The Nairobi to Kampala bus journey takes approximately 10â€“12 hours depending on border crossing times at Busia or Malaba.',
+      a: 'The Nairobi to Kampala bus journey takes approximately 10–12 hours depending on border crossing times at Busia or Malaba.',
     },
     {
       q: 'What is the price of a Nairobi to Kampala bus ticket?',
@@ -25,7 +25,7 @@ const NairobiKampala = () => {
     },
     {
       q: 'Where does the bus drop off in Kampala?',
-      a: 'Our buses arrive at the SimbaCoach Kampala terminal on Namirembe Road, Bakuli â€” centrally located and easily accessible.',
+      a: 'Our buses arrive at the SimbaCoach Kampala terminal on Namirembe Road, Bakuli — centrally located and easily accessible.',
     },
     {
       q: 'Can I book a Nairobi to Kampala bus ticket online?',
@@ -39,15 +39,15 @@ const NairobiKampala = () => {
         <title>Nairobi to Kampala Bus | Daily Departures | Book Online - SimbaCoach</title>
         <meta name="description" content="Book Nairobi to Kampala bus tickets online with SimbaCoach. Daily departures, comfortable seats, affordable prices from KSh 3,500. Instant confirmation." />
         <meta name="keywords" content="Nairobi to Kampala bus, Nairobi Kampala bus ticket, Nairobi to Kampala bus price, SimbaCoach Nairobi Kampala, bus from Nairobi to Kampala, Kampala bus booking" />
-        <link rel="canonical" href="https://simbacoachbus.online/routes/nairobi-kampala" />
+        <link rel="canonical" href="https://simba-coach-bus.online/routes/nairobi-kampala" />
         <meta property="og:title" content="Nairobi to Kampala Bus | Daily Departures | SimbaCoach" />
         <meta property="og:description" content="Book Nairobi to Kampala bus tickets online. Daily departures from KSh 3,500. Safe, comfortable, and reliable." />
-        <meta property="og:url" content="https://simbacoachbus.online/routes/nairobi-kampala" />
-        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta property="og:url" content="https://simba-coach-bus.online/routes/nairobi-kampala" />
+        <meta property="og:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:site_name" content="SimbaCoach" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta name="twitter:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
@@ -61,7 +61,7 @@ const NairobiKampala = () => {
           "@context": "https://schema.org",
           "@type": "BusTrip",
           "name": "Nairobi to Kampala Bus",
-          "provider": { "@type": "Organization", "name": "SimbaCoach Bus", "url": "https://simbacoachbus.online" },
+          "provider": { "@type": "Organization", "name": "SimbaCoach Bus", "url": "https://simba-coach-bus.online" },
           "departureBusStop": { "@type": "BusStop", "name": "Nairobi Terminal, Duruma Road", "address": { "@type": "PostalAddress", "addressLocality": "Nairobi", "addressCountry": "KE" } },
           "arrivalBusStop": { "@type": "BusStop", "name": "Kampala Terminal, Namirembe Road", "address": { "@type": "PostalAddress", "addressLocality": "Kampala", "addressCountry": "UG" } },
           "departureTime": "07:00",
@@ -77,13 +77,13 @@ const NairobiKampala = () => {
             <ChevronRight className="w-4 h-4" />
             <Link to="/routes" className="hover:text-white">Routes</Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-white">Nairobi â†’ Kampala</span>
+            <span className="text-white">Nairobi → Kampala</span>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Nairobi to Kampala Bus</h1>
           <p className="text-xl text-blue-200 max-w-2xl">Daily direct bus service from Nairobi, Kenya to Kampala, Uganda. Comfortable seats, affordable prices, and on-time departures.</p>
           <div className="flex flex-wrap gap-6 mt-8 text-sm">
-            <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-orange-400" /><span>~10â€“12 hours</span></div>
-            <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-orange-400" /><span>Duruma Rd, Nairobi â†’ Namirembe Rd, Kampala</span></div>
+            <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-orange-400" /><span>~10–12 hours</span></div>
+            <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-orange-400" /><span>Duruma Rd, Nairobi → Namirembe Rd, Kampala</span></div>
             <div className="flex items-center gap-2"><Star className="w-4 h-4 text-orange-400 fill-orange-400" /><span>4.8/5 rated route</span></div>
           </div>
         </div>
@@ -116,7 +116,7 @@ const NairobiKampala = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
             {[
               { label: 'Departure', value: '7:00 AM Daily' },
-              { label: 'Duration', value: '10â€“12 Hours' },
+              { label: 'Duration', value: '10–12 Hours' },
               { label: 'Standard', value: 'KSh 3,500' },
               { label: 'VIP', value: 'KSh 5,000' },
             ].map((item) => (
@@ -146,9 +146,9 @@ const NairobiKampala = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Other Popular Routes</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { label: 'Nairobi â†’ Kigali', to: '/routes/nairobi-kigali' },
-              { label: 'Nairobi â†’ Juba', to: '/routes/nairobi-juba' },
-              { label: 'Nairobi â†’ Dar es Salaam', to: '/routes/nairobi-dar-es-salaam' },
+              { label: 'Nairobi → Kigali', to: '/routes/nairobi-kigali' },
+              { label: 'Nairobi → Juba', to: '/routes/nairobi-juba' },
+              { label: 'Nairobi → Dar es Salaam', to: '/routes/nairobi-dar-es-salaam' },
             ].map((r) => (
               <Link key={r.to} to={r.to} className="flex items-center justify-between p-4 border border-gray-200 rounded-xl hover:border-[#1E3A8A] hover:bg-blue-50 transition-all group">
                 <span className="font-semibold text-gray-700 group-hover:text-[#1E3A8A]">{r.label}</span>

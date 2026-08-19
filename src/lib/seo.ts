@@ -1,9 +1,9 @@
 export const SITE = {
   name: 'SimbaCoach',
   fullName: 'SimbaCoach Bus',
-  url: 'https://simbacoachbus.online',
-  logo: 'https://simbacoachbus.online/assets/logo.webp',
-  image: 'https://simbacoachbus.online/assets/simba-hero.webp',
+  url: 'https://simba-coach-bus.online',
+  logo: 'https://simba-coach-bus.online/assets/logo.webp',
+  image: 'https://simba-coach-bus.online/assets/simba-hero.webp',
   description: 'Book bus tickets online for Kenya & East Africa. VIP, Executive & Standard fares across 150+ routes.',
   email: 'info@simbacoach.com',
   phone: '+254781346337',

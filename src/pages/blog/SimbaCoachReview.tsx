@@ -1,4 +1,4 @@
-﻿
+
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Clock, Calendar, User, Star } from 'lucide-react';
@@ -12,16 +12,16 @@ const SimbaCoachReview = () => {
     "@type": "Article",
     "headline": "SimbaCoach Bus Review 2025: Is It the Best Bus from Nairobi?",
     "description": "An honest review of SimbaCoach Bus in 2025. Comfort, prices, punctuality, and how it compares to other bus companies on East African routes.",
-    "image": "https://simbacoachbus.online/assets/simba-hero.webp",
+    "image": "https://simba-coach-bus.online/assets/simba-hero.webp",
     "datePublished": publishDate,
     "dateModified": modifiedDate,
     "author": { "@type": "Organization", "name": "SimbaCoach Bus" },
     "publisher": {
       "@type": "Organization",
       "name": "SimbaCoach Bus",
-      "logo": { "@type": "ImageObject", "url": "https://simbacoachbus.online/assets/logo.webp" }
+      "logo": { "@type": "ImageObject", "url": "https://simba-coach-bus.online/assets/logo.webp" }
     },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://simbacoachbus.online/blog/simba-bus-review" }
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://simba-coach-bus.online/blog/simba-bus-review" }
   };
 
   const reviewSchema = {
@@ -30,7 +30,7 @@ const SimbaCoachReview = () => {
     "itemReviewed": {
       "@type": "LocalBusiness",
       "name": "SimbaCoach Bus",
-      "url": "https://simbacoachbus.online"
+      "url": "https://simba-coach-bus.online"
     },
     "reviewRating": {
       "@type": "Rating",
@@ -55,16 +55,16 @@ const SimbaCoachReview = () => {
         <title>SimbaCoach Bus Review 2025: Best Bus from Nairobi? | SimbaCoach</title>
         <meta name="description" content="Honest SimbaCoach Bus review for 2025. Comfort, prices, punctuality, online booking, and how it compares to other East Africa bus companies." />
         <meta name="keywords" content="SimbaCoach Bus review, SimbaCoach review 2025, best bus Nairobi to Kampala, SimbaCoach vs other buses, East Africa bus company review, SimbaCoach online booking review" />
-        <link rel="canonical" href="https://simbacoachbus.online/blog/simba-bus-review" />
+        <link rel="canonical" href="https://simba-coach-bus.online/blog/simba-bus-review" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="SimbaCoach Bus Review 2025: Is It the Best Bus from Nairobi?" />
-        <meta property="og:description" content="Comfort, prices, punctuality, and online booking â€” a full review of SimbaCoach Bus in 2025." />
-        <meta property="og:url" content="https://simbacoachbus.online/blog/simba-bus-review" />
-        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta property="og:description" content="Comfort, prices, punctuality, and online booking — a full review of SimbaCoach Bus in 2025." />
+        <meta property="og:url" content="https://simba-coach-bus.online/blog/simba-bus-review" />
+        <meta property="og:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:site_name" content="SimbaCoach" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta name="twitter:image" content="https://simba-coach-bus.online/assets/simba-hero.webp" />
         <meta property="article:published_time" content={publishDate} />
         <meta property="article:modified_time" content={modifiedDate} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
@@ -87,7 +87,7 @@ const SimbaCoachReview = () => {
             <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> 7 min read</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">SimbaCoach Bus Review 2025: Is It the Best Bus from Nairobi?</h1>
-          <p className="text-xl text-blue-200">Comfort, prices, punctuality, and online booking â€” everything you need to know before you travel.</p>
+          <p className="text-xl text-blue-200">Comfort, prices, punctuality, and online booking — everything you need to know before you travel.</p>
         </div>
       </div>
 
@@ -118,12 +118,12 @@ const SimbaCoachReview = () => {
           </div>
 
           <p className="text-gray-600 text-lg leading-relaxed">
-            If you've searched for a bus from Nairobi to Kampala, Kigali, or Juba, you've likely come across <strong>SimbaCoach Bus</strong>. In this review, we break down exactly what to expect â€” from the booking experience to the quality of the buses and the reliability of departures.
+            If you've searched for a bus from Nairobi to Kampala, Kigali, or Juba, you've likely come across <strong>SimbaCoach Bus</strong>. In this review, we break down exactly what to expect — from the booking experience to the quality of the buses and the reliability of departures.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Online Booking Experience</h2>
           <p className="text-gray-600 leading-relaxed">
-            SimbaCoach offers one of the most straightforward online booking systems for East African bus travel. You can book directly on the website in under 3 minutes â€” select your route, choose your date, pick your seat class, and pay via <strong>M-Pesa or card</strong>. Confirmation is instant.
+            SimbaCoach offers one of the most straightforward online booking systems for East African bus travel. You can book directly on the website in under 3 minutes — select your route, choose your date, pick your seat class, and pay via <strong>M-Pesa or card</strong>. Confirmation is instant.
           </p>
           <p className="text-gray-600 leading-relaxed mt-3">
             This is a significant advantage over bus companies that still require you to visit a physical office or call an agent to reserve a seat.
@@ -141,7 +141,7 @@ const SimbaCoachReview = () => {
             <li>Scheduled rest stops for meals and restrooms</li>
           </ul>
           <p className="text-gray-600 leading-relaxed mt-4">
-            VIP seats offer extra legroom and wider seats â€” worth the upgrade on longer routes like Nairobi to Kigali or Nairobi to Juba.
+            VIP seats offer extra legroom and wider seats — worth the upgrade on longer routes like Nairobi to Kigali or Nairobi to Juba.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Punctuality</h2>
@@ -161,10 +161,10 @@ const SimbaCoachReview = () => {
               </thead>
               <tbody>
                 {[
-                  { route: 'Nairobi â†’ Kampala', std: 'KSh 3,500', vip: 'KSh 5,000' },
-                  { route: 'Nairobi â†’ Kigali', std: 'KSh 5,000', vip: 'KSh 7,000' },
-                  { route: 'Nairobi â†’ Juba', std: 'USD 45', vip: 'USD 60' },
-                  { route: 'Nairobi â†’ Dar es Salaam', std: 'KSh 4,500', vip: 'KSh 6,500' },
+                  { route: 'Nairobi → Kampala', std: 'KSh 3,500', vip: 'KSh 5,000' },
+                  { route: 'Nairobi → Kigali', std: 'KSh 5,000', vip: 'KSh 7,000' },
+                  { route: 'Nairobi → Juba', std: 'USD 45', vip: 'USD 60' },
+                  { route: 'Nairobi → Dar es Salaam', std: 'KSh 4,500', vip: 'KSh 6,500' },
                 ].map((row, i) => (
                   <tr key={i} className={i % 2 === 1 ? 'bg-gray-50' : ''}>
                     <td className="p-3 font-semibold text-gray-800">{row.route}</td>
@@ -176,7 +176,7 @@ const SimbaCoachReview = () => {
             </table>
           </div>
           <p className="text-gray-600 leading-relaxed">
-            Compared to flying, SimbaCoach offers exceptional value â€” especially for routes like Nairobi to Kampala where the bus journey is only 10â€“12 hours and the price difference is significant.
+            Compared to flying, SimbaCoach offers exceptional value — especially for routes like Nairobi to Kampala where the bus journey is only 10–12 hours and the price difference is significant.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Routes Covered</h2>
@@ -185,10 +185,10 @@ const SimbaCoachReview = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             {[
-              { label: 'Nairobi â†’ Kampala', to: '/routes/nairobi-kampala' },
-              { label: 'Nairobi â†’ Kigali', to: '/routes/nairobi-kigali' },
-              { label: 'Nairobi â†’ Juba', to: '/routes/nairobi-juba' },
-              { label: 'Nairobi â†’ Dar es Salaam', to: '/routes/nairobi-dar-es-salaam' },
+              { label: 'Nairobi → Kampala', to: '/routes/nairobi-kampala' },
+              { label: 'Nairobi → Kigali', to: '/routes/nairobi-kigali' },
+              { label: 'Nairobi → Juba', to: '/routes/nairobi-juba' },
+              { label: 'Nairobi → Dar es Salaam', to: '/routes/nairobi-dar-es-salaam' },
             ].map((r) => (
               <Link key={r.to} to={r.to} className="flex items-center justify-between p-3 border border-gray-200 rounded-xl hover:border-[#1E3A8A] hover:bg-blue-50 transition-all group text-sm">
                 <span className="font-semibold text-gray-700 group-hover:text-[#1E3A8A]">{r.label}</span>
