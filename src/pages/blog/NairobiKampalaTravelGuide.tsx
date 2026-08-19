@@ -12,7 +12,7 @@ const NairobiKampalaTravelGuide = () => {
     "@type": "Article",
     "headline": "Nairobi to Kampala Bus: Complete 2025 Travel Guide",
     "description": "Everything you need to know about travelling by bus from Nairobi to Kampala in 2025. Prices, schedules, border crossing tips, and how to book online.",
-    "image": "https://simbacoachbus.online/assets/simba-bus-hero-80XU48vz.webp",
+    "image": "https://simbacoachbus.online/assets/simba-hero.webp",
     "datePublished": publishDate,
     "dateModified": modifiedDate,
     "author": { "@type": "Organization", "name": "SimbaCoach Bus" },
@@ -46,7 +46,11 @@ const NairobiKampalaTravelGuide = () => {
         <meta property="og:title" content="Nairobi to Kampala Bus: Complete 2025 Travel Guide" />
         <meta property="og:description" content="Prices, schedules, border crossing tips, and how to book your Nairobi to Kampala bus ticket online in 2025." />
         <meta property="og:url" content="https://simbacoachbus.online/blog/nairobi-to-kampala-bus-travel-guide" />
-        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-bus-hero-80XU48vz.webp" />
+        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta property="og:site_name" content="SimbaCoach" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
         <meta property="article:published_time" content={publishDate} />
         <meta property="article:modified_time" content={modifiedDate} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>

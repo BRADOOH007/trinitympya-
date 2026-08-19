@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { User, Lock, Smartphone, CheckCircle, LogOut } from 'lucide-react';
 import { useAdmin } from '../context/AdminContext';
+import Seo from '../components/seo/Seo';
 
 const Account = () => {
   const [mode, setMode] = useState<'login' | 'register'>('login');
@@ -16,6 +17,7 @@ const Account = () => {
 
   return (
     <div className="p-6">
+      <Seo title="My Account | SimbaCoach" description="Manage your SimbaCoach bus bookings and account." path="/account" noindex />
       {!loggedIn ? (
         <>
           <div className="flex items-center gap-3 mb-8">

@@ -25,7 +25,11 @@ const EldoretKampalaTravelGuide = () => {
         <meta property="og:title" content="Eldoret to Kampala Bus: Complete 2025 Travel Guide" />
         <meta property="og:description" content="Prices, schedules, Malaba border tips, and how to book your Eldoret to Kampala bus ticket online in 2025." />
         <meta property="og:url" content="https://simbacoachbus.online/blog/eldoret-to-kampala-bus-travel-guide" />
-        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-bus-hero-80XU48vz.webp" />
+        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta property="og:site_name" content="SimbaCoach" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
         <meta property="article:published_time" content={publishDate} />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "headline": "Eldoret to Kampala Bus: Complete 2025 Travel Guide", "datePublished": publishDate, "dateModified": publishDate, "author": { "@type": "Organization", "name": "SimbaCoach Bus" }, "publisher": { "@type": "Organization", "name": "SimbaCoach Bus", "logo": { "@type": "ImageObject", "url": "https://simbacoachbus.online/assets/logo.webp" } }, "mainEntityOfPage": { "@type": "WebPage", "@id": "https://simbacoachbus.online/blog/eldoret-to-kampala-bus-travel-guide" } })}</script>
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) })}</script>

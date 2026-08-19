@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --config vite.ssr.config.ts && node prerender.mjs",
+    "build:ssr": "vite build --config vite.ssr.config.ts",
+    "prerender": "node prerender.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

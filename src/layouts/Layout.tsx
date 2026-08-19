@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Outlet, useLocation } from 'react-router-dom';
 import AppHeader from '../components/layout/AppHeader';
 import BottomNav from '../components/layout/BottomNav';
 import Footer from '../components/layout/Footer';
 import Chatbot from '../components/chat/Chatbot';
+import { organizationJsonLd, websiteJsonLd } from '../lib/seo';
 
 const Layout = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -27,6 +29,12 @@ const Layout = () => {
         <span className="text-amber-400 text-base leading-none">🎉</span>
         <span>Receive up to 25% discount when you book with our website!</span>
       </div>
+
+      {/* Global structured data */}
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({ '@context': 'https://schema.org', ...organizationJsonLd })}</script>
+        <script type="application/ld+json">{JSON.stringify({ '@context': 'https://schema.org', ...websiteJsonLd })}</script>
+      </Helmet>
 
       {/* Header */}
       <AppHeader drawerOpen={drawerOpen} onToggleDrawer={() => setDrawerOpen(v => !v)} />

@@ -43,7 +43,11 @@ const NairobiKampala = () => {
         <meta property="og:title" content="Nairobi to Kampala Bus | Daily Departures | SimbaCoach" />
         <meta property="og:description" content="Book Nairobi to Kampala bus tickets online. Daily departures from KSh 3,500. Safe, comfortable, and reliable." />
         <meta property="og:url" content="https://simbacoachbus.online/routes/nairobi-kampala" />
-        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-bus-hero-80XU48vz.webp" />
+        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta property="og:site_name" content="SimbaCoach" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",

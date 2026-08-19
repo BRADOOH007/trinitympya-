@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAdmin } from '../context/AdminContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { Lock, User, ArrowLeft } from 'lucide-react';
+import Seo from '../components/seo/Seo';
 
 const Login = () => {
   const [password, setPassword] = useState('');
@@ -20,6 +21,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
+      <Seo title="Agent Portal Login | SimbaCoach" description="SimbaCoach agent portal login." path="/login" noindex />
       <div className="max-w-md w-full card-elevated">
         <div className="text-center mb-8">
           <div className="w-20 h-20 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">

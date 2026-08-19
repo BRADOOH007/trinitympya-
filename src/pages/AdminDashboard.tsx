@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAdmin, Route, ContactInfo, PaymentMethod } from '../context/AdminContext';
 import { Shield, Globe, Lock, Edit2, X, Ban, CheckCircle, Phone, CreditCard, Ticket } from 'lucide-react';
+import Seo from '../components/seo/Seo';
 
 const AVAILABLE_IMAGES = [
   { name: 'Bus 1', value: '/assets/simba-bus-1.webp' },
@@ -181,6 +182,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
+      <Seo title="Admin Dashboard | SimbaCoach" description="SimbaCoach admin dashboard." path="/admin-dashboard" noindex />
       {/* Top Bar */}
       <div className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-30">
         <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">

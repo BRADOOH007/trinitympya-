@@ -2,120 +2,144 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://simbacoachbus.online/</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://simbacoachbus.online/assets/logo.webp</image:loc>
-      <image:title>SimbaCoach Bus Logo</image:title>
+      <image:loc>https://simbacoachbus.online/assets/simba-hero.webp</image:loc>
+      <image:title>SimbaCoach luxury bus in Kenya</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://simbacoachbus.online/routes</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/routes/nairobi-kampala</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/routes/nairobi-kigali</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/routes/nairobi-juba</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/routes/nairobi-dar-es-salaam</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/about</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.70</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/contact</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.70</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/fleet</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://simbacoachbus.online/help</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://simbacoachbus.online/print-ticket</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.40</priority>
+  </url>
+  <url>
+    <loc>https://simbacoachbus.online/privacy-policy</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.20</priority>
+  </url>
+  <url>
+    <loc>https://simbacoachbus.online/terms</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.20</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/blog/nairobi-to-kampala-bus-travel-guide</loc>
-    <lastmod>2025-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://simbacoachbus.online/blog/simba-bus-review</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/blog/nairobi-to-kigali-bus-travel-guide</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/blog/nairobi-to-juba-bus-travel-guide</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/blog/nairobi-to-dar-es-salaam-bus-travel-guide</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/blog/kisumu-to-kampala-bus-travel-guide</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/blog/kisumu-to-kigali-bus-travel-guide</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/blog/eldoret-to-kampala-bus-travel-guide</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/blog/eldoret-to-kigali-bus-travel-guide</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://simbacoachbus.online/blog/nakuru-to-kampala-bus-travel-guide</loc>
-    <lastmod>2025-05-17</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://simbacoachbus.online/blog/simba-bus-review</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 </urlset>

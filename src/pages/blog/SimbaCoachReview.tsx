@@ -12,7 +12,7 @@ const SimbaCoachReview = () => {
     "@type": "Article",
     "headline": "SimbaCoach Bus Review 2025: Is It the Best Bus from Nairobi?",
     "description": "An honest review of SimbaCoach Bus in 2025. Comfort, prices, punctuality, and how it compares to other bus companies on East African routes.",
-    "image": "https://simbacoachbus.online/assets/simba-bus-hero-80XU48vz.webp",
+    "image": "https://simbacoachbus.online/assets/simba-hero.webp",
     "datePublished": publishDate,
     "dateModified": modifiedDate,
     "author": { "@type": "Organization", "name": "SimbaCoach Bus" },
@@ -60,7 +60,11 @@ const SimbaCoachReview = () => {
         <meta property="og:title" content="SimbaCoach Bus Review 2025: Is It the Best Bus from Nairobi?" />
         <meta property="og:description" content="Comfort, prices, punctuality, and online booking â€” a full review of SimbaCoach Bus in 2025." />
         <meta property="og:url" content="https://simbacoachbus.online/blog/simba-bus-review" />
-        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-bus-hero-80XU48vz.webp" />
+        <meta property="og:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta property="og:site_name" content="SimbaCoach" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://simbacoachbus.online/assets/simba-hero.webp" />
         <meta property="article:published_time" content={publishDate} />
         <meta property="article:modified_time" content={modifiedDate} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>

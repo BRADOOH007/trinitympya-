@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Clock, Search, Calendar, Bus } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
+import Seo from '../components/seo/Seo';
 import BookingModal from '../components/booking/BookingModal';
 import ReturnTripModal from '../components/booking/ReturnTripModal';
 import { useAdmin } from '../context/AdminContext';
@@ -113,6 +114,12 @@ const RoutesPage = () => {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <Seo
+        title="Bus Routes & Fares - Kenya & East Africa | SimbaCoach"
+        description="Explore SimbaCoach bus routes and fares across Kenya and East Africa. Daily departures from Nairobi, Mombasa, Eldoret, Kisumu to Kampala, Kigali & more. Book online with instant confirmation."
+        path="/routes"
+        keywords="SimbaCoach routes, bus fares Kenya, Kenya bus routes, Nairobi to Mombasa bus price, East Africa bus routes, book bus online"
+      />
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary-600 to-secondary-600 py-20 text-white">
         <div className="container-wide text-center">

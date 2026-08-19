@@ -1,5 +1,7 @@
 import { Shield, Clock, Users, Award, Zap, Heart, Globe, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Seo from '../components/seo/Seo';
+import { breadcrumbJsonLd } from '../lib/seo';
 
 const About = () => {
   const stats = [
@@ -17,6 +19,16 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <Seo
+        title="About SimbaCoach Bus - East Africa's Premium Bus Operator"
+        description="SimbaCoach is East Africa's premium bus operator connecting 50+ destinations across 7 countries since 2010. Modern fleet, safe drivers, and affordable fares across Kenya, Uganda, Rwanda & beyond."
+        path="/about"
+        keywords="SimbaCoach about, SimbaCoach bus company, East Africa bus company, Kenya bus operator, premium bus Kenya"
+        jsonLd={[{ "@type": "AboutPage", "name": "About SimbaCoach Bus", "url": "https://simbacoachbus.online/about" }, breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'About' }
+        ])]}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 to-secondary-50 py-20">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary-200 rounded-full blur-3xl opacity-40"></div>

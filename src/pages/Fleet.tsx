@@ -1,4 +1,5 @@
 import { Wifi, Battery, Coffee, Snowflake, CheckCircle } from 'lucide-react';
+import Seo from '../components/seo/Seo';
 
 const buses = [
   {
@@ -34,6 +35,12 @@ const amenities = [
 const Fleet = () => {
   return (
     <div className="min-h-screen bg-slate-50">
+      <Seo
+        title="SimbaCoach Fleet - Luxury, Executive & VIP Buses"
+        description="Discover the SimbaCoach modern fleet: luxury coaches, executive class and VIP sleeper buses with free Wi-Fi, reclining seats, USB charging and onboard service across Kenya & East Africa."
+        path="/fleet"
+        keywords="SimbaCoach fleet, luxury bus Kenya, VIP sleeper bus, executive buses East Africa, bus amenities Kenya"
+      />
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary-600 to-secondary-600 py-20 text-white">
         <div className="container-wide text-center">

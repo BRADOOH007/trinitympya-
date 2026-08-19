@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, LifeBuoy, Phone, Mail, MessageCircle } from 'lucide-react';
+import Seo from '../components/seo/Seo';
 
 const faqs = [
   {
@@ -33,6 +34,20 @@ const Help = () => {
 
   return (
     <div className="p-6">
+      <Seo
+        title="SimbaCoach Help Center - Bus Booking FAQ & Support"
+        description="Get help with SimbaCoach bus bookings: how to book, payment via M-Pesa, boarding points, rescheduling, luggage limits and refunds. 24/7 customer support by phone, email and WhatsApp."
+        path="/help"
+        keywords="SimbaCoach help, bus booking help, SimbaCoach FAQ, how to book bus ticket, M-Pesa bus payment, SimbaCoach refund"
+        jsonLd={[{
+          "@type": "FAQPage",
+          "mainEntity": faqs.map((f) => ({
+            "@type": "Question",
+            "name": f.q,
+            "acceptedAnswer": { "@type": "Answer", "text": f.a }
+          }))
+        }]}
+      />
       <div className="flex items-center gap-3 mb-6">
         <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-black">
           <LifeBuoy className="w-6 h-6" />

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Wifi, Plug, Armchair, Crown, Tags, Network, Coins, Star, Ticket, Phone, MessageCircle, Bus } from 'lucide-react';
 import HomeBookingWidget from '../components/home/HomeBookingWidget';
+import Seo from '../components/seo/Seo';
 import { popularRoutes, findRoute, ParsedRoute, formatPrice, cityOptions } from '../data/routeUtils';
 import { Route } from '../context/AdminContext';
 import BookingModal from '../components/booking/BookingModal';
@@ -487,6 +488,20 @@ const Home = () => {
 
   return (
     <div id="page-home" className="w-full">
+      <Seo
+        title="SimbaCoach | Book Bus Tickets Online - Kenya & East Africa"
+        description="Book SimbaCoach bus tickets online for Kenya & East Africa. VIP, Executive & Standard fares across 150+ routes. Pay via M-Pesa with instant confirmation."
+        path="/"
+        keywords="bus tickets Kenya, book bus online, SimbaCoach, Nairobi to Kampala bus, East Africa bus tickets, bus booking online M-Pesa, VIP bus Kenya"
+        jsonLd={[{
+          "@type": "FAQPage",
+          "mainEntity": faqs.map((f) => ({
+            "@type": "Question",
+            "name": f.q,
+            "acceptedAnswer": { "@type": "Answer", "text": f.a }
+          }))
+        }]}
+      />
       <HomeBookingWidget
         defaultOrigin={state.origin}
         defaultDestination={state.destination}

@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import Seo from '../components/seo/Seo';
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-slate-50 py-12">
+      <Seo
+        title="Privacy Policy | SimbaCoach"
+        description="Read the SimbaCoach Bus privacy policy to understand how we collect, use and protect your personal data when you book bus tickets online."
+        path="/privacy-policy"
+      />
       <div className="container-wide">
         <div className="max-w-3xl mx-auto">
           <Link to="/" className="inline-flex items-center gap-2 text-slate-600 hover:text-primary-600 transition-colors font-medium mb-8">

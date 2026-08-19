@@ -21,6 +21,7 @@ const routes = [
   '/about',
   '/contact',
   '/fleet',
+  '/help',
   '/blog/nairobi-to-kampala-bus-travel-guide',
   '/blog/nairobi-to-kigali-bus-travel-guide',
   '/blog/nairobi-to-juba-bus-travel-guide',
@@ -47,7 +48,7 @@ for (const url of routes) {
 
     // Inject helmet tags into <head>
     let pageHtml = template
-      .replace('<!--helmet-title-->', helmet?.title?.toString() ?? '')
+      .replace('<title></title>', helmet?.title?.toString() ?? '')
       .replace('<!--helmet-meta-->', [
         helmet?.meta?.toString() ?? '',
         helmet?.link?.toString() ?? '',

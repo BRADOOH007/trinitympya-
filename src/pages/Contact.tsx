@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, MessageCircle } from 'lucide-react';
+import Seo from '../components/seo/Seo';
+import { breadcrumbJsonLd } from '../lib/seo';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -32,6 +34,16 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <Seo
+        title="Contact SimbaCoach Bus - Customer Support & Booking Help"
+        description="Contact SimbaCoach Bus for bookings, seat changes, refunds and enquiries. Call +254 781 346 337, WhatsApp +254 735 893 829 or email info@simbacoach.com. Support available daily 6 AM - 10 PM."
+        path="/contact"
+        keywords="SimbaCoach contact, SimbaCoach customer care, SimbaCoach phone number, SimbaCoach email, bus booking help Kenya"
+        jsonLd={[{ "@type": "ContactPage", "name": "Contact SimbaCoach", "url": "https://simbacoachbus.online/contact" }, breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'Contact' }
+        ])]}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary-600 to-secondary-600 py-20 text-white">
         <div className="container-wide text-center">

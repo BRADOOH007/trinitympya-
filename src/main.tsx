@@ -2,6 +2,9 @@ import { StrictMode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App';
 import './index.css';
+import { initGoogleTags } from './lib/gtag';
+
+initGoogleTags();
 
 const rootEl = document.getElementById('root')!;
 
